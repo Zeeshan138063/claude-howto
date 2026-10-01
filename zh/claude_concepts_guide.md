@@ -289,6 +289,8 @@ graph TD
     C -->|显式列表| C2["Bash(npm:*), Bash(test:*)"]
 ```
 
+![Subagent tool access: a subagent either inherits all tools from the main thread (file operations, shell commands, MCP tools) or gets an explicit list of tools](../resources/diagrams/subagents-tool-access.png)
+
 ### 实践示例
 
 #### 示例 1：完整 Subagent 配置

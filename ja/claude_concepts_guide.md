@@ -293,6 +293,8 @@ graph TD
     C -->|Explicit List| C2["Bash(npm:*), Bash(test:*)"]
 ```
 
+![Subagent tool access: a subagent either inherits all tools from the main thread (file operations, shell commands, MCP tools) or gets an explicit list of tools](../resources/diagrams/subagents-tool-access.png)
+
 ### 実例
 
 #### 例 1：完全なサブエージェント設定
