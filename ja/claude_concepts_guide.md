@@ -579,6 +579,8 @@ graph TB
     A -->|Uses context| C
 ```
 
+![Memory architecture: user input flows into the memory system, which synthesizes into memory storage every 24 hours; storage loads into each Claude session, which feeds context back into the memory system](../resources/diagrams/memory-architecture.png)
+
 ### Claude Code のメモリ階層（7 層）
 
 Claude Code は 7 層からメモリを読み込む。優先度の高い順に：

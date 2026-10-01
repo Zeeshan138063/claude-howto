@@ -210,6 +210,8 @@ graph TB
     A -->|Uses context| C
 ```
 
+![Memory architecture: user input flows into the memory system, which synthesizes into memory storage every 24 hours; storage loads into each Claude session, which feeds context back into the memory system](../../resources/diagrams/memory-architecture.png)
+
 ## Ієрархія пам'яті в Claude Code
 
 Claude Code використовує багаторівневу ієрархічну систему пам'яті. Файли пам'яті автоматично завантажуються при запуску Claude Code, причому файли вищого рівня мають більший пріоритет.

@@ -218,6 +218,8 @@ graph TB
     A -->|Uses context| C
 ```
 
+![Memory architecture: user input flows into the memory system, which synthesizes into memory storage every 24 hours; storage loads into each Claude session, which feeds context back into the memory system](../../resources/diagrams/memory-architecture.png)
+
 ## Hệ Phân Cấp Bộ Nhớ trong Claude Code
 
 Claude Code sử dụng một hệ thống bộ nhớ phân cấp đa tầng. Các file bộ nhớ được tự động tải khi Claude Code khởi động, với các file cấp cao hơn được ưu tiên.

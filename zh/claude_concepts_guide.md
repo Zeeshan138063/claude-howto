@@ -499,6 +499,8 @@ graph TB
     A -->|使用上下文| C
 ```
 
+![Memory architecture: user input flows into the memory system, which synthesizes into memory storage every 24 hours; storage loads into each Claude session, which feeds context back into the memory system](../resources/diagrams/memory-architecture.png)
+
 ### Claude Code 中的 7 层记忆层级
 
 Claude Code 会按优先级从高到低加载 7 层记忆：

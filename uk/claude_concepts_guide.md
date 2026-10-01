@@ -575,6 +575,8 @@ graph TB
     A -->|Uses context| C
 ```
 
+![Memory architecture: user input flows into the memory system, which synthesizes into memory storage every 24 hours; storage loads into each Claude session, which feeds context back into the memory system](../resources/diagrams/memory-architecture.png)
+
 ### Ієрархія пам'яті в Claude Code (7 рівнів)
 
 Claude Code завантажує пам'ять із 7 рівнів, від найвищого до найнижчого пріоритету:
