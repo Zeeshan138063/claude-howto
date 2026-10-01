@@ -648,6 +648,8 @@ graph LR
     C -->|加载到| D["第 2-N 天：新对话"]
 ```
 
+![Memory synthesis timeline in Claude web and desktop: day 1 conversations are synthesized after 24 hours, loaded into new conversations, and refreshed again 24 hours later](../resources/diagrams/memory-synthesis-timeline.png)
+
 ### Memory 功能对比
 
 | 功能 | Claude Web/Desktop | Claude Code (`CLAUDE.md`) |
