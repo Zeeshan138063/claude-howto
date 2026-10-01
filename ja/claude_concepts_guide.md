@@ -2791,6 +2791,8 @@ graph TD
     G --> G1["✅ Auto-invoked expertise"]
 ```
 
+![When to use each feature: a slash command for repeated workflows, MCP for real-time data, memory for things to remember next time, a subagent for specialized subtasks, and a skill for domain-specific work](../resources/diagrams/when-to-use-each-feature.png)
+
 ### 選択フローチャート
 
 ```mermaid
