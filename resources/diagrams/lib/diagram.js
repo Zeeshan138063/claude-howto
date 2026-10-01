@@ -200,8 +200,13 @@
           const y2 = b.cy + off;
           const dx = (x2 - x1) * 0.5;
           d = `M${x1} ${y1} C${x1 + dx} ${y1},${x2 - dx} ${y2},${x2} ${y2}`;
-          lx = (x1 + x2) / 2;
-          ly = (y1 + y2) / 2 + (pair ? off * 1.7 : 0);
+          // Keep labels away from fans: slide toward the end that has a single connection.
+          const fanOut = edges.filter((x) => x.from === e.from).length > 1;
+          const fanIn = edges.filter((x) => x.to === e.to).length > 1;
+          const t = fanOut && !fanIn ? 0.72 : fanIn && !fanOut ? 0.28 : 0.5;
+          const u = 1 - t;
+          lx = u ** 3 * x1 + 3 * u * u * t * (x1 + dx) + 3 * u * t * t * (x2 - dx) + t ** 3 * x2;
+          ly = u ** 3 * y1 + 3 * u * u * t * y1 + 3 * u * t * t * y2 + t ** 3 * y2 + (pair ? off * 1.7 : 0);
         } else if (cb === ca) {
           const down = b.t > a.b;
           const y1 = down ? a.b : a.t;
