@@ -259,6 +259,8 @@ sequenceDiagram
     MainAgent-->>User: 输出综合结论
 ```
 
+![Subagent lifecycle: the main agent hands a review to the code reviewer subagent, which starts a clean context window, performs the review, and returns findings](../resources/diagrams/subagents-lifecycle.png)
+
 ### Subagent 配置表
 
 | 配置项 | 类型 | 作用 | 示例 |

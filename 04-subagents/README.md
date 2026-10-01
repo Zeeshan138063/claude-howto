@@ -919,6 +919,8 @@ sequenceDiagram
     MainAgent-->>User: Provide synthesis
 ```
 
+![Subagent lifecycle: the main agent hands a review to the code reviewer subagent, which starts a clean context window, performs the review, and returns findings](../resources/diagrams/subagents-lifecycle.png)
+
 ---
 
 ## Context Management
