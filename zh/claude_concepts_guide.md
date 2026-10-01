@@ -541,6 +541,8 @@ sequenceDiagram
     Claude-->>User: “记忆已保存！”
 ```
 
+![Memory update lifecycle: the user asks Claude Code to remember a rule, picks project memory, and Claude writes it to ./CLAUDE.md and reloads memory](../resources/diagrams/memory-update-lifecycle.png)
+
 ### 实践示例
 
 #### 示例 1：项目级记忆结构

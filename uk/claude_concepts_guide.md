@@ -625,6 +625,8 @@ sequenceDiagram
     Claude-->>User: "Memory saved!"
 ```
 
+![Memory update lifecycle: the user asks Claude Code to remember a rule, picks project memory, and Claude writes it to ./CLAUDE.md and reloads memory](../resources/diagrams/memory-update-lifecycle.png)
+
 ### Практичні приклади
 
 #### Приклад 1: Структура пам'яті проєкту

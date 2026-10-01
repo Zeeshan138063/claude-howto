@@ -415,6 +415,8 @@ sequenceDiagram
     Claude-->>User: "Memory saved!"
 ```
 
+![Memory update lifecycle: the user asks Claude Code to remember a rule, picks project memory, and Claude writes it to ./CLAUDE.md and reloads memory](../../resources/diagrams/memory-update-lifecycle.png)
+
 ## Auto Memory
 
 Auto memory là một thư mục liên tục nơi Claude tự động ghi lại các bài học, mẫu, và thông tin chi tiết khi nó làm việc với dự án của bạn. Không giống như các file CLAUDE.md mà bạn viết và duy trì thủ công, auto memory được viết bởi Claude bản thân trong các phiên.

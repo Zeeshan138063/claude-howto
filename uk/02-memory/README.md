@@ -406,6 +406,8 @@ sequenceDiagram
     Claude-->>User: "Memory saved!"
 ```
 
+![Memory update lifecycle: the user asks Claude Code to remember a rule, picks project memory, and Claude writes it to ./CLAUDE.md and reloads memory](../../resources/diagrams/memory-update-lifecycle.png)
+
 ## Auto Memory
 
 Auto memory — це постійний каталог, куди Claude автоматично записує висновки, патерни та інсайти під час роботи з вашим проєктом. На відміну від файлів CLAUDE.md, які ви пишете та підтримуєте вручну, auto memory записується самим Claude під час сесій.

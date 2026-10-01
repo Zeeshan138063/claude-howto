@@ -489,6 +489,8 @@ sequenceDiagram
     Claude-->>User: "Memory saved!"
 ```
 
+![Memory update lifecycle: the user asks Claude Code to remember a rule, picks project memory, and Claude writes it to ./CLAUDE.md and reloads memory](../resources/diagrams/memory-update-lifecycle.png)
+
 ## Auto Memory
 
 Auto memory is a persistent directory where Claude automatically records learnings, patterns, and insights as it works with your project. Unlike CLAUDE.md files which you write and maintain manually, auto memory is written by Claude itself during sessions.
