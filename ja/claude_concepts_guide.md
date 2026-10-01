@@ -59,6 +59,8 @@ graph LR
     E -->|contains| G["generate-readme.md"]
 ```
 
+![Slash command file structure: the project root contains .claude/commands/, which holds command files and a docs/ subfolder of namespaced commands](../resources/diagrams/slash-commands-file-structure.png)
+
 ### コマンド配置の比較
 
 | 配置場所 | スコープ | 利用可能範囲 | ユースケース | Git 管理 |
