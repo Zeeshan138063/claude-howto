@@ -2201,6 +2201,8 @@ graph TB
     A -->|bundles| F
 ```
 
+![Plugin architecture: a plugin bundles slash commands, subagents, MCP servers, hooks, and configuration into one installable package](../resources/diagrams/plugins-architecture.png)
+
 ### Процес завантаження плагіна
 
 ```mermaid

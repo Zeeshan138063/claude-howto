@@ -45,6 +45,8 @@ graph TB
     A -->|打包| F
 ```
 
+![Plugin architecture: a plugin bundles slash commands, subagents, MCP servers, hooks, and configuration into one installable package](../../resources/diagrams/plugins-architecture.png)
+
 ## 插件类型与分发
 
 | 类型 | 范围 | 共享对象 | 维护者 | 示例 |
