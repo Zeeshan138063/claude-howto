@@ -798,6 +798,8 @@ graph TB
     style T3 fill:#e8f5e9,stroke:#333,color:#333
 ```
 
+![Agent teams: a team lead assigns work through a shared task list and sends messages through a mailbox; each teammate has its own context, picks up tasks, updates their status, and reads and writes the mailbox](../resources/diagrams/agent-teams.png)
+
 **Key components**:
 
 - **Team Lead**: The main Claude Code session that creates the team, assigns tasks, and coordinates

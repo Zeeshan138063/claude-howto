@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>agent-teams</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "agent-teams",
+  "alt": "Agent teams: a team lead assigns work through a shared task list and sends messages through a mailbox; each teammate has its own context, picks up tasks, updates their status, and reads and writes the mailbox",
+  "eyebrow": "Subagents · Agent Teams",
+  "title": "A lead, a task list, [[a team]]",
+  "sub": "Teammates pick up shared tasks and talk through a mailbox, each in its own context.",
+  "layout": "graph",
+  "colgap": 200,
+  "cardMax": 320,
+  "rowgap": 40,
+  "columns": [
+    {
+      "label": "Lead",
+      "nodes": [
+        {
+          "id": "lead",
+          "icon": "target",
+          "title": "Team Lead",
+          "chip": "coordinator",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "label": "Shared",
+      "nodes": [
+        {
+          "id": "tasks",
+          "icon": "list",
+          "title": "Shared Task List",
+          "chip": "with dependencies"
+        },
+        {
+          "id": "mail",
+          "icon": "mail",
+          "title": "Mailbox",
+          "chip": "messages"
+        }
+      ]
+    },
+    {
+      "label": "Teammates",
+      "nodes": [
+        {
+          "id": "t1",
+          "icon": "cpu",
+          "title": "Teammate 1",
+          "chip": "own context"
+        },
+        {
+          "id": "t2",
+          "icon": "cpu",
+          "title": "Teammate 2",
+          "chip": "own context"
+        },
+        {
+          "id": "t3",
+          "icon": "cpu",
+          "title": "Teammate 3",
+          "chip": "own context"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "lead",
+      "to": "tasks",
+      "label": "assigns tasks"
+    },
+    {
+      "from": "lead",
+      "to": "mail",
+      "label": "sends messages"
+    },
+    {
+      "from": "tasks",
+      "to": "t1"
+    },
+    {
+      "from": "tasks",
+      "to": "t2",
+      "label": "picks up work"
+    },
+    {
+      "from": "tasks",
+      "to": "t3"
+    }
+  ],
+  "footer": "Teammates also <b>read and write</b> the mailbox and <b>update</b> task status on the shared list."
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>
