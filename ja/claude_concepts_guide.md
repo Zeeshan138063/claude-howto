@@ -1249,6 +1249,8 @@ sequenceDiagram
     Note over MCP,DB: Real-time access<br/>No caching
 ```
 
+![MCP request and response pattern: Claude sends a SQL query to the MCP server, which runs it against the database in real time and returns parsed data](../resources/diagrams/mcp-request-response.png)
+
 ---
 
 ## Agent Skills

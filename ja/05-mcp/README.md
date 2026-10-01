@@ -635,6 +635,8 @@ sequenceDiagram
     Note over MCP,DB: Real-time access<br/>No caching
 ```
 
+![MCP request and response pattern: Claude sends a SQL query to the MCP server, which runs it against the database in real time and returns parsed data](../../resources/diagrams/mcp-request-response.png)
+
 ## 環境変数
 
 機密性の高い認証情報は環境変数に保存する。
