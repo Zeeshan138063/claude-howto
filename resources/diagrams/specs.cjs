@@ -1715,4 +1715,117 @@ module.exports = [
       { from: 'c', to: 'print', label: '-p flag' },
     ],
   },
+  {
+    name: 'new-repo-workflow',
+    alt: 'Starting a new repository with Claude Code in four phases: set up the repo and CLAUDE.md, plan the feature in plan mode, build each feature chunk with code, tests, and review until done, then set up CI/CD so the repository is ready',
+    eyebrow: 'Workflow · New Repository',
+    title: 'Starting a [[new repository]]',
+    sub: 'Four phases, from an empty folder to a repo with CI/CD.',
+    layout: 'graph',
+    colgap: 60,
+    cardMax: 300,
+    rowgap: 12,
+    dense: true,
+    columns: [
+      {
+        label: '1 · Set up',
+        nodes: [
+          { id: 'a', icon: 'folder', title: 'Start new repo', chip: 'README · LICENSE' },
+          { id: 'b', icon: 'file', title: 'Create CLAUDE.md', chip: 'architecture & guidelines' },
+          { id: 'c', icon: 'download', title: 'Install Claude Code' },
+        ],
+      },
+      {
+        label: '2 · Plan',
+        nodes: [
+          { id: 'd', icon: 'eye', title: 'Enter plan mode' },
+          { id: 'e', icon: 'edit', title: 'Draft feature spec' },
+          { id: 'f', icon: 'layers', title: 'Define components', chip: 'architecture ideas' },
+        ],
+      },
+      {
+        label: '3 · Build (repeat)',
+        nodes: [
+          { id: 'g', icon: 'code', title: 'Generate code' },
+          { id: 'h', icon: 'check', title: 'Request unit tests' },
+          { id: 'i', icon: 'search', title: 'Review & refactor' },
+          { id: 'q', q: true, title: 'More features?' },
+        ],
+      },
+      {
+        label: '4 · Ship',
+        nodes: [
+          { id: 'j', icon: 'list', title: 'Update task list', chip: 'in CLAUDE.md' },
+          { id: 'k', icon: 'git', title: 'Set up CI/CD', chip: 'GitHub Actions' },
+          { id: 'l', icon: 'send', title: 'Deployment scripts', chip: '+ test automation' },
+          { id: 'z', icon: 'check', title: 'Repository ready', accent: true },
+        ],
+      },
+    ],
+    edges: [
+      { from: 'a', to: 'b' }, { from: 'b', to: 'c' },
+      { from: 'c', to: 'd' }, { from: 'd', to: 'e' }, { from: 'e', to: 'f' },
+      { from: 'f', to: 'g' }, { from: 'g', to: 'h' }, { from: 'h', to: 'i' }, { from: 'i', to: 'q' },
+      { from: 'q', to: 'j', label: 'no' },
+      { from: 'j', to: 'k' }, { from: 'k', to: 'l' }, { from: 'l', to: 'z' },
+    ],
+    footer: '<b>More features?</b> If yes, build the next chunk: loop back to <b>Generate code</b>.',
+  },
+  {
+    name: 'existing-repo-workflow',
+    alt: 'Working in an existing repository with Claude Code in four phases: document the codebase in CLAUDE.md (or CLAUDE_LEGACY.md for legacy code) and pin key files; pick the task type and set clear boundaries; use git worktrees and separate sessions for parallel features; then set up team automation with shared commands and hooks',
+    eyebrow: 'Workflow · Existing Repository',
+    title: 'Working in an [[existing repository]]',
+    sub: 'Give Claude context, pick the task, run work in parallel, then automate for the team.',
+    layout: 'graph',
+    colgap: 56,
+    cardMax: 300,
+    rowgap: 12,
+    dense: true,
+    columns: [
+      {
+        label: '1 · Context',
+        nodes: [
+          { id: 'a', q: true, title: 'Legacy codebase?' },
+          { id: 'b', icon: 'file', title: 'CLAUDE_LEGACY.md', chip: 'yes · versions' },
+          { id: 'c', icon: 'file', title: 'CLAUDE.md', chip: 'no · structure' },
+          { id: 'd', icon: 'link', title: 'Pin key files' },
+        ],
+      },
+      {
+        label: '2 · Task',
+        nodes: [
+          { id: 'e', q: true, title: 'Task type?' },
+          { id: 'f', icon: 'tool', title: 'Bug fix · Review', chip: 'analysis' },
+          { id: 'g', icon: 'refresh', title: 'Refactor · Migrate', chip: 'make a plan' },
+          { id: 'h', icon: 'shield', title: 'Set boundaries', chip: 'explicit scope' },
+        ],
+      },
+      {
+        label: '3 · Parallel work',
+        nodes: [
+          { id: 'i', q: true, title: 'Multiple features?' },
+          { id: 'j', icon: 'git', title: 'Git worktrees', chip: 'yes · one per feature' },
+          { id: 'k', icon: 'monitor', title: 'Main branch', chip: 'no' },
+          { id: 'l', icon: 'grid', title: 'Organize sessions', chip: 'terminal tabs' },
+        ],
+      },
+      {
+        label: '4 · Team',
+        nodes: [
+          { id: 'm', icon: 'users', title: 'Sync commands', chip: '.claude/commands/' },
+          { id: 'n', icon: 'zap', title: 'Set up hooks' },
+          { id: 'o', icon: 'message', title: 'Share context', chip: 'with the team' },
+          { id: 'z', icon: 'check', title: 'Workflow complete', accent: true },
+        ],
+      },
+    ],
+    edges: [
+      { from: 'a', to: 'b' }, { from: 'a', to: 'c' }, { from: 'b', to: 'd' }, { from: 'c', to: 'd' },
+      { from: 'd', to: 'e' }, { from: 'e', to: 'f' }, { from: 'f', to: 'g' }, { from: 'g', to: 'h' },
+      { from: 'h', to: 'i' }, { from: 'i', to: 'j' }, { from: 'j', to: 'k' }, { from: 'k', to: 'l' },
+      { from: 'l', to: 'm' }, { from: 'm', to: 'n' }, { from: 'n', to: 'o' }, { from: 'o', to: 'z' },
+    ],
+    footer: '<b>More tasks?</b> Go back to <b>Task type?</b> and repeat.',
+  },
 ];
