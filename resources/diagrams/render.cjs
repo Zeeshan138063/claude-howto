@@ -28,9 +28,11 @@ function loadPuppeteer() {
   const puppeteer = loadPuppeteer();
   const browser = await puppeteer.launch({ headless: 'new' });
   const page = await browser.newPage();
-  await page.setViewport({ width: 1100, height: 800, deviceScaleFactor: 2 });
+  await page.setViewport({ width: 2400, height: 800, deviceScaleFactor: 2 });
   await page.goto(`file://${path.resolve(src)}`, { waitUntil: 'networkidle0' });
   await page.evaluateHandle('document.fonts.ready');
+  const width = await page.evaluate(() => document.body.offsetWidth);
+  await page.setViewport({ width, height: 800, deviceScaleFactor: 2 });
   const frame = await page.$('.wrap');
   await frame.screenshot({ path: path.resolve(out) });
   await browser.close();

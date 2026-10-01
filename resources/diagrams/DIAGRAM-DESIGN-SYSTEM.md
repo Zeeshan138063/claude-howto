@@ -15,15 +15,15 @@ Use only these colors. Do not add blues, purples, or other accents.
 | Token | Hex / Value | Used for |
 |-------|-------------|----------|
 | `--bg` | `#0A0A0A` | Page background (always dark) |
-| `--card-top` → `--card-bottom` | `#181818` → `#111111` | Card fill (vertical gradient) |
-| `--border` | `#2E2E2E` | Card borders (1.5px) |
+| `--card-top` → `--card-bottom` | `#161616` → `#101010` | Card fill (vertical gradient) |
+| `--border` | `#262626` | Card borders (1px) |
 | `--chip-bg` | `#0A0A0A` | Code chip fill |
-| `--chip-border` | `#333333` | Code chip border |
+| `--chip-border` | `#2A2A2A` | Code chip border |
 | `--text` | `#FFFFFF` | Titles, card headings |
-| `--text-chip` | `#F3F4F6` | Code chip text |
-| `--text-muted` | `#C4C9D1` | Subtitles |
-| `--text-faint` | `#9CA3AF` | Footer, brand mark |
-| `--text-dim` | `#8B929C` | Step numbers (`01`, `02`, …) |
+| `--text-chip` | `#E5E7EB` | Code chip text |
+| `--text-muted` | `#9CA3AF` | Subtitles, card descriptions |
+| `--text-faint` | `#6B7280` | Footer, brand mark |
+| `--text-dim` | `#4B5563` | Step numbers (`01`, `02`, …) |
 | `--accent` | `#22C55E` | Highlight word, eyebrow, icons, arrows, arrow labels, final-step border |
 | `--accent-soft` | `rgba(34,197,94,.10)` | Icon tile fill |
 | `--accent-line` | `rgba(34,197,94,.35)` | Icon tile border |
@@ -41,22 +41,17 @@ Use only these colors. Do not add blues, purples, or other accents.
 
 ## Typography
 
-Images are embedded at **720px** wide, so the 1100px canvas shows at about 65%.
-Sizes below are chosen so that **no text drops under ~10px on screen** after that shrink.
-
 | Element | Font | Size | Weight | Notes |
 |---------|------|------|--------|-------|
-| Eyebrow | JetBrains Mono | 19px | 700 | Uppercase, 3px tracking, green, leading green dot |
-| Title | Inter | 58px | 800 | −1.6px tracking, one key term in green |
-| Subtitle | Inter | 25px | 400 | Muted gray, one sentence |
-| Card heading | Inter | 30px | 700 | Must fit on one line (2–3 words) |
-| Code chip | JetBrains Mono | 20px | 600 | Paths, commands, filenames (the card's only detail line) |
-| Arrow label | JetBrains Mono | 16px | 700 | Uppercase, 0.5px tracking, green |
-| Step number | JetBrains Mono | 21px | 700 | Gray, top-right of card |
-| Footer | Inter / JetBrains Mono | 19px | 400–600 | Labels in light gray, paths in mono |
-
-**Minimum size: 16px on the canvas.** Never go below it, and never use a text color darker
-than `#8B929C` on the dark background.
+| Eyebrow | JetBrains Mono | 15px | 600 | Uppercase, 3px tracking, green, leading green dot |
+| Title | Inter | 48px | 800 | −1.2px tracking, one key term in green |
+| Subtitle | Inter | 20px | 400 | Muted gray, one sentence |
+| Card heading | Inter | 19px | 700 | Must fit on one line |
+| Code chip | JetBrains Mono | 13.5px | 500 | Paths, commands, filenames |
+| Card description | Inter | 15px | 400 | Muted gray, ≤ 3 lines |
+| Arrow label | JetBrains Mono | 12.5px | 600 | Uppercase, 1px tracking, green |
+| Step number | JetBrains Mono | 14px | 600 | Dim gray, top-right of card |
+| Footer | Inter | 15px | 400/600 | Faint gray, bold labels in light gray |
 
 Both fonts load from Google Fonts.
 
@@ -64,26 +59,27 @@ Both fonts load from Google Fonts.
 
 ## Layout
 
-- **Canvas:** 1100px wide, height fits the content, rendered at **2×** (2200px wide PNG).
-  Do not widen the canvas; add rows instead, since a wider canvas shrinks the text.
-- **Padding:** 48px top and sides, 40px bottom.
+The standard format is a **horizontal banner**: short and wide, so it sits in a doc without
+taking over the page.
+
+- **Canvas:** 1800px wide, height fits the content, rendered at **2×** (3600px wide PNG).
+- **Padding:** 64px top, 72px sides and bottom.
 - **Structure, top to bottom:** eyebrow → title → subtitle → diagram → footer.
-- **Grid:** 3 cards per row (`1fr 108px 1fr 108px 1fr`), connectors in the 108px gaps, 76px between rows.
-  Flows longer than 3 steps **snake**: row 1 runs left→right, a down arrow drops from the last
-  card, and row 2 runs right→left, so every arrow is short and points to the next step.
-  Step numbers (`01`–`06`) keep the reading order clear.
-- **Cards:** 20px radius, 22px padding. Top row: icon tile (54px, 14px radius) on the left,
-  step number on the right. Then heading → code chip. No description line; keep cards compact.
-- **Connectors:** 3px solid green line with a green arrowhead and the uppercase label above it
-  (beside it for vertical arrows).
+- **Flow:** one row, left to right. Cards are 212px wide and never shrink; connectors fill the
+  space between them (min 84px plus 10px padding each side, so labels never touch a card).
+- **Cards:** 20px radius, 26/22/24px padding. Content order: icon tile (54px, 14px radius) →
+  heading → code chip → description. Step number sits top-right.
+- **Connectors:** a 2px line fading from transparent to green, ending in a green arrowhead, with
+  the uppercase label above it.
 - **Footer:** context on the left (for example, file locations), the `claude-howto` brand mark on
   the right with a green hyphen.
 
 ### Fitting the content
 
-- Up to **6 nodes** per image (2 rows of 3). For more, split into two images.
-- Keep each heading to 2–3 words and each code chip to about 18 characters.
-- Icons are inline SVG line icons (Feather/Lucide style): 2.2px stroke, green, round caps.
+- Up to **6 nodes** in the row. For more, split into two banners.
+- Keep each heading to 2–3 words so it fits on one line, and each description to one short
+  sentence.
+- Icons are inline SVG line icons (Feather/Lucide style): 2px stroke, green, round caps.
 
 ---
 
@@ -97,7 +93,6 @@ Both fonts load from Google Fonts.
 | Write alt text that describes the flow | Let a card heading wrap or clip |
 | Keep the Mermaid block in the doc and add the image below it | Replace the Mermaid source with the image |
 | Check the PNG by eye before committing | Commit without checking for overflow at the edges |
-| Check readability at 720px wide | Shrink fonts or widen the canvas to fit more nodes |
 
 ---
 
@@ -118,14 +113,12 @@ Both fonts load from Google Fonts.
    The script needs Puppeteer. If it's missing, run `npx -y puppeteer browsers install chrome`
    once.
 4. **Check the PNG** for clipped cards, wrapped headings, and labels touching cards. Then view
-   it at 720px wide (as it appears in the docs) and confirm every word is readable.
+   it at the doc's normal width and confirm the headings and code chips are readable.
 5. **Embed it** right below the matching Mermaid block:
 
-   ```html
-   <img src="resources/diagrams/<name>.png" width="720" alt="<What the diagram shows, as one sentence>">
+   ```markdown
+   ![<What the diagram shows, as one sentence>](resources/diagrams/<name>.png)
    ```
-
-   Always set `width="720"` so the image doesn't fill the whole page.
 
 6. **Commit the source and the PNG together**, so the image can always be re-rendered.
 
@@ -136,6 +129,6 @@ Both fonts load from Google Fonts.
 | Path | Purpose |
 |------|---------|
 | `DIAGRAM-DESIGN-SYSTEM.md` | This spec |
-| `render.cjs` | Renders an HTML source to a 2× PNG (1100px viewport) |
+| `render.cjs` | Renders an HTML source to a 2× PNG (viewport matches the source's body width) |
 | `src/*.html` | Editable source for each diagram (also serve as templates) |
 | `*.png` | Rendered images referenced from the docs |

@@ -47,7 +47,7 @@ graph TD
     E -->|Returns| F["Result in Context"]
 ```
 
-<img src="resources/diagrams/slash-commands-architecture.png" width="720" alt="Slash command architecture: user input triggers a search of .claude/commands/, which finds and loads the command's Markdown file for Claude to process">
+![Slash command architecture: user input triggers a search of .claude/commands/, which finds and loads the command's Markdown file for Claude to process](resources/diagrams/slash-commands-architecture.png)
 
 ### File Structure
 
