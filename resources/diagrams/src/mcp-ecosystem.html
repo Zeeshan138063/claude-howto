@@ -1,0 +1,146 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>mcp-ecosystem</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "mcp-ecosystem",
+  "block": 13,
+  "alt": "MCP ecosystem: Claude connects over MCP to filesystem, GitHub, database, Slack, and Google Docs servers, each fronting local files, repos, SQL databases, a Slack workspace, or Google Drive",
+  "eyebrow": "MCP · Ecosystem",
+  "title": "One protocol, [[many servers]]",
+  "sub": "Each MCP server gives Claude live access to one system.",
+  "layout": "graph",
+  "colgap": 170,
+  "cardMax": 320,
+  "rowgap": 14,
+  "columns": [
+    {
+      "label": "Client",
+      "nodes": [
+        {
+          "id": "claude",
+          "icon": "cpu",
+          "title": "Claude",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "label": "MCP servers",
+      "nodes": [
+        {
+          "id": "fs",
+          "icon": "folder",
+          "title": "Filesystem",
+          "chip": "MCP server"
+        },
+        {
+          "id": "gh",
+          "icon": "git",
+          "title": "GitHub",
+          "chip": "MCP server"
+        },
+        {
+          "id": "db",
+          "icon": "database",
+          "title": "Database",
+          "chip": "MCP server"
+        },
+        {
+          "id": "sl",
+          "icon": "message",
+          "title": "Slack",
+          "chip": "MCP server"
+        },
+        {
+          "id": "gd",
+          "icon": "file",
+          "title": "Google Docs",
+          "chip": "MCP server"
+        }
+      ]
+    },
+    {
+      "label": "Systems",
+      "nodes": [
+        {
+          "id": "files",
+          "icon": "file",
+          "title": "Local Files"
+        },
+        {
+          "id": "repos",
+          "icon": "git",
+          "title": "GitHub Repos"
+        },
+        {
+          "id": "sql",
+          "icon": "database",
+          "title": "PostgreSQL / MySQL"
+        },
+        {
+          "id": "ws",
+          "icon": "users",
+          "title": "Slack Workspace"
+        },
+        {
+          "id": "drive",
+          "icon": "globe",
+          "title": "Google Drive"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "claude",
+      "to": "fs"
+    },
+    {
+      "from": "claude",
+      "to": "gh"
+    },
+    {
+      "from": "claude",
+      "to": "db",
+      "label": "MCP"
+    },
+    {
+      "from": "claude",
+      "to": "sl"
+    },
+    {
+      "from": "claude",
+      "to": "gd"
+    },
+    {
+      "from": "fs",
+      "to": "files",
+      "label": "file I/O"
+    },
+    {
+      "from": "gh",
+      "to": "repos",
+      "label": "API"
+    },
+    {
+      "from": "db",
+      "to": "sql",
+      "label": "query"
+    },
+    {
+      "from": "sl",
+      "to": "ws",
+      "label": "messages"
+    },
+    {
+      "from": "gd",
+      "to": "drive",
+      "label": "docs"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>
