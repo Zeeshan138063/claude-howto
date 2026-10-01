@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>cli-modes</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "cli-modes",
+  "alt": "Claude CLI modes: by default claude opens an interactive REPL with multi-turn conversation, tab completion, history, and slash commands; with -p it runs in print mode for a single query that is scriptable, pipeable, and can output JSON",
+  "eyebrow": "CLI · Modes",
+  "title": "Interactive or [[print mode]]",
+  "sub": "Chat back and forth, or run one query and get the answer.",
+  "layout": "graph",
+  "colgap": 200,
+  "cardMax": 420,
+  "rowgap": 40,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "c",
+          "icon": "terminal",
+          "title": "claude"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "repl",
+          "icon": "message",
+          "title": "Interactive REPL",
+          "chip": "default",
+          "desc": "Multi-turn conversation · tab completion · history · slash commands"
+        },
+        {
+          "id": "print",
+          "icon": "file",
+          "title": "Print Mode",
+          "chip": "claude -p",
+          "desc": "Single query · scriptable · pipeable · JSON output",
+          "accent": true
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "c",
+      "to": "repl",
+      "label": "default"
+    },
+    {
+      "from": "c",
+      "to": "print",
+      "label": "-p flag"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

@@ -130,6 +130,8 @@ graph LR
     C -->|Features| E["Single query<br>Scriptable<br>Pipeable<br>JSON output"]
 ```
 
+![Claude CLI modes: by default claude opens an interactive REPL with multi-turn conversation, tab completion, history, and slash commands; with -p it runs in print mode for a single query that is scriptable, pipeable, and can output JSON](../resources/diagrams/cli-modes.png)
+
 **Interactive Mode** (default):
 ```bash
 # Start interactive session

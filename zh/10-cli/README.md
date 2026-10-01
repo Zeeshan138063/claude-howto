@@ -84,6 +84,8 @@ graph LR
     C -->|特性| E["单次查询<br>可脚本化<br>可管道化<br>JSON 输出"]
 ```
 
+![Claude CLI modes: by default claude opens an interactive REPL with multi-turn conversation, tab completion, history, and slash commands; with -p it runs in print mode for a single query that is scriptable, pipeable, and can output JSON](../../resources/diagrams/cli-modes.png)
+
 **交互模式**（默认）：
 ```bash
 # 启动交互式会话
