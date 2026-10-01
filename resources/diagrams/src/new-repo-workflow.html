@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>new-repo-workflow</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "new-repo-workflow",
+  "alt": "Starting a new repository with Claude Code in four phases: set up the repo and CLAUDE.md, plan the feature in plan mode, build each feature chunk with code, tests, and review until done, then set up CI/CD so the repository is ready",
+  "eyebrow": "Workflow · New Repository",
+  "title": "Starting a [[new repository]]",
+  "sub": "Four phases, from an empty folder to a repo with CI/CD.",
+  "layout": "graph",
+  "colgap": 60,
+  "cardMax": 300,
+  "rowgap": 12,
+  "dense": true,
+  "columns": [
+    {
+      "label": "1 · Set up",
+      "nodes": [
+        {
+          "id": "a",
+          "icon": "folder",
+          "title": "Start new repo",
+          "chip": "README · LICENSE"
+        },
+        {
+          "id": "b",
+          "icon": "file",
+          "title": "Create CLAUDE.md",
+          "chip": "architecture & guidelines"
+        },
+        {
+          "id": "c",
+          "icon": "download",
+          "title": "Install Claude Code"
+        }
+      ]
+    },
+    {
+      "label": "2 · Plan",
+      "nodes": [
+        {
+          "id": "d",
+          "icon": "eye",
+          "title": "Enter plan mode"
+        },
+        {
+          "id": "e",
+          "icon": "edit",
+          "title": "Draft feature spec"
+        },
+        {
+          "id": "f",
+          "icon": "layers",
+          "title": "Define components",
+          "chip": "architecture ideas"
+        }
+      ]
+    },
+    {
+      "label": "3 · Build (repeat)",
+      "nodes": [
+        {
+          "id": "g",
+          "icon": "code",
+          "title": "Generate code"
+        },
+        {
+          "id": "h",
+          "icon": "check",
+          "title": "Request unit tests"
+        },
+        {
+          "id": "i",
+          "icon": "search",
+          "title": "Review & refactor"
+        },
+        {
+          "id": "q",
+          "q": true,
+          "title": "More features?"
+        }
+      ]
+    },
+    {
+      "label": "4 · Ship",
+      "nodes": [
+        {
+          "id": "j",
+          "icon": "list",
+          "title": "Update task list",
+          "chip": "in CLAUDE.md"
+        },
+        {
+          "id": "k",
+          "icon": "git",
+          "title": "Set up CI/CD",
+          "chip": "GitHub Actions"
+        },
+        {
+          "id": "l",
+          "icon": "send",
+          "title": "Deployment scripts",
+          "chip": "+ test automation"
+        },
+        {
+          "id": "z",
+          "icon": "check",
+          "title": "Repository ready",
+          "accent": true
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "a",
+      "to": "b"
+    },
+    {
+      "from": "b",
+      "to": "c"
+    },
+    {
+      "from": "c",
+      "to": "d"
+    },
+    {
+      "from": "d",
+      "to": "e"
+    },
+    {
+      "from": "e",
+      "to": "f"
+    },
+    {
+      "from": "f",
+      "to": "g"
+    },
+    {
+      "from": "g",
+      "to": "h"
+    },
+    {
+      "from": "h",
+      "to": "i"
+    },
+    {
+      "from": "i",
+      "to": "q"
+    },
+    {
+      "from": "q",
+      "to": "j",
+      "label": "no"
+    },
+    {
+      "from": "j",
+      "to": "k"
+    },
+    {
+      "from": "k",
+      "to": "l"
+    },
+    {
+      "from": "l",
+      "to": "z"
+    }
+  ],
+  "footer": "<b>More features?</b> If yes, build the next chunk: loop back to <b>Generate code</b>."
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

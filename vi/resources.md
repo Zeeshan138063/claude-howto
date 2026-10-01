@@ -151,6 +151,8 @@ graph TD
     style U fill:#e8f5e9,stroke:#333,color:#333
 ```
 
+![Starting a new repository with Claude Code in four phases: set up the repo and CLAUDE.md, plan the feature in plan mode, build each feature chunk with code, tests, and review until done, then set up CI/CD so the repository is ready](../resources/diagrams/new-repo-workflow.png)
+
 #### Cho Repository Hiện Có / For an Existing Repository
 
 1. **Repository & Context Setup**
