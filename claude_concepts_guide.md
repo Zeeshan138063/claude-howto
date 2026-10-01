@@ -905,6 +905,8 @@ graph TD
     G -->|No| D
 ```
 
+![When to create a plugin: create one if you need multiple components, need auto configuration, or want to share with the team; otherwise use an individual feature or keep a local setup](resources/diagrams/plugins-when-to-create.png)
+
 ### Publishing a Plugin
 
 **Steps to publish:**

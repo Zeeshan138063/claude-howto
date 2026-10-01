@@ -1,0 +1,115 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>plugins-when-to-create</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "plugins-when-to-create",
+  "block": 26,
+  "alt": "When to create a plugin: create one if you need multiple components, need auto configuration, or want to share with the team; otherwise use an individual feature or keep a local setup",
+  "eyebrow": "Plugins · Decision",
+  "title": "Should you build a [[plugin]]?",
+  "sub": "Any one \"yes\" is reason enough.",
+  "layout": "graph",
+  "colgap": 200,
+  "cardMax": 340,
+  "rowgap": 30,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "a",
+          "q": true,
+          "title": "Should I create a plugin?"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "b",
+          "q": true,
+          "title": "Multiple components?",
+          "chip": "commands, agents, MCPs"
+        },
+        {
+          "id": "g",
+          "q": true,
+          "title": "Needs auto configuration?",
+          "chip": "complex setup"
+        },
+        {
+          "id": "e",
+          "q": true,
+          "title": "Share with team?",
+          "chip": "team workflow"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "ind",
+          "icon": "grid",
+          "title": "Use Individual Feature"
+        },
+        {
+          "id": "yes",
+          "icon": "check",
+          "title": "Create Plugin",
+          "accent": true
+        },
+        {
+          "id": "loc",
+          "icon": "monitor",
+          "title": "Keep as Local Setup"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "a",
+      "to": "b"
+    },
+    {
+      "from": "a",
+      "to": "g"
+    },
+    {
+      "from": "a",
+      "to": "e"
+    },
+    {
+      "from": "b",
+      "to": "ind",
+      "dashed": true
+    },
+    {
+      "from": "b",
+      "to": "yes"
+    },
+    {
+      "from": "g",
+      "to": "ind",
+      "dashed": true
+    },
+    {
+      "from": "g",
+      "to": "yes"
+    },
+    {
+      "from": "e",
+      "to": "yes"
+    },
+    {
+      "from": "e",
+      "to": "loc",
+      "dashed": true
+    }
+  ],
+  "footer": "<b>Solid line</b> = yes &nbsp;·&nbsp; <b>Dashed line</b> = no"
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>
