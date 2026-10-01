@@ -1,0 +1,76 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>mcp-request-response</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "mcp-request-response",
+  "block": 16,
+  "alt": "MCP request and response pattern: Claude sends a SQL query to the MCP server, which runs it against the database in real time and returns parsed data",
+  "eyebrow": "MCP · Request / Response",
+  "title": "A live query, [[end to end]]",
+  "sub": "Data comes straight from the source on every request.",
+  "layout": "sequence",
+  "participants": [
+    {
+      "id": "app",
+      "icon": "cpu",
+      "title": "Claude",
+      "accent": true
+    },
+    {
+      "id": "mcp",
+      "icon": "server",
+      "title": "MCP Server"
+    },
+    {
+      "id": "db",
+      "icon": "database",
+      "title": "Database"
+    }
+  ],
+  "steps": [
+    {
+      "from": "app",
+      "to": "mcp",
+      "label": "Request: \"SELECT * FROM users WHERE id=1\""
+    },
+    {
+      "from": "mcp",
+      "to": "db",
+      "label": "Execute query"
+    },
+    {
+      "from": "db",
+      "to": "mcp",
+      "label": "Result set",
+      "dashed": true
+    },
+    {
+      "from": "mcp",
+      "to": "app",
+      "label": "Return parsed data",
+      "dashed": true
+    },
+    {
+      "from": "app",
+      "to": "app",
+      "label": "Process result"
+    },
+    {
+      "from": "app",
+      "to": "app",
+      "label": "Continue task"
+    },
+    {
+      "note": "Real-time access · No caching",
+      "over": [
+        "mcp",
+        "db"
+      ]
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>
