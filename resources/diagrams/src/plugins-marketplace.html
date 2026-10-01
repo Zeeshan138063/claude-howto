@@ -1,0 +1,71 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>plugins-marketplace</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "plugins-marketplace",
+  "block": 24,
+  "alt": "Plugin marketplace: official Anthropic plugins by category, a community marketplace you can search, and private enterprise registries for internal plugins",
+  "eyebrow": "Plugins · Marketplace",
+  "title": "Where [[plugins]] come from",
+  "sub": "Three sources, each organized its own way.",
+  "layout": "graph",
+  "colgap": 220,
+  "cardMax": 460,
+  "rowgap": 18,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "m",
+          "icon": "globe",
+          "title": "Plugin Marketplace",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "off",
+          "icon": "shield",
+          "title": "Official · Anthropic",
+          "chip": "by category",
+          "desc": "Development · DevOps · Documentation"
+        },
+        {
+          "id": "com",
+          "icon": "users",
+          "title": "Community Marketplace",
+          "chip": "search",
+          "desc": "DevOps Automation · Mobile Dev · Data Science"
+        },
+        {
+          "id": "ent",
+          "icon": "briefcase",
+          "title": "Enterprise Registry",
+          "chip": "internal",
+          "desc": "Company Standards · Legacy Systems · Compliance"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "m",
+      "to": "off"
+    },
+    {
+      "from": "m",
+      "to": "com"
+    },
+    {
+      "from": "m",
+      "to": "ent"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

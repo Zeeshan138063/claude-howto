@@ -842,6 +842,8 @@ graph TB
     D -->|Internal| D3["Compliance"]
 ```
 
+![Plugin marketplace: official Anthropic plugins by category, a community marketplace you can search, and private enterprise registries for internal plugins](resources/diagrams/plugins-marketplace.png)
+
 ### Plugin Installation & Lifecycle
 
 ```mermaid
