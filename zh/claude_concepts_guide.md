@@ -864,6 +864,8 @@ graph TB
     F --> A
 ```
 
+![Skill architecture: a skill directory contains SKILL.md, which holds YAML metadata and instructions, plus optional scripts and templates](../resources/diagrams/skills-architecture.png)
+
 ### Skill 加载流程
 
 ```mermaid
