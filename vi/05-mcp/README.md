@@ -811,6 +811,8 @@ graph LR
     style B fill:#f3e5f5,stroke:#333,color:#333
 ```
 
+![Direct MCP tool calls: the model calls getDocument and gets the full 50K-token transcript back, then calls updateRecord and re-sends the whole transcript, so large data passes through the model twice](../../resources/diagrams/mcp-direct-tool-calls.png)
+
 ### Giải Pháp: Công Cụ MCP Như APIs Code / The Solution: MCP Tools as Code APIs
 
 Thay vì chuyển định nghĩa công cụ và kết quả qua cửa sổ ngữ cảnh, agent **viết code** gọi các công cụ MCP như APIs. Code chạy trong một môi trường thực thi sandbox, và chỉ kết quả cuối cùng trả về mô hình.

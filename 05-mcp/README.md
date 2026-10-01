@@ -913,6 +913,8 @@ graph LR
     style B fill:#f3e5f5,stroke:#333,color:#333
 ```
 
+![Direct MCP tool calls: the model calls getDocument and gets the full 50K-token transcript back, then calls updateRecord and re-sends the whole transcript, so large data passes through the model twice](../resources/diagrams/mcp-direct-tool-calls.png)
+
 ### The Solution: MCP Tools as Code APIs
 
 Instead of passing tool definitions and results through the context window, the agent **writes code** that calls MCP tools as APIs. The code runs in a sandboxed execution environment, and only the final result returns to the model.

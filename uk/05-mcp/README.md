@@ -793,6 +793,8 @@ graph LR
     style B fill:#f3e5f5,stroke:#333,color:#333
 ```
 
+![Direct MCP tool calls: the model calls getDocument and gets the full 50K-token transcript back, then calls updateRecord and re-sends the whole transcript, so large data passes through the model twice](../../resources/diagrams/mcp-direct-tool-calls.png)
+
 ### Рішення: MCP-інструменти як код-API
 
 Замість передачі визначень інструментів та результатів через контекстне вікно, агент **пише код**, який викликає MCP-інструменти як API. Код виконується в ізольованому середовищі, і лише кінцевий результат повертається до моделі.

@@ -821,6 +821,8 @@ graph LR
     style B fill:#f3e5f5,stroke:#333,color:#333
 ```
 
+![Direct MCP tool calls: the model calls getDocument and gets the full 50K-token transcript back, then calls updateRecord and re-sends the whole transcript, so large data passes through the model twice](../../resources/diagrams/mcp-direct-tool-calls.png)
+
 ### 解決策：コード API としての MCP ツール
 
 ツール定義と結果をコンテキストウィンドウに通す代わりに、エージェントが MCP ツールを API として呼び出す **コードを書く**。コードはサンドボックス化された実行環境で動作し、最終結果のみがモデルに返される。
