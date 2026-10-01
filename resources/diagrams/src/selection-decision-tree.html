@@ -1,0 +1,189 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>selection-decision-tree</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "selection-decision-tree",
+  "block": 31,
+  "alt": "Selection decision tree: quick repeated tasks use a slash command or skill; external data uses MCP or memory; complex projects use subagents or skills with memory; long-term context uses memory; team workflows use slash commands with memory; full automation combines skills, subagents, and MCP",
+  "eyebrow": "Integration · Decision Tree",
+  "title": "Need to [[extend Claude]]?",
+  "sub": "Start from your situation and follow the branch.",
+  "layout": "graph",
+  "colgap": 190,
+  "cardMax": 330,
+  "rowgap": 12,
+  "dense": true,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "start",
+          "q": true,
+          "title": "Need to extend Claude?"
+        }
+      ]
+    },
+    {
+      "label": "Situation",
+      "nodes": [
+        {
+          "id": "s1",
+          "icon": "zap",
+          "title": "Quick repeated task",
+          "chip": "manual or auto?"
+        },
+        {
+          "id": "s2",
+          "icon": "globe",
+          "title": "Need external data",
+          "chip": "real-time?"
+        },
+        {
+          "id": "s3",
+          "icon": "layers",
+          "title": "Complex project",
+          "chip": "multiple roles?"
+        },
+        {
+          "id": "s4",
+          "icon": "clock",
+          "title": "Long-term context"
+        },
+        {
+          "id": "s5",
+          "icon": "users",
+          "title": "Team workflow"
+        },
+        {
+          "id": "s6",
+          "icon": "play",
+          "title": "Full automation"
+        }
+      ]
+    },
+    {
+      "label": "Use",
+      "nodes": [
+        {
+          "id": "o1",
+          "icon": "terminal",
+          "title": "Slash Command"
+        },
+        {
+          "id": "o2",
+          "icon": "star",
+          "title": "Skill"
+        },
+        {
+          "id": "o3",
+          "icon": "server",
+          "title": "MCP Protocol"
+        },
+        {
+          "id": "o4",
+          "icon": "database",
+          "title": "Memory"
+        },
+        {
+          "id": "o5",
+          "icon": "users",
+          "title": "Subagents"
+        },
+        {
+          "id": "o6",
+          "icon": "layers",
+          "title": "Skills + Memory"
+        },
+        {
+          "id": "o7",
+          "icon": "database",
+          "title": "Memory"
+        },
+        {
+          "id": "o8",
+          "icon": "terminal",
+          "title": "Slash Command + Memory"
+        },
+        {
+          "id": "o9",
+          "icon": "zap",
+          "title": "Skills + Subagents + MCP",
+          "accent": true
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "start",
+      "to": "s1"
+    },
+    {
+      "from": "start",
+      "to": "s2"
+    },
+    {
+      "from": "start",
+      "to": "s3"
+    },
+    {
+      "from": "start",
+      "to": "s4"
+    },
+    {
+      "from": "start",
+      "to": "s5"
+    },
+    {
+      "from": "start",
+      "to": "s6"
+    },
+    {
+      "from": "s1",
+      "to": "o1",
+      "label": "manual"
+    },
+    {
+      "from": "s1",
+      "to": "o2",
+      "label": "auto"
+    },
+    {
+      "from": "s2",
+      "to": "o3",
+      "label": "yes"
+    },
+    {
+      "from": "s2",
+      "to": "o4",
+      "label": "no"
+    },
+    {
+      "from": "s3",
+      "to": "o5",
+      "label": "yes"
+    },
+    {
+      "from": "s3",
+      "to": "o6",
+      "label": "no"
+    },
+    {
+      "from": "s4",
+      "to": "o7"
+    },
+    {
+      "from": "s5",
+      "to": "o8"
+    },
+    {
+      "from": "s6",
+      "to": "o9"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>
