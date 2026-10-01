@@ -1,0 +1,80 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>memory-architecture</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "memory-architecture",
+  "block": 8,
+  "alt": "Memory architecture: user input flows into the memory system, which synthesizes into memory storage every 24 hours; storage loads into each Claude session, which feeds context back into the memory system",
+  "eyebrow": "Memory · Architecture",
+  "title": "How [[memory]] flows",
+  "sub": "What you share is synthesized, stored, and loaded into later sessions.",
+  "layout": "graph",
+  "colgap": 150,
+  "cardMax": 300,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "in",
+          "icon": "user",
+          "title": "User Input"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "sys",
+          "icon": "cpu",
+          "title": "Memory System",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "store",
+          "icon": "database",
+          "title": "Memory Storage"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "sess",
+          "icon": "message",
+          "title": "Claude Session"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "in",
+      "to": "sys",
+      "label": "provides info"
+    },
+    {
+      "from": "sys",
+      "to": "store",
+      "label": "every 24h"
+    },
+    {
+      "from": "store",
+      "to": "sess",
+      "label": "loads auto"
+    },
+    {
+      "from": "sess",
+      "to": "sys",
+      "label": "uses context"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>
