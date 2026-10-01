@@ -412,6 +412,8 @@ graph TD
     J --> K["Return Results"]
 ```
 
+![How a slash command runs: Claude Code checks whether it is built-in, a skill, a plugin command, or an MCP prompt; a skill is loaded, its frontmatter parsed, variables substituted, shell commands run, and the result sent to Claude](../resources/diagrams/slash-command-resolution.png)
+
 ## Command Lifecycle
 
 ```mermaid
