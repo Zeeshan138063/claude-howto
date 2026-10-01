@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>cli-architecture</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "cli-architecture",
+  "alt": "Claude Code CLI architecture: running claude with options starts interactive REPL mode, print mode with --print, or a resumed session with --resume; each talks to the Claude API, and the output goes to the terminal or a pipe as text, JSON, or stream-JSON",
+  "eyebrow": "CLI · Architecture",
+  "title": "How the [[claude]] command works",
+  "sub": "One command, three ways to run, one API behind them.",
+  "layout": "graph",
+  "colgap": 150,
+  "cardMax": 280,
+  "rowgap": 18,
+  "dense": true,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "term",
+          "icon": "terminal",
+          "title": "Terminal",
+          "chip": "claude"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "cli",
+          "icon": "cpu",
+          "title": "Claude Code CLI"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "repl",
+          "icon": "message",
+          "title": "REPL Mode",
+          "chip": "interactive"
+        },
+        {
+          "id": "print",
+          "icon": "file",
+          "title": "Print Mode",
+          "chip": "--print"
+        },
+        {
+          "id": "resume",
+          "icon": "refresh",
+          "title": "Session Resume",
+          "chip": "--resume"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "api",
+          "icon": "globe",
+          "title": "Claude API",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "out",
+          "icon": "send",
+          "title": "Output",
+          "desc": "text · json · stream-json"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "pipe",
+          "icon": "terminal",
+          "title": "Terminal / Pipe"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "term",
+      "to": "cli"
+    },
+    {
+      "from": "cli",
+      "to": "repl"
+    },
+    {
+      "from": "cli",
+      "to": "print"
+    },
+    {
+      "from": "cli",
+      "to": "resume"
+    },
+    {
+      "from": "repl",
+      "to": "api"
+    },
+    {
+      "from": "print",
+      "to": "api"
+    },
+    {
+      "from": "resume",
+      "to": "api"
+    },
+    {
+      "from": "api",
+      "to": "out",
+      "label": "response"
+    },
+    {
+      "from": "out",
+      "to": "pipe"
+    }
+  ],
+  "footer": "<b>REPL</b> holds a conversation &nbsp;·&nbsp; <b>Print</b> sends a single query &nbsp;·&nbsp; <b>Resume</b> loads saved context"
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

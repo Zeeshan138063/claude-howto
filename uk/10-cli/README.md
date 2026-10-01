@@ -28,6 +28,8 @@ graph TD
     G -->|text/json/stream-json| H["Terminal/Pipe"]
 ```
 
+![Claude Code CLI architecture: running claude with options starts interactive REPL mode, print mode with --print, or a resumed session with --resume; each talks to the Claude API, and the output goes to the terminal or a pipe as text, JSON, or stream-JSON](../../resources/diagrams/cli-architecture.png)
+
 ## CLI-команди
 
 | Команда | Опис | Приклад |
