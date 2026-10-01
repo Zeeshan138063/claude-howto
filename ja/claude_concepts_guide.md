@@ -603,6 +603,8 @@ graph TD
     style G fill:#fff3e0,stroke:#333,color:#333
 ```
 
+![Memory hierarchy in Claude Code: seven tiers from highest to lowest priority, managed policy, project memory, project rules, user memory, user rules, local memory, and auto memory](../resources/diagrams/memory-hierarchy.png)
+
 ### メモリ配置一覧
 
 | 階層 | 配置場所 | スコープ | 優先度 | 共有 | 用途 |

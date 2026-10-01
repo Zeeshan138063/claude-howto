@@ -515,6 +515,8 @@ graph TD
     F --> G["7. Auto Memory<br/>自动捕获的偏好"]
 ```
 
+![Memory hierarchy in Claude Code: seven tiers from highest to lowest priority, managed policy, project memory, project rules, user memory, user rules, local memory, and auto memory](../resources/diagrams/memory-hierarchy.png)
+
 ### Memory 位置表
 
 | 层级 | 位置 | 作用域 | 优先级 | 是否共享 | 最适合 |
