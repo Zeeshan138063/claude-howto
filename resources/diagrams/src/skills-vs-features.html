@@ -1,0 +1,140 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>skills-vs-features</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "skills-vs-features",
+  "block": 21,
+  "alt": "Skills compared with other features: slash commands are user-invoked shortcuts, subagents are auto-delegated isolated contexts, memory is persistent cross-session context, MCP is real-time external data, and skills are auto-invoked autonomous execution",
+  "eyebrow": "Skills · Compared",
+  "title": "Five ways to [[extend Claude]]",
+  "sub": "How each feature is triggered, and what it gives you.",
+  "layout": "graph",
+  "colgap": 170,
+  "cardMax": 330,
+  "rowgap": 14,
+  "columns": [
+    {
+      "label": "Goal",
+      "nodes": [
+        {
+          "id": "root",
+          "icon": "zap",
+          "title": "Extending Claude"
+        }
+      ]
+    },
+    {
+      "label": "Feature",
+      "nodes": [
+        {
+          "id": "cmd",
+          "icon": "terminal",
+          "title": "Slash Commands",
+          "chip": "user-invoked"
+        },
+        {
+          "id": "sub",
+          "icon": "users",
+          "title": "Subagents",
+          "chip": "auto-delegated"
+        },
+        {
+          "id": "mem",
+          "icon": "database",
+          "title": "Memory",
+          "chip": "persistent"
+        },
+        {
+          "id": "mcp",
+          "icon": "server",
+          "title": "MCP",
+          "chip": "real-time"
+        },
+        {
+          "id": "skill",
+          "icon": "star",
+          "title": "Skills",
+          "chip": "auto-invoked",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "label": "Gives you",
+      "nodes": [
+        {
+          "id": "g1",
+          "icon": "zap",
+          "title": "Quick shortcuts"
+        },
+        {
+          "id": "g2",
+          "icon": "layers",
+          "title": "Isolated contexts"
+        },
+        {
+          "id": "g3",
+          "icon": "clock",
+          "title": "Cross-session context"
+        },
+        {
+          "id": "g4",
+          "icon": "globe",
+          "title": "External data access"
+        },
+        {
+          "id": "g5",
+          "icon": "play",
+          "title": "Autonomous execution"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "root",
+      "to": "cmd"
+    },
+    {
+      "from": "root",
+      "to": "sub"
+    },
+    {
+      "from": "root",
+      "to": "mem"
+    },
+    {
+      "from": "root",
+      "to": "mcp"
+    },
+    {
+      "from": "root",
+      "to": "skill"
+    },
+    {
+      "from": "cmd",
+      "to": "g1"
+    },
+    {
+      "from": "sub",
+      "to": "g2"
+    },
+    {
+      "from": "mem",
+      "to": "g3"
+    },
+    {
+      "from": "mcp",
+      "to": "g4"
+    },
+    {
+      "from": "skill",
+      "to": "g5"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

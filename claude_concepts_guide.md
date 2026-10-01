@@ -665,6 +665,8 @@ graph TB
     F -->|Auto-invoked| K["Autonomous execution"]
 ```
 
+![Skills compared with other features: slash commands are user-invoked shortcuts, subagents are auto-delegated isolated contexts, memory is persistent cross-session context, MCP is real-time external data, and skills are auto-invoked autonomous execution](resources/diagrams/skills-vs-features.png)
+
 ---
 
 ## Claude Code Plugins
