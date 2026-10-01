@@ -1,0 +1,89 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>slash-commands-lifecycle</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "slash-commands-lifecycle",
+  "block": 3,
+  "alt": "Slash command lifecycle: the user types /optimize, Claude Code loads optimize.md from the file system, may run shell scripts, and returns the analysis",
+  "eyebrow": "Slash Commands · Lifecycle",
+  "title": "The life of [[/optimize]]",
+  "sub": "From typing the command to getting the analysis back.",
+  "layout": "sequence",
+  "participants": [
+    {
+      "id": "user",
+      "icon": "user",
+      "title": "User"
+    },
+    {
+      "id": "claude",
+      "icon": "cpu",
+      "title": "Claude Code",
+      "accent": true
+    },
+    {
+      "id": "fs",
+      "icon": "folder",
+      "title": "File System"
+    },
+    {
+      "id": "cli",
+      "icon": "terminal",
+      "title": "Shell / Bash"
+    }
+  ],
+  "steps": [
+    {
+      "from": "user",
+      "to": "claude",
+      "label": "Types /optimize"
+    },
+    {
+      "from": "claude",
+      "to": "fs",
+      "label": "Searches .claude/commands/"
+    },
+    {
+      "from": "fs",
+      "to": "claude",
+      "label": "Returns optimize.md",
+      "dashed": true
+    },
+    {
+      "from": "claude",
+      "to": "claude",
+      "label": "Loads Markdown content"
+    },
+    {
+      "from": "claude",
+      "to": "user",
+      "label": "Displays prompt context"
+    },
+    {
+      "from": "user",
+      "to": "claude",
+      "label": "Provides code to analyze"
+    },
+    {
+      "from": "claude",
+      "to": "cli",
+      "label": "(May execute scripts)"
+    },
+    {
+      "from": "cli",
+      "to": "claude",
+      "label": "Results",
+      "dashed": true
+    },
+    {
+      "from": "claude",
+      "to": "user",
+      "label": "Returns analysis"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

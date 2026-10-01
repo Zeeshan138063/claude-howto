@@ -107,6 +107,8 @@ sequenceDiagram
     Claude->>User: Returns analysis
 ```
 
+![Slash command lifecycle: the user types /optimize, Claude Code loads optimize.md from the file system, may run shell scripts, and returns the analysis](resources/diagrams/slash-commands-lifecycle.png)
+
 ### Best Practices
 
 | ✅ Do | ❌ Don't |
