@@ -553,13 +553,13 @@ module.exports = [
     title: 'Match, load, [[execute]]',
     sub: 'Claude checks skill descriptions until one fits the request.',
     layout: 'graph',
-    colgap: 110,
+    colgap: 135,
     cardMax: 250,
-    rowgap: 44,
+    rowgap: 80,
     dense: true,
     columns: [
       { nodes: [{ id: 'req', icon: 'user', title: 'User Request' }] },
-      { nodes: [{ id: 'avail', icon: 'search', title: 'Available Skills', chip: 'Claude scans' }] },
+      { nodes: [{ id: 'avail', icon: 'search', title: 'Available Skills', chip: 'scanned' }] },
       { nodes: [{ id: 'match', q: true, title: 'Description match?' }] },
       {
         nodes: [

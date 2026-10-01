@@ -1,0 +1,132 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>skills-discovery</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "skills-discovery",
+  "block": 20,
+  "alt": "Skill discovery: Claude scans available skills and checks each description; on a match it loads SKILL.md and executes the skill, otherwise it tries the next skill or falls back to general knowledge",
+  "eyebrow": "Skills · Discovery",
+  "title": "Match, load, [[execute]]",
+  "sub": "Claude checks skill descriptions until one fits the request.",
+  "layout": "graph",
+  "colgap": 135,
+  "cardMax": 250,
+  "rowgap": 80,
+  "dense": true,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "req",
+          "icon": "user",
+          "title": "User Request"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "avail",
+          "icon": "search",
+          "title": "Available Skills",
+          "chip": "scanned"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "match",
+          "q": true,
+          "title": "Description match?"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "load",
+          "icon": "file",
+          "title": "Load SKILL.md"
+        },
+        {
+          "id": "next",
+          "icon": "refresh",
+          "title": "Try Next Skill"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "exec",
+          "icon": "play",
+          "title": "Execute Skill",
+          "chip": "instructions"
+        },
+        {
+          "id": "gen",
+          "icon": "book",
+          "title": "General Knowledge",
+          "chip": "fallback"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "done",
+          "icon": "check",
+          "title": "Return Results",
+          "accent": true
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "req",
+      "to": "avail"
+    },
+    {
+      "from": "avail",
+      "to": "match",
+      "label": "metadata"
+    },
+    {
+      "from": "match",
+      "to": "load",
+      "label": "yes"
+    },
+    {
+      "from": "match",
+      "to": "next",
+      "label": "no"
+    },
+    {
+      "from": "next",
+      "to": "match",
+      "label": "more",
+      "dashed": true
+    },
+    {
+      "from": "next",
+      "to": "gen",
+      "label": "no more"
+    },
+    {
+      "from": "load",
+      "to": "exec",
+      "label": "extract"
+    },
+    {
+      "from": "exec",
+      "to": "done"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>
