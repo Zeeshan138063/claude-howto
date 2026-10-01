@@ -703,6 +703,8 @@ graph TB
     A -->|MCP| F["Google Docs<br/>MCP Server"]
 ```
 
+![MCP ecosystem: Claude connects over MCP to filesystem, GitHub, database, Slack, and Google Docs servers, each fronting local files, repos, SQL databases, a Slack workspace, or Google Drive](../resources/diagrams/mcp-ecosystem.png)
+
 ### MCP 设置流程
 
 ```mermaid

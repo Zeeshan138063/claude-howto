@@ -72,6 +72,8 @@ graph TB
     style K fill:#e8f5e9,stroke:#333,color:#333
 ```
 
+![MCP ecosystem: Claude connects over MCP to filesystem, GitHub, database, Slack, and Google Docs servers, each fronting local files, repos, SQL databases, a Slack workspace, or Google Drive](../../resources/diagrams/mcp-ecosystem.png)
+
 ## Phương Thức Cài Đặt MCP / MCP Installation Methods
 
 Claude Code hỗ trợ nhiều giao thức vận chuyển cho kết nối MCP server:
