@@ -1,0 +1,88 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>mcp-setup</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "mcp-setup",
+  "block": 14,
+  "alt": "MCP setup process: the user runs /mcp, selects the GitHub server, Claude Code updates the config, tests the connection, and confirms it is connected",
+  "eyebrow": "MCP · Setup",
+  "title": "Connecting an [[MCP server]]",
+  "sub": "From /mcp to a tested, authenticated connection.",
+  "layout": "sequence",
+  "participants": [
+    {
+      "id": "user",
+      "icon": "user",
+      "title": "User"
+    },
+    {
+      "id": "claude",
+      "icon": "cpu",
+      "title": "Claude Code",
+      "accent": true
+    },
+    {
+      "id": "cfg",
+      "icon": "sliders",
+      "title": "Config File"
+    },
+    {
+      "id": "svc",
+      "icon": "globe",
+      "title": "External Service"
+    }
+  ],
+  "steps": [
+    {
+      "from": "user",
+      "to": "claude",
+      "label": "Types /mcp"
+    },
+    {
+      "from": "claude",
+      "to": "claude",
+      "label": "Lists available MCP servers"
+    },
+    {
+      "from": "claude",
+      "to": "user",
+      "label": "Shows options"
+    },
+    {
+      "from": "user",
+      "to": "claude",
+      "label": "Selects GitHub MCP"
+    },
+    {
+      "from": "claude",
+      "to": "cfg",
+      "label": "Updates configuration"
+    },
+    {
+      "from": "cfg",
+      "to": "claude",
+      "label": "Activates connection"
+    },
+    {
+      "from": "claude",
+      "to": "svc",
+      "label": "Tests connection"
+    },
+    {
+      "from": "svc",
+      "to": "claude",
+      "label": "Authentication successful",
+      "dashed": true
+    },
+    {
+      "from": "claude",
+      "to": "user",
+      "label": "✓ MCP connected!"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

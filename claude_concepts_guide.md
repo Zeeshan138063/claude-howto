@@ -446,6 +446,8 @@ sequenceDiagram
     Claude->>User: ✅ MCP connected!
 ```
 
+![MCP setup process: the user runs /mcp, selects the GitHub server, Claude Code updates the config, tests the connection, and confirms it is connected](resources/diagrams/mcp-setup.png)
+
 ### Available MCP Servers Table
 
 | MCP Server | Purpose | Common Tools | Auth | Real-time |
