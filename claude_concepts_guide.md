@@ -196,6 +196,8 @@ graph TD
     C -->|Explicit List| C2["Bash(npm:*), Bash(test:*)"]
 ```
 
+![Subagent tool access: a subagent either inherits all tools from the main thread (file operations, shell commands, MCP tools) or gets an explicit list of tools](resources/diagrams/subagents-tool-access.png)
+
 ### Practical Examples
 
 Nine ready-to-use subagent definitions live in **[04-subagents/](04-subagents/)** — `code-reviewer`, `clean-code-reviewer`, `secure-reviewer`, `test-engineer`, `documentation-writer`, `implementation-agent`, `performance-optimizer`, `debugger`, and `data-scientist`.

@@ -1,0 +1,114 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>subagents-tool-access</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "subagents-tool-access",
+  "block": 6,
+  "alt": "Subagent tool access: a subagent either inherits all tools from the main thread (file operations, shell commands, MCP tools) or gets an explicit list of tools",
+  "eyebrow": "Subagents · Tool Access",
+  "title": "Which [[tools]] a subagent gets",
+  "sub": "Inherit everything from the main thread, or list exactly what it may use.",
+  "layout": "graph",
+  "colgap": 170,
+  "cardMax": 340,
+  "columns": [
+    {
+      "label": "Config",
+      "nodes": [
+        {
+          "id": "cfg",
+          "icon": "sliders",
+          "title": "Subagent Configuration"
+        }
+      ]
+    },
+    {
+      "label": "Options",
+      "nodes": [
+        {
+          "id": "inh",
+          "icon": "layers",
+          "title": "Inherit All Tools",
+          "chip": "from main thread"
+        },
+        {
+          "id": "spec",
+          "icon": "list",
+          "title": "Specify Individual Tools",
+          "chip": "explicit list",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "label": "Resulting tools",
+      "nodes": [
+        {
+          "id": "b1",
+          "icon": "file",
+          "title": "File Operations"
+        },
+        {
+          "id": "b2",
+          "icon": "terminal",
+          "title": "Shell Commands"
+        },
+        {
+          "id": "b3",
+          "icon": "server",
+          "title": "MCP Tools"
+        },
+        {
+          "id": "c1",
+          "icon": "check",
+          "title": "Read-only set",
+          "chip": "read, grep, diff"
+        },
+        {
+          "id": "c2",
+          "icon": "check",
+          "title": "Scoped Bash",
+          "chip": "Bash(npm:*), Bash(test:*)"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "cfg",
+      "to": "inh",
+      "label": "option 1"
+    },
+    {
+      "from": "cfg",
+      "to": "spec",
+      "label": "option 2"
+    },
+    {
+      "from": "inh",
+      "to": "b1"
+    },
+    {
+      "from": "inh",
+      "to": "b2",
+      "label": "includes"
+    },
+    {
+      "from": "inh",
+      "to": "b3"
+    },
+    {
+      "from": "spec",
+      "to": "c1"
+    },
+    {
+      "from": "spec",
+      "to": "c2"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>
