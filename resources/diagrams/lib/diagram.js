@@ -71,6 +71,15 @@
     const cls = ['node', extra, n.accent && 'accent', n.q && 'q', n.spacer && 'spacer'];
     const d = el('div', cls.filter(Boolean).join(' '));
     if (n.id) d.dataset.id = n.id;
+    if (S.vertical && !extra) {
+      d.classList.add('v');
+      const top = el('div', 'top');
+      top.append(icon(n.icon || 'help'), el('div', 'num', n.num || ''));
+      d.append(top, el('h3', null, n.title || '·'));
+      if (n.chip) d.append(el('span', 'chip', n.chip));
+      if (n.desc) d.append(el('div', 'desc', n.desc));
+      return d;
+    }
     const row = el('div', 'row');
     if (n.icon || n.q) row.append(icon(n.icon || 'help'));
     const t = el('div', 'txt');

@@ -229,6 +229,7 @@ module.exports = [
     colgap: 26,
     cardMax: 220,
     dense: true,
+    vertical: true,
     columns: [
       { label: 'Highest', nodes: [{ id: 't1', icon: 'shield', title: 'Managed Policy', chip: 'enterprise admin', num: '1', accent: true }] },
       { nodes: [{ id: 't2', icon: 'file', title: 'Project Memory', chip: './CLAUDE.md', num: '2' }] },
@@ -283,6 +284,7 @@ module.exports = [
     colgap: 120,
     cardMax: 220,
     dense: true,
+    vertical: true,
     columns: [
       { nodes: [{ id: 'a', icon: 'message', title: 'Conversations', chip: 'Day 1' }] },
       { nodes: [{ id: 'b', icon: 'cpu', title: 'Memory Synthesis', chip: 'Day 2' }] },
