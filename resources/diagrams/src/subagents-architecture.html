@@ -1,0 +1,108 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>subagents-architecture</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "subagents-architecture",
+  "block": 4,
+  "alt": "Subagent architecture: the user asks the main agent, which delegates to code reviewer, test engineer, and documentation subagents and synthesizes their results",
+  "eyebrow": "Subagents · Architecture",
+  "title": "One coordinator, [[many specialists]]",
+  "sub": "The main agent delegates work and synthesizes what comes back.",
+  "layout": "graph",
+  "colgap": 190,
+  "cardMax": 320,
+  "columns": [
+    {
+      "label": "You",
+      "nodes": [
+        {
+          "id": "user",
+          "icon": "user",
+          "title": "User"
+        }
+      ]
+    },
+    {
+      "label": "Coordinator",
+      "nodes": [
+        {
+          "id": "main",
+          "icon": "target",
+          "title": "Main Agent",
+          "chip": "coordinator",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "label": "Subagents",
+      "nodes": [
+        {
+          "id": "rev",
+          "icon": "search",
+          "title": "Code Reviewer",
+          "chip": "subagent"
+        },
+        {
+          "id": "test",
+          "icon": "check",
+          "title": "Test Engineer",
+          "chip": "subagent"
+        },
+        {
+          "id": "docs",
+          "icon": "edit",
+          "title": "Documentation",
+          "chip": "subagent"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "user",
+      "to": "main",
+      "label": "asks"
+    },
+    {
+      "from": "main",
+      "to": "user",
+      "label": "synthesizes",
+      "dashed": true
+    },
+    {
+      "from": "main",
+      "to": "rev"
+    },
+    {
+      "from": "main",
+      "to": "test",
+      "label": "delegates"
+    },
+    {
+      "from": "main",
+      "to": "docs"
+    },
+    {
+      "from": "rev",
+      "to": "main",
+      "dashed": true
+    },
+    {
+      "from": "test",
+      "to": "main",
+      "label": "returns result",
+      "dashed": true
+    },
+    {
+      "from": "docs",
+      "to": "main",
+      "dashed": true
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>
