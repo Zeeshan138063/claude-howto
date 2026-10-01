@@ -89,6 +89,8 @@ graph TD
     style F fill:#B71C1C,color:#fff
 ```
 
+![学習パス：自己評価クイズのチェック数でレベル 1〜3 を選び、各レベルのマイルストーン A から B へ進み、レベル 1 からレベル 3 へ順に上がる](../resources/diagrams/learning-path-ja.png)
+
 **カラー凡例：**
 - 💜 紫：自己評価クイズ
 - 🟢 緑：レベル 1 — 初級パス
