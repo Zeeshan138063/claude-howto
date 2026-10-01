@@ -1,0 +1,87 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>subagents-context</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "subagents-context",
+  "block": 7,
+  "alt": "Subagent context management: the main agent context hands each subagent a clean slate, and each subagent sends back only its results",
+  "eyebrow": "Subagents · Context",
+  "title": "Clean slates, [[results only]]",
+  "sub": "Each subagent starts fresh, so its work never fills the main context.",
+  "layout": "graph",
+  "colgap": 260,
+  "cardMax": 340,
+  "columns": [
+    {
+      "label": "Main",
+      "nodes": [
+        {
+          "id": "main",
+          "icon": "layers",
+          "title": "Main Agent Context",
+          "chip": "50,000 tokens",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "label": "Subagents",
+      "nodes": [
+        {
+          "id": "s1",
+          "icon": "cpu",
+          "title": "Subagent 1 Context",
+          "chip": "20,000 tokens"
+        },
+        {
+          "id": "s2",
+          "icon": "cpu",
+          "title": "Subagent 2 Context",
+          "chip": "20,000 tokens"
+        },
+        {
+          "id": "s3",
+          "icon": "cpu",
+          "title": "Subagent 3 Context",
+          "chip": "20,000 tokens"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "main",
+      "to": "s1"
+    },
+    {
+      "from": "main",
+      "to": "s2",
+      "label": "clean slate"
+    },
+    {
+      "from": "main",
+      "to": "s3"
+    },
+    {
+      "from": "s1",
+      "to": "main",
+      "dashed": true
+    },
+    {
+      "from": "s2",
+      "to": "main",
+      "label": "results only",
+      "dashed": true
+    },
+    {
+      "from": "s3",
+      "to": "main",
+      "dashed": true
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>
