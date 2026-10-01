@@ -456,6 +456,8 @@ graph TD
     style I fill:#f3e5f5,stroke:#333,color:#333
 ```
 
+![Auto memory: at session start Claude loads the first 200 lines or 25KB of MEMORY.md; during the session it writes general notes to MEMORY.md and topic notes to files like debugging.md, and loads topic files on demand](../../resources/diagrams/auto-memory.png)
+
 ### Cấu Trúc Thư Mục Auto Memory
 
 ```
