@@ -14,11 +14,12 @@
   --accent: #22C55E;
   --accent-soft: rgba(34, 197, 94, .10);
   --accent-line: rgba(34, 197, 94, .35);
-  --mono: 'JetBrains Mono', monospace;
+  --mono: 'JetBrains Mono', 'Noto Sans JP', monospace;
+  --sans: Inter, 'Noto Sans JP', sans-serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { width: 1800px; background: var(--bg); font-family: Inter, sans-serif; color: var(--text); }
+body { width: 1800px; background: var(--bg); font-family: var(--sans); color: var(--text); }
 
 .wrap {
   position: relative; padding: 64px 72px 64px; overflow: hidden;
@@ -127,7 +128,7 @@ footer code { font: 500 14px var(--mono); color: #D1D5DB; }
 .seq .node.ph h3 { font-size: 16.5px; }
 .mlabel {
   position: absolute; z-index: 3; transform: translate(-50%, -100%);
-  font: 500 15px Inter, sans-serif; color: var(--text-chip); background: var(--bg);
+  font: 500 15px var(--sans); color: var(--text-chip); background: var(--bg);
   padding: 1px 8px; border-radius: 6px; white-space: nowrap;
 }
 .mlabel.ret { color: var(--text-muted); }

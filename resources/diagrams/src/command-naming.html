@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>command-naming</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "command-naming",
+  "alt": "How Claude Code names slash commands: a command file uses its file name, subfolders become colon prefixes, a skill uses its name field or folder name, a clashing nested skill gets its path as a prefix, plugin skills get the plugin prefix, and claude.ai synced skills get the anthropic-skills prefix",
+  "eyebrow": "Slash Commands & Skills · Naming",
+  "title": "How a file becomes a [[/name]]",
+  "sub": "Where a file lives decides the command you type. Prefixes keep the names apart.",
+  "layout": "graph",
+  "colgap": 230,
+  "cardMax": 470,
+  "rowgap": 14,
+  "dense": true,
+  "columns": [
+    {
+      "label": "File",
+      "nodes": [
+        {
+          "id": "f1",
+          "icon": "file",
+          "title": "Command file",
+          "chip": ".claude/commands/deploy.md"
+        },
+        {
+          "id": "f2",
+          "icon": "folder",
+          "title": "Command in a subfolder",
+          "chip": ".claude/commands/frontend/component.md"
+        },
+        {
+          "id": "f3",
+          "icon": "star",
+          "title": "Skill",
+          "chip": ".claude/skills/deploy-staging/SKILL.md"
+        },
+        {
+          "id": "f4",
+          "icon": "layers",
+          "title": "Nested skill (name clash)",
+          "chip": "apps/web/.claude/skills/deploy/SKILL.md"
+        },
+        {
+          "id": "f5",
+          "icon": "package",
+          "title": "Plugin skill",
+          "chip": "my-plugin/skills/review/SKILL.md"
+        },
+        {
+          "id": "f6",
+          "icon": "globe",
+          "title": "claude.ai account skill",
+          "chip": "deploy"
+        }
+      ]
+    },
+    {
+      "label": "You type",
+      "nodes": [
+        {
+          "id": "n1",
+          "icon": "terminal",
+          "title": "/deploy"
+        },
+        {
+          "id": "n2",
+          "icon": "terminal",
+          "title": "/frontend:component"
+        },
+        {
+          "id": "n3",
+          "icon": "terminal",
+          "title": "/deploy-staging",
+          "desc": "or its name: field"
+        },
+        {
+          "id": "n4",
+          "icon": "terminal",
+          "title": "/apps/web:deploy",
+          "desc": "root one keeps /deploy"
+        },
+        {
+          "id": "n5",
+          "icon": "terminal",
+          "title": "/my-plugin:review",
+          "desc": "/review too, if free"
+        },
+        {
+          "id": "n6",
+          "icon": "terminal",
+          "title": "/anthropic-skills:deploy",
+          "desc": "/deploy too, if free"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "f1",
+      "to": "n1",
+      "label": "file name"
+    },
+    {
+      "from": "f2",
+      "to": "n2",
+      "label": "folder → :"
+    },
+    {
+      "from": "f3",
+      "to": "n3",
+      "label": "folder name"
+    },
+    {
+      "from": "f4",
+      "to": "n4",
+      "label": "path prefix"
+    },
+    {
+      "from": "f5",
+      "to": "n5",
+      "label": "plugin prefix"
+    },
+    {
+      "from": "f6",
+      "to": "n6",
+      "label": "synced"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

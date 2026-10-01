@@ -6,11 +6,11 @@ const { render, launch } = require('./render.cjs');
 const specs = require('./specs.cjs');
 
 const FONTS = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800'
-  + '&family=JetBrains+Mono:wght@500;600;700&display=swap';
+  + '&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap';
 
 function page(spec) {
   return `<!doctype html>
-<html><head><meta charset="utf-8">
+<html lang="${spec.lang || 'en'}"><head><meta charset="utf-8">
 <title>${spec.name}</title>
 <link href="${FONTS}" rel="stylesheet">
 <link href="../lib/theme.css" rel="stylesheet">
