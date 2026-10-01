@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>slash-command-execution</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "slash-command-execution",
+  "alt": "Slash command execution: the user types /optimize, Claude Code finds optimize/SKILL.md, parses its frontmatter, runs any shell substitutions, fills in $ARGUMENTS, and returns results",
+  "eyebrow": "Slash Commands · Execution",
+  "title": "Running [[/optimize]], step by step",
+  "sub": "How a skill-based command is found, filled in, and run.",
+  "layout": "sequence",
+  "participants": [
+    {
+      "id": "user",
+      "icon": "user",
+      "title": "User"
+    },
+    {
+      "id": "claude",
+      "icon": "cpu",
+      "title": "Claude Code",
+      "accent": true
+    },
+    {
+      "id": "fs",
+      "icon": "folder",
+      "title": "File System"
+    },
+    {
+      "id": "cli",
+      "icon": "terminal",
+      "title": "Shell / Bash"
+    }
+  ],
+  "steps": [
+    {
+      "from": "user",
+      "to": "claude",
+      "label": "Types /optimize"
+    },
+    {
+      "from": "claude",
+      "to": "fs",
+      "label": "Searches .claude/skills/ and .claude/commands/"
+    },
+    {
+      "from": "fs",
+      "to": "claude",
+      "label": "Returns optimize/SKILL.md",
+      "dashed": true
+    },
+    {
+      "from": "claude",
+      "to": "claude",
+      "label": "Parses frontmatter"
+    },
+    {
+      "from": "claude",
+      "to": "cli",
+      "label": "Runs !`command` substitutions"
+    },
+    {
+      "from": "cli",
+      "to": "claude",
+      "label": "Command outputs",
+      "dashed": true
+    },
+    {
+      "from": "claude",
+      "to": "claude",
+      "label": "Fills in $ARGUMENTS"
+    },
+    {
+      "from": "claude",
+      "to": "user",
+      "label": "Processes prompt"
+    },
+    {
+      "from": "claude",
+      "to": "user",
+      "label": "Returns results"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

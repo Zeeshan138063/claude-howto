@@ -348,6 +348,8 @@ sequenceDiagram
     Claude->>User: Returns results
 ```
 
+![Slash command execution: the user types /optimize, Claude Code finds optimize/SKILL.md, parses its frontmatter, runs any shell substitutions, fills in $ARGUMENTS, and returns results](../../resources/diagrams/slash-command-execution.png)
+
 ## Доступні команди в цьому каталозі
 
 Ці приклади команд можна встановити як навички або legacy-команди.
