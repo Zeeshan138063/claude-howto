@@ -31,6 +31,8 @@ graph TD
     style D fill:#2196F3,color:#fff
 ```
 
+![Lesson quiz flow: select a lesson, choose when to take it (before, during, or after), answer 10 questions in 5 rounds, then get your score and feedback](../../../resources/diagrams/lesson-quiz-flow.png)
+
 ## Usage
 
 ```
