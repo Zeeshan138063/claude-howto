@@ -1132,6 +1132,8 @@ graph LR
     F --> G["启用"]
 ```
 
+![Plugin installation and lifecycle: browse the marketplace, view the plugin page, install with /plugin install, configure, and use it; check for updates, or disable and later re-enable it](../resources/diagrams/plugins-lifecycle.png)
+
 ### Plugin 功能对比
 
 | 功能 | Slash Command | Skill | Subagent | Plugin |
