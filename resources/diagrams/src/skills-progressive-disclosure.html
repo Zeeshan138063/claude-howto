@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>skills-progressive-disclosure</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "skills-progressive-disclosure",
+  "alt": "Skill progressive disclosure: level 1 metadata (name and description, about 100 tokens per skill) is always loaded; level 2 instructions (the SKILL.md body, under 5k tokens) load when the skill is triggered; level 3 resources (scripts, templates, docs) load only as needed",
+  "eyebrow": "Skills · Progressive Disclosure",
+  "title": "Three levels, [[loaded only when needed]]",
+  "sub": "Claude reads a little about every skill, and the rest only when it uses one.",
+  "layout": "graph",
+  "colgap": 150,
+  "cardMax": 400,
+  "columns": [
+    {
+      "label": "Always loaded",
+      "nodes": [
+        {
+          "id": "a",
+          "icon": "list",
+          "num": "1",
+          "title": "Metadata",
+          "chip": "YAML frontmatter",
+          "desc": "name + description · about 100 tokens per skill"
+        }
+      ]
+    },
+    {
+      "label": "When triggered",
+      "nodes": [
+        {
+          "id": "b",
+          "icon": "file",
+          "num": "2",
+          "title": "Instructions",
+          "chip": "SKILL.md body",
+          "desc": "Workflows & guidance · under 5k tokens",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "label": "As needed",
+      "nodes": [
+        {
+          "id": "c",
+          "icon": "folder",
+          "num": "3",
+          "title": "Resources",
+          "chip": "bundled files",
+          "desc": "Scripts, templates, docs · effectively unlimited"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "a",
+      "to": "b"
+    },
+    {
+      "from": "b",
+      "to": "c"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

@@ -53,6 +53,8 @@ graph TB
     B --> C
 ```
 
+![Skill progressive disclosure: level 1 metadata (name and description, about 100 tokens per skill) is always loaded; level 2 instructions (the SKILL.md body, under 5k tokens) load when the skill is triggered; level 3 resources (scripts, templates, docs) load only as needed](../resources/diagrams/skills-progressive-disclosure.png)
+
 | Level | When Loaded | Token Cost | Content |
 |-------|------------|------------|---------|
 | **Level 1: Metadata** | Always (at startup) | ~100 tokens per Skill | `name` and `description` from YAML frontmatter |
