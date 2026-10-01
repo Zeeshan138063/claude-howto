@@ -253,6 +253,8 @@ graph TD
     style I fill:#e1f5fe,stroke:#333,color:#333
 ```
 
+![CLAUDE.md load order: managed policy loads first, then user instructions, project instructions, and local instructions; project instructions can import other files such as docs/architecture.md, which can import docs/api-standards.md](../resources/diagrams/memory-import-hierarchy.png)
+
 All files shown are concatenated into one context, not selected by override — later boxes appear later in context, not "instead of" earlier ones.
 
 ## AGENTS.md
