@@ -1,0 +1,137 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>plugins-lifecycle</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "plugins-lifecycle",
+  "block": 25,
+  "alt": "Plugin installation and lifecycle: browse the marketplace, view the plugin page, install with /plugin install, configure, and use it; check for updates, or disable and later re-enable it",
+  "eyebrow": "Plugins · Lifecycle",
+  "title": "Install, use, [[update]]",
+  "sub": "A plugin stays in use until you disable it, and can be re-enabled later.",
+  "layout": "graph",
+  "colgap": 120,
+  "cardMax": 230,
+  "rowgap": 56,
+  "dense": true,
+  "vertical": true,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "a",
+          "icon": "search",
+          "title": "Discover",
+          "chip": "marketplace"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "b",
+          "icon": "eye",
+          "title": "Plugin Page",
+          "chip": "components"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "c",
+          "icon": "download",
+          "title": "Install",
+          "chip": "/plugin install"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "d",
+          "icon": "sliders",
+          "title": "Configure",
+          "chip": "extract"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "use",
+          "icon": "play",
+          "title": "Use",
+          "chip": "active",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "up",
+          "icon": "refresh",
+          "title": "Update"
+        },
+        {
+          "id": "dis",
+          "icon": "power",
+          "title": "Disable"
+        },
+        {
+          "id": "en",
+          "icon": "zap",
+          "title": "Enable"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "a",
+      "to": "b"
+    },
+    {
+      "from": "b",
+      "to": "c"
+    },
+    {
+      "from": "c",
+      "to": "d"
+    },
+    {
+      "from": "d",
+      "to": "use"
+    },
+    {
+      "from": "use",
+      "to": "up",
+      "label": "check"
+    },
+    {
+      "from": "up",
+      "to": "use",
+      "dashed": true
+    },
+    {
+      "from": "use",
+      "to": "dis",
+      "label": "done"
+    },
+    {
+      "from": "dis",
+      "to": "en",
+      "label": "later"
+    },
+    {
+      "from": "en",
+      "to": "use",
+      "dashed": true
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

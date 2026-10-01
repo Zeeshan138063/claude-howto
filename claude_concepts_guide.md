@@ -861,6 +861,8 @@ graph LR
     J -->|Back| G
 ```
 
+![Plugin installation and lifecycle: browse the marketplace, view the plugin page, install with /plugin install, configure, and use it; check for updates, or disable and later re-enable it](resources/diagrams/plugins-lifecycle.png)
+
 ### Plugin Features Comparison
 
 | Feature | Slash Command | Skill | Subagent | Plugin |
