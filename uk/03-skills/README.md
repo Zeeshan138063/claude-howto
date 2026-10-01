@@ -89,6 +89,8 @@ sequenceDiagram
     Claude->>User: Comprehensive code review
 ```
 
+![Skill loading: for a security review request, Claude checks skill descriptions loaded at startup, reads code-review/SKILL.md, reads a checklist template if needed, and returns the review](../../resources/diagrams/skills-loading-basic.png)
+
 ## Типи та розташування навичок
 
 | Тип | Розташування | Область дії | Спільний | Найкраще для |

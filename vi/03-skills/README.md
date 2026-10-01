@@ -85,6 +85,8 @@ sequenceDiagram
     Claude->>User: Comprehensive code review
 ```
 
+![Skill loading: for a security review request, Claude checks skill descriptions loaded at startup, reads code-review/SKILL.md, reads a checklist template if needed, and returns the review](../../resources/diagrams/skills-loading-basic.png)
+
 ## Các Loại & Vị Trí Skill
 
 | Loại | Vị Trí | Phạm Vi | Được Chia Sẻ | Tốt Nhất Cho |
