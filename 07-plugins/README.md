@@ -526,6 +526,8 @@ graph TB
     style D fill:#fff3e0,stroke:#333,color:#333
 ```
 
+![Plugin marketplace: official Anthropic plugins by category, a community marketplace you can search, and private enterprise registries for internal plugins](../resources/diagrams/plugins-marketplace.png)
+
 ### Marketplace Configuration
 
 Enterprise and advanced users can control marketplace behavior through settings:

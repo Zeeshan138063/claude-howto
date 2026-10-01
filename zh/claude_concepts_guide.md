@@ -1118,6 +1118,8 @@ graph TB
     D["Enterprise"]
 ```
 
+![Plugin marketplace: official Anthropic plugins by category, a community marketplace you can search, and private enterprise registries for internal plugins](../resources/diagrams/plugins-marketplace.png)
+
 ### Plugin 安装与生命周期
 
 ```mermaid

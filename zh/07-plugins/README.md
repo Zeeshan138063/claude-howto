@@ -436,6 +436,8 @@ graph TB
     style D fill:#fff3e0,stroke:#333,color:#333
 ```
 
+![Plugin marketplace: official Anthropic plugins by category, a community marketplace you can search, and private enterprise registries for internal plugins](../../resources/diagrams/plugins-marketplace.png)
+
 ### 市场配置
 
 企业和高级用户可以通过设置来控制市场行为：
