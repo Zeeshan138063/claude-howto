@@ -1,0 +1,129 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>memory-hierarchy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "memory-hierarchy",
+  "block": 9,
+  "alt": "Memory hierarchy in Claude Code: seven tiers from highest to lowest priority, managed policy, project memory, project rules, user memory, user rules, local memory, and auto memory",
+  "eyebrow": "Memory · Hierarchy",
+  "title": "Seven tiers, [[highest priority first]]",
+  "sub": "Claude Code loads memory from all seven; higher tiers win on conflicts.",
+  "layout": "graph",
+  "colgap": 26,
+  "cardMax": 220,
+  "dense": true,
+  "vertical": true,
+  "columns": [
+    {
+      "label": "Highest",
+      "nodes": [
+        {
+          "id": "t1",
+          "icon": "shield",
+          "title": "Managed Policy",
+          "chip": "enterprise admin",
+          "num": "1",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "t2",
+          "icon": "file",
+          "title": "Project Memory",
+          "chip": "./CLAUDE.md",
+          "num": "2"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "t3",
+          "icon": "list",
+          "title": "Project Rules",
+          "chip": ".claude/rules/*.md",
+          "num": "3"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "t4",
+          "icon": "user",
+          "title": "User Memory",
+          "chip": "~/.claude/CLAUDE.md",
+          "num": "4"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "t5",
+          "icon": "list",
+          "title": "User Rules",
+          "chip": "~/.claude/rules/*.md",
+          "num": "5"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "t6",
+          "icon": "monitor",
+          "title": "Local Memory",
+          "chip": "./CLAUDE.local.md",
+          "num": "6"
+        }
+      ]
+    },
+    {
+      "label": "Lowest",
+      "nodes": [
+        {
+          "id": "t7",
+          "icon": "zap",
+          "title": "Auto Memory",
+          "chip": "learned prefs",
+          "num": "7"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "t1",
+      "to": "t2"
+    },
+    {
+      "from": "t2",
+      "to": "t3"
+    },
+    {
+      "from": "t3",
+      "to": "t4"
+    },
+    {
+      "from": "t4",
+      "to": "t5"
+    },
+    {
+      "from": "t5",
+      "to": "t6"
+    },
+    {
+      "from": "t6",
+      "to": "t7"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>
