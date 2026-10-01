@@ -1,0 +1,92 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>plugins-architecture</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "plugins-architecture",
+  "block": 22,
+  "alt": "Plugin architecture: a plugin bundles slash commands, subagents, MCP servers, hooks, and configuration into one installable package",
+  "eyebrow": "Plugins · Architecture",
+  "title": "One plugin, [[everything bundled]]",
+  "sub": "Commands, agents, servers, hooks, and settings install together.",
+  "layout": "graph",
+  "colgap": 240,
+  "cardMax": 360,
+  "rowgap": 14,
+  "columns": [
+    {
+      "label": "Package",
+      "nodes": [
+        {
+          "id": "p",
+          "icon": "package",
+          "title": "Plugin",
+          "chip": ".claude-plugin/plugin.json",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "label": "Bundles",
+      "nodes": [
+        {
+          "id": "cmd",
+          "icon": "terminal",
+          "title": "Slash Commands",
+          "chip": "commands/"
+        },
+        {
+          "id": "sub",
+          "icon": "users",
+          "title": "Subagents",
+          "chip": "agents/"
+        },
+        {
+          "id": "mcp",
+          "icon": "server",
+          "title": "MCP Servers",
+          "chip": ".mcp.json"
+        },
+        {
+          "id": "hooks",
+          "icon": "zap",
+          "title": "Hooks",
+          "chip": "hooks/hooks.json"
+        },
+        {
+          "id": "cfg",
+          "icon": "sliders",
+          "title": "Configuration",
+          "chip": "settings.json"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "p",
+      "to": "cmd"
+    },
+    {
+      "from": "p",
+      "to": "sub"
+    },
+    {
+      "from": "p",
+      "to": "mcp",
+      "label": "bundles"
+    },
+    {
+      "from": "p",
+      "to": "hooks"
+    },
+    {
+      "from": "p",
+      "to": "cfg"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>
