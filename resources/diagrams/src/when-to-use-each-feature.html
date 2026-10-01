@@ -1,0 +1,105 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>when-to-use-each-feature</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "when-to-use-each-feature",
+  "block": 30,
+  "alt": "When to use each feature: a slash command for repeated workflows, MCP for real-time data, memory for things to remember next time, a subagent for specialized subtasks, and a skill for domain-specific work",
+  "eyebrow": "Integration · Choosing",
+  "title": "Pick the feature by [[task type]]",
+  "sub": "Match what the task needs to the feature built for it.",
+  "layout": "graph",
+  "colgap": 170,
+  "cardMax": 380,
+  "rowgap": 14,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "a",
+          "icon": "inbox",
+          "title": "New Task"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "b",
+          "q": true,
+          "title": "Type of task?"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "c",
+          "icon": "terminal",
+          "title": "Slash Command",
+          "chip": "repeated workflow",
+          "desc": "✓ Team shortcut"
+        },
+        {
+          "id": "d",
+          "icon": "server",
+          "title": "MCP Protocol",
+          "chip": "need real-time data",
+          "desc": "✓ Live API access"
+        },
+        {
+          "id": "e",
+          "icon": "database",
+          "title": "Memory",
+          "chip": "remember for next time",
+          "desc": "✓ Persistent context"
+        },
+        {
+          "id": "f",
+          "icon": "users",
+          "title": "Subagent",
+          "chip": "specialized subtask",
+          "desc": "✓ Parallel execution"
+        },
+        {
+          "id": "g",
+          "icon": "star",
+          "title": "Skill",
+          "chip": "domain-specific work",
+          "desc": "✓ Auto-invoked expertise"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "a",
+      "to": "b"
+    },
+    {
+      "from": "b",
+      "to": "c"
+    },
+    {
+      "from": "b",
+      "to": "d"
+    },
+    {
+      "from": "b",
+      "to": "e"
+    },
+    {
+      "from": "b",
+      "to": "f"
+    },
+    {
+      "from": "b",
+      "to": "g"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>
