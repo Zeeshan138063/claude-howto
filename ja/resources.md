@@ -224,6 +224,8 @@ graph TD
     style Z fill:#e8f5e9,stroke:#333,color:#333
 ```
 
+![Working in an existing repository with Claude Code in four phases: document the codebase in CLAUDE.md (or CLAUDE_LEGACY.md for legacy code) and pin key files; pick the task type and set clear boundaries; use git worktrees and separate sessions for parallel features; then set up team automation with shared commands and hooks](../resources/diagrams/existing-repo-workflow.png)
+
 **Tips**：
 - 新しい機能や修正は、仕様とプランモードのプロンプトから始める。
 - レガシーや複雑なリポジトリでは、詳細なガイダンスを CLAUDE.md／CLAUDE_LEGACY.md に保存する。

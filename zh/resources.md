@@ -220,6 +220,8 @@ graph TD
     style Z fill:#90EE90
 ```
 
+![Working in an existing repository with Claude Code in four phases: document the codebase in CLAUDE.md (or CLAUDE_LEGACY.md for legacy code) and pin key files; pick the task type and set clear boundaries; use git worktrees and separate sessions for parallel features; then set up team automation with shared commands and hooks](../resources/diagrams/existing-repo-workflow.png)
+
 **提示**：
 - 每个新功能或修复都从规格和计划模式提示词开始。
 - 对于旧仓库和复杂仓库，把更详细的指导存放在 `CLAUDE.md` / `CLAUDE_LEGACY.md` 中。
