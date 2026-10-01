@@ -1,0 +1,82 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>skills-prebuilt</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "skills-prebuilt",
+  "block": 19,
+  "alt": "Pre-built skills: PowerPoint for creating and editing slides, Excel for spreadsheets and data analysis, Word for documents and formatting, and PDF for generating PDFs and filling forms",
+  "eyebrow": "Skills · Pre-built",
+  "title": "Four [[pre-built]] skills",
+  "sub": "Document skills that work without any setup.",
+  "layout": "graph",
+  "colgap": 220,
+  "cardMax": 420,
+  "rowgap": 16,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "root",
+          "icon": "package",
+          "title": "Pre-built Skills",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "pptx",
+          "icon": "monitor",
+          "title": "PowerPoint",
+          "chip": "pptx",
+          "desc": "Create presentations · Edit slides"
+        },
+        {
+          "id": "xlsx",
+          "icon": "table",
+          "title": "Excel",
+          "chip": "xlsx",
+          "desc": "Create spreadsheets · Analyze data"
+        },
+        {
+          "id": "docx",
+          "icon": "file",
+          "title": "Word",
+          "chip": "docx",
+          "desc": "Create documents · Format text"
+        },
+        {
+          "id": "pdf",
+          "icon": "book",
+          "title": "PDF",
+          "chip": "pdf",
+          "desc": "Generate PDFs · Fill forms"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "root",
+      "to": "pptx"
+    },
+    {
+      "from": "root",
+      "to": "xlsx"
+    },
+    {
+      "from": "root",
+      "to": "docx"
+    },
+    {
+      "from": "root",
+      "to": "pdf"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

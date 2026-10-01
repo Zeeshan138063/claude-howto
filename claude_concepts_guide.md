@@ -589,6 +589,8 @@ graph TB
     E --> E2["Fill forms"]
 ```
 
+![Pre-built skills: PowerPoint for creating and editing slides, Excel for spreadsheets and data analysis, Word for documents and formatting, and PDF for generating PDFs and filling forms](resources/diagrams/skills-prebuilt.png)
+
 ### Bundled Skills
 
 Claude Code now includes 10 bundled skills available out of the box:
