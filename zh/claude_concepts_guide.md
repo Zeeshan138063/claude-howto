@@ -1035,6 +1035,8 @@ sequenceDiagram
     Install->>Hooks: 配置
 ```
 
+![Plugin loading process: /plugin install pr-review downloads the manifest from the marketplace, extracts components, configures commands, subagents, MCP servers, and hooks, and reports the plugin installed](../resources/diagrams/plugins-loading.png)
+
 ### Plugin 类型与分发
 
 | 类型 | 作用域 | 是否共享 | 权威来源 | 示例 |

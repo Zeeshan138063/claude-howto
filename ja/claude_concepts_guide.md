@@ -2237,6 +2237,8 @@ sequenceDiagram
     Tools-->>Claude: Plugin installed ✅
 ```
 
+![Plugin loading process: /plugin install pr-review downloads the manifest from the marketplace, extracts components, configures commands, subagents, MCP servers, and hooks, and reports the plugin installed](../resources/diagrams/plugins-loading.png)
+
 ### プラグインの種類と配布
 
 | 種類 | スコープ | 共有 | 提供元 | 例 |
