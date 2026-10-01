@@ -277,6 +277,8 @@ graph TD
     style I fill:#e1f5fe,stroke:#333,color:#333
 ```
 
+![Memory hierarchy with imports: managed policy has the highest priority, followed by managed drop-ins, project memory, project rules, user memory, user rules, local project memory, and auto memory; project memory can import docs/architecture.md, which imports docs/api-standards.md](../../resources/diagrams/memory-hierarchy-imports.png)
+
 ## `claudeMdExcludes` で CLAUDE.md ファイルを除外する
 
 大規模モノレポでは、現在の作業に関係ない CLAUDE.md があり得る。`claudeMdExcludes` 設定により、特定の CLAUDE.md ファイルをスキップしてコンテキストにロードしないようにできる:

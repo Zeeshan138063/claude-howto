@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>memory-hierarchy-imports</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "memory-hierarchy-imports",
+  "alt": "Memory hierarchy with imports: managed policy has the highest priority, followed by managed drop-ins, project memory, project rules, user memory, user rules, local project memory, and auto memory; project memory can import docs/architecture.md, which imports docs/api-standards.md",
+  "eyebrow": "Memory · Hierarchy",
+  "title": "Eight levels, [[highest priority first]]",
+  "sub": "Each level loads in order, and project memory can import other files.",
+  "layout": "graph",
+  "colgap": 30,
+  "cardMax": 200,
+  "rowgap": 44,
+  "dense": true,
+  "vertical": true,
+  "columns": [
+    {
+      "label": "Highest",
+      "nodes": [
+        {
+          "id": "a",
+          "icon": "shield",
+          "num": "1",
+          "title": "Managed Policy",
+          "chip": "admin",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "a2",
+          "icon": "layers",
+          "num": "2",
+          "title": "Managed Drop-ins",
+          "chip": "settings.d/"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "b",
+          "icon": "file",
+          "num": "3",
+          "title": "Project Memory",
+          "chip": "./CLAUDE.md"
+        },
+        {
+          "id": "h",
+          "icon": "link",
+          "title": "Import",
+          "chip": "architecture.md"
+        },
+        {
+          "id": "i",
+          "icon": "link",
+          "title": "Import",
+          "chip": "api-standards.md"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "c",
+          "icon": "list",
+          "num": "4",
+          "title": "Project Rules",
+          "chip": ".claude/rules/"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "d",
+          "icon": "user",
+          "num": "5",
+          "title": "User Memory",
+          "chip": "~/.claude/"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "e",
+          "icon": "list",
+          "num": "6",
+          "title": "User Rules",
+          "chip": "~/.claude/rules/"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "f",
+          "icon": "monitor",
+          "num": "7",
+          "title": "Local Memory",
+          "chip": "CLAUDE.local.md"
+        }
+      ]
+    },
+    {
+      "label": "Lowest",
+      "nodes": [
+        {
+          "id": "g",
+          "icon": "zap",
+          "num": "8",
+          "title": "Auto Memory",
+          "chip": "memory/"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "a",
+      "to": "a2"
+    },
+    {
+      "from": "a2",
+      "to": "b"
+    },
+    {
+      "from": "b",
+      "to": "c"
+    },
+    {
+      "from": "c",
+      "to": "d"
+    },
+    {
+      "from": "d",
+      "to": "e"
+    },
+    {
+      "from": "e",
+      "to": "f"
+    },
+    {
+      "from": "f",
+      "to": "g"
+    },
+    {
+      "from": "b",
+      "to": "h",
+      "label": "imports"
+    },
+    {
+      "from": "h",
+      "to": "i",
+      "label": "imports"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

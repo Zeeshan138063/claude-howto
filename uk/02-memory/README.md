@@ -276,6 +276,8 @@ graph TD
     style I fill:#e1f5fe,stroke:#333,color:#333
 ```
 
+![Memory hierarchy with imports: managed policy has the highest priority, followed by managed drop-ins, project memory, project rules, user memory, user rules, local project memory, and auto memory; project memory can import docs/architecture.md, which imports docs/api-standards.md](../../resources/diagrams/memory-hierarchy-imports.png)
+
 ## Виключення файлів CLAUDE.md за допомогою `claudeMdExcludes`
 
 У великих монорепозиторіях деякі файли CLAUDE.md можуть бути нерелевантними для вашої поточної роботи. Налаштування `claudeMdExcludes` дозволяє пропускати певні файли CLAUDE.md, щоб вони не завантажувались у контекст:
