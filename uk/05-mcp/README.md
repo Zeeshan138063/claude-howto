@@ -222,6 +222,8 @@ sequenceDiagram
     Claude->>User: ✅ MCP connected!
 ```
 
+![MCP setup process: the user runs /mcp, selects the GitHub server, Claude Code updates the config, tests the connection, and confirms it is connected](../../resources/diagrams/mcp-setup.png)
+
 ## Пошук інструментів MCP
 
 Пошук інструментів увімкнено за замовчуванням: інструменти MCP відкладаються й знаходяться за потреби, тож їхні визначення не заповнюють контекст моделі. Claude Code вимикає його, коли `ANTHROPIC_BASE_URL` вказує на хост, що не належить Anthropic (не first-party), оскільки більшість проксі не пересилають потрібні йому блоки.

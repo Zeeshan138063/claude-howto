@@ -218,6 +218,8 @@ sequenceDiagram
     Claude->>User: ✅ MCP connected!
 ```
 
+![MCP setup process: the user runs /mcp, selects the GitHub server, Claude Code updates the config, tests the connection, and confirms it is connected](../../resources/diagrams/mcp-setup.png)
+
 ## Tìm Kiếm Công Cụ MCP / MCP Tool Search
 
 Tìm kiếm công cụ được bật theo mặc định: các công cụ MCP được hoãn lại và khám phá khi cần, nên định nghĩa của chúng không lấp đầy ngữ cảnh mô hình. Claude Code tắt tính năng này khi `ANTHROPIC_BASE_URL` trỏ tới một host không phải của bên thứ nhất, vì hầu hết các proxy không chuyển tiếp các khối mà nó cần.

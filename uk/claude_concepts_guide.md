@@ -1017,6 +1017,8 @@ sequenceDiagram
     Claude->>User: ✅ MCP connected!
 ```
 
+![MCP setup process: the user runs /mcp, selects the GitHub server, Claude Code updates the config, tests the connection, and confirms it is connected](../resources/diagrams/mcp-setup.png)
+
 ### Таблиця доступних MCP-серверів
 
 | MCP-сервер | Призначення | Основні інструменти | Авторизація | Реальний час |

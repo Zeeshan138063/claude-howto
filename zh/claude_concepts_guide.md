@@ -725,6 +725,8 @@ sequenceDiagram
     Claude->>User: ✅ MCP 已连接
 ```
 
+![MCP setup process: the user runs /mcp, selects the GitHub server, Claude Code updates the config, tests the connection, and confirms it is connected](../resources/diagrams/mcp-setup.png)
+
 ### 可用 MCP Server 表
 
 | MCP Server | 用途 | 常见工具 | 认证 | 实时 |

@@ -224,6 +224,8 @@ sequenceDiagram
     Claude->>User: ✅ MCP connected!
 ```
 
+![MCP setup process: the user runs /mcp, selects the GitHub server, Claude Code updates the config, tests the connection, and confirms it is connected](../../resources/diagrams/mcp-setup.png)
+
 ## MCP ツール検索
 
 ツール検索はデフォルトで有効。MCP ツールは遅延され、必要に応じて検出されるため、その定義がモデルコンテキストを埋めることはない。`ANTHROPIC_BASE_URL` がファーストパーティ以外のホストを指している場合、ほとんどのプロキシは必要なブロックを転送しないため、Claude Code はツール検索を無効にする。

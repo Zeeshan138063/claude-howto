@@ -254,6 +254,8 @@ sequenceDiagram
     Claude->>User: ✅ MCP connected!
 ```
 
+![MCP setup process: the user runs /mcp, selects the GitHub server, Claude Code updates the config, tests the connection, and confirms it is connected](../resources/diagrams/mcp-setup.png)
+
 ### `/mcp` command
 
 Type `/mcp` inside a session to list connected servers, trigger OAuth flows, and inspect connection state.
