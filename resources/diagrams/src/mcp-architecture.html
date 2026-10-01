@@ -1,0 +1,79 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>mcp-architecture</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "mcp-architecture",
+  "block": 12,
+  "alt": "MCP architecture: Claude sends tool requests such as list_issues and create_issue to an MCP server, which queries or acts on an external service and returns the response",
+  "eyebrow": "MCP · Architecture",
+  "title": "Claude ⇄ [[MCP]] ⇄ the world",
+  "sub": "An MCP server translates tool calls into real requests to an external service.",
+  "layout": "graph",
+  "colgap": 230,
+  "cardMax": 330,
+  "columns": [
+    {
+      "label": "Client",
+      "nodes": [
+        {
+          "id": "claude",
+          "icon": "cpu",
+          "title": "Claude",
+          "chip": "tool call"
+        }
+      ]
+    },
+    {
+      "label": "Bridge",
+      "nodes": [
+        {
+          "id": "mcp",
+          "icon": "server",
+          "title": "MCP Server",
+          "chip": "list_issues · create_issue",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "label": "Service",
+      "nodes": [
+        {
+          "id": "svc",
+          "icon": "globe",
+          "title": "External Service",
+          "chip": "e.g. GitHub API"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "claude",
+      "to": "mcp",
+      "label": "request"
+    },
+    {
+      "from": "mcp",
+      "to": "claude",
+      "label": "response",
+      "dashed": true
+    },
+    {
+      "from": "mcp",
+      "to": "svc",
+      "label": "query / action"
+    },
+    {
+      "from": "svc",
+      "to": "mcp",
+      "label": "data / result",
+      "dashed": true
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

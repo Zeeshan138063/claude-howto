@@ -405,6 +405,8 @@ graph TB
     B -->|Response| A
 ```
 
+![MCP architecture: Claude sends tool requests such as list_issues and create_issue to an MCP server, which queries or acts on an external service and returns the response](resources/diagrams/mcp-architecture.png)
+
 ### MCP Ecosystem
 
 ```mermaid
