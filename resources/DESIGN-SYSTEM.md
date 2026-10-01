@@ -185,6 +185,10 @@ All icons center at the midpoint of their canvas:
 - Section Icons: 64×64px favicon
 - Inline: 32×32px favicon
 
+### Diagram Images
+- Every diagram image follows [diagrams/DIAGRAM-DESIGN-SYSTEM.md](diagrams/DIAGRAM-DESIGN-SYSTEM.md):
+  dark background, the single green accent, Inter + JetBrains Mono, and a shared HTML template
+
 ---
 
 ## File Format Details

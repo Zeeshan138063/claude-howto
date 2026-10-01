@@ -1,0 +1,38 @@
+// Usage: node resources/diagrams/render.cjs <src.html> <out.png>
+const fs = require('fs');
+const os = require('os');
+const path = require('path');
+
+function loadPuppeteer() {
+  try {
+    return require('puppeteer');
+  } catch {
+    const npxDir = path.join(os.homedir(), '.npm', '_npx');
+    const hit = fs.existsSync(npxDir) && fs.readdirSync(npxDir)
+      .map((d) => path.join(npxDir, d, 'node_modules', 'puppeteer'))
+      .find((p) => fs.existsSync(p));
+    if (!hit) {
+      console.error('puppeteer not found. Run once: npx -y puppeteer browsers install chrome');
+      process.exit(1);
+    }
+    return require(hit);
+  }
+}
+
+(async () => {
+  const [src, out] = process.argv.slice(2);
+  if (!src || !out) {
+    console.error('Usage: node render.cjs <src.html> <out.png>');
+    process.exit(1);
+  }
+  const puppeteer = loadPuppeteer();
+  const browser = await puppeteer.launch({ headless: 'new' });
+  const page = await browser.newPage();
+  await page.setViewport({ width: 1400, height: 800, deviceScaleFactor: 2 });
+  await page.goto(`file://${path.resolve(src)}`, { waitUntil: 'networkidle0' });
+  await page.evaluateHandle('document.fonts.ready');
+  const frame = await page.$('.wrap');
+  await frame.screenshot({ path: path.resolve(out) });
+  await browser.close();
+  console.log(`Rendered ${out}`);
+})();
