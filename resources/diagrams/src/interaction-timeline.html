@@ -1,0 +1,150 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>interaction-timeline</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "interaction-timeline",
+  "block": 27,
+  "alt": "Interaction timeline: a session loads memory, discovers skills, registers slash commands, and connects MCP servers; then each slash command, skill, MCP query, or subagent delegation uses that memory",
+  "eyebrow": "Integration · Session Timeline",
+  "title": "What loads when a [[session starts]]",
+  "sub": "Everything is ready before your first message, and memory informs every action.",
+  "layout": "graph",
+  "colgap": 64,
+  "cardMax": 250,
+  "rowgap": 14,
+  "dense": true,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "a",
+          "icon": "power",
+          "title": "Session Start"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "b",
+          "icon": "database",
+          "title": "Memory",
+          "chip": "CLAUDE.md"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "c",
+          "icon": "star",
+          "title": "Skills",
+          "chip": "discover"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "d",
+          "icon": "terminal",
+          "title": "Commands",
+          "chip": "register"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "e",
+          "icon": "server",
+          "title": "MCP Servers",
+          "chip": "connect"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "f",
+          "icon": "message",
+          "title": "User Interaction",
+          "chip": "ready",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "label": "Each uses memory",
+      "nodes": [
+        {
+          "id": "g",
+          "icon": "terminal",
+          "title": "Slash Command",
+          "chip": "type /cmd"
+        },
+        {
+          "id": "h",
+          "icon": "zap",
+          "title": "Skill",
+          "chip": "auto"
+        },
+        {
+          "id": "i",
+          "icon": "database",
+          "title": "MCP Data",
+          "chip": "query"
+        },
+        {
+          "id": "j",
+          "icon": "users",
+          "title": "Subagent",
+          "chip": "complex"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "a",
+      "to": "b"
+    },
+    {
+      "from": "b",
+      "to": "c"
+    },
+    {
+      "from": "c",
+      "to": "d"
+    },
+    {
+      "from": "d",
+      "to": "e"
+    },
+    {
+      "from": "e",
+      "to": "f"
+    },
+    {
+      "from": "f",
+      "to": "g"
+    },
+    {
+      "from": "f",
+      "to": "h"
+    },
+    {
+      "from": "f",
+      "to": "i"
+    },
+    {
+      "from": "f",
+      "to": "j"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

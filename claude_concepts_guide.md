@@ -977,6 +977,8 @@ graph LR
     J -->|Uses| B
 ```
 
+![Interaction timeline: a session loads memory, discovers skills, registers slash commands, and connects MCP servers; then each slash command, skill, MCP query, or subagent delegation uses that memory](resources/diagrams/interaction-timeline.png)
+
 ### Practical Integration Example: Customer Support Automation
 
 #### Architecture

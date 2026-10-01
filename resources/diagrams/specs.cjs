@@ -831,9 +831,9 @@ module.exports = [
         label: 'Each uses memory',
         nodes: [
           { id: 'g', icon: 'terminal', title: 'Slash Command', chip: 'type /cmd' },
-          { id: 'h', icon: 'zap', title: 'Skill Auto-Invoke', chip: 'request' },
+          { id: 'h', icon: 'zap', title: 'Skill', chip: 'auto' },
           { id: 'i', icon: 'database', title: 'MCP Data', chip: 'query' },
-          { id: 'j', icon: 'users', title: 'Subagent', chip: 'complex task' },
+          { id: 'j', icon: 'users', title: 'Subagent', chip: 'complex' },
         ],
       },
     ],
@@ -866,9 +866,9 @@ module.exports = [
       {
         label: 'Router',
         nodes: [
-          { id: 'mem', icon: 'database', title: 'Memory', chip: 'customer history' },
+          { id: 'mem', icon: 'database', title: 'Memory', chip: 'history' },
           { id: 'router', icon: 'shuffle', title: 'Support Router' },
-          { id: 'look', icon: 'server', title: 'MCP Lookups', chip: 'Customer DB · Slack' },
+          { id: 'look', icon: 'server', title: 'MCP Lookups', chip: 'DB · Slack' },
         ],
       },
       {
