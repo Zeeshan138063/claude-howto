@@ -1222,6 +1222,8 @@ graph LR
     E -->|Ready| F["User Interaction"]
 ```
 
+![Interaction timeline: a session loads memory, discovers skills, registers slash commands, and connects MCP servers; then each slash command, skill, MCP query, or subagent delegation uses that memory](../resources/diagrams/interaction-timeline.png)
+
 ### 集成示例：客户支持自动化
 
 #### 架构
