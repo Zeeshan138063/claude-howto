@@ -202,6 +202,8 @@ graph TD
     A[Start] --> B[End]
 ```
 
+![Style guide example diagram: a start step that leads to an end step](../resources/diagrams/style-guide-basic.png)
+
 ### Quy Tắc / Rules
 
 - Sử dụng Mermaid cho tất cả các sơ đồ
