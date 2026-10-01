@@ -897,6 +897,8 @@ graph TB
     style D fill:#fff9c4
 ```
 
+![Subagent context management: the main agent context hands each subagent a clean slate, and each subagent sends back only its results](../../resources/diagrams/subagents-context.png)
+
 ### 重要点
 
 - 各サブエージェントは **新しいコンテキストウィンドウ** を取得し、メイン会話の履歴を持たない

@@ -807,6 +807,8 @@ graph TB
     style D fill:#fff9c4
 ```
 
+![Subagent context management: the main agent context hands each subagent a clean slate, and each subagent sends back only its results](../../resources/diagrams/subagents-context.png)
+
 ### Điểm Chính
 
 - Mỗi tác nhân con nhận một **cửa sổ bối cảnh mới** mà không có lịch sử hội thoại chính

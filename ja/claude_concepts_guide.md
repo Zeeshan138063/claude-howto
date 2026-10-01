@@ -531,6 +531,8 @@ graph TB
     style D fill:#fff9c4
 ```
 
+![Subagent context management: the main agent context hands each subagent a clean slate, and each subagent sends back only its results](../resources/diagrams/subagents-context.png)
+
 ### サブエージェントを使うべき場面
 
 | シナリオ | サブエージェント利用 | 理由 |
