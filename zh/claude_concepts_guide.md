@@ -41,6 +41,8 @@ graph TD
     E -->|返回| F["上下文中的结果"]
 ```
 
+![Slash command architecture: user input triggers a search of .claude/commands/, which finds and loads the command's Markdown file for Claude to process](../resources/diagrams/slash-commands-architecture.png)
+
 ### 文件结构
 
 ```mermaid

@@ -45,6 +45,8 @@ graph TD
     E -->|Returns| F["Result in Context"]
 ```
 
+![Slash command architecture: user input triggers a search of .claude/commands/, which finds and loads the command's Markdown file for Claude to process](../resources/diagrams/slash-commands-architecture.png)
+
 ### ファイル構造
 
 ```mermaid
