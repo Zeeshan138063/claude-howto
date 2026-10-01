@@ -89,6 +89,8 @@ sequenceDiagram
     Claude->>User: Comprehensive code review
 ```
 
+![Skill loading in practice: for a security review request, Claude matches the request against skill descriptions loaded at startup, reads the code-review-specialist SKILL.md, then reads a checklist template only when it needs it, and returns the review](../../resources/diagrams/skills-progressive-loading.png)
+
 ## スキルの種類と配置場所
 
 | 種類 | 配置場所 | スコープ | 共有 | 適した用途 |
