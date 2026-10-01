@@ -1,0 +1,91 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>subagents-lifecycle</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "subagents-lifecycle",
+  "block": 5,
+  "alt": "Subagent lifecycle: the main agent hands a review to the code reviewer subagent, which starts a clean context window, performs the review, and returns findings",
+  "eyebrow": "Subagents · Lifecycle",
+  "title": "A delegated task, [[step by step]]",
+  "sub": "The subagent works in its own clean context and returns only its findings.",
+  "layout": "sequence",
+  "participants": [
+    {
+      "id": "user",
+      "icon": "user",
+      "title": "User"
+    },
+    {
+      "id": "main",
+      "icon": "target",
+      "title": "Main Agent",
+      "accent": true
+    },
+    {
+      "id": "rev",
+      "icon": "search",
+      "title": "Code Reviewer",
+      "chip": "subagent"
+    },
+    {
+      "id": "ctx",
+      "icon": "layers",
+      "title": "Context Window",
+      "chip": "separate"
+    }
+  ],
+  "steps": [
+    {
+      "from": "user",
+      "to": "main",
+      "label": "\"Build new auth feature\""
+    },
+    {
+      "from": "main",
+      "to": "main",
+      "label": "Analyze task"
+    },
+    {
+      "from": "main",
+      "to": "rev",
+      "label": "\"Review this code\""
+    },
+    {
+      "from": "rev",
+      "to": "ctx",
+      "label": "Initialize clean context"
+    },
+    {
+      "from": "ctx",
+      "to": "rev",
+      "label": "Load reviewer instructions"
+    },
+    {
+      "from": "rev",
+      "to": "rev",
+      "label": "Perform review"
+    },
+    {
+      "from": "rev",
+      "to": "main",
+      "label": "Return findings",
+      "dashed": true
+    },
+    {
+      "from": "main",
+      "to": "main",
+      "label": "Incorporate results"
+    },
+    {
+      "from": "main",
+      "to": "user",
+      "label": "Provide synthesis",
+      "dashed": true
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>
