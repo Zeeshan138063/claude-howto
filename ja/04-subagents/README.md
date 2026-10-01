@@ -848,6 +848,8 @@ graph TB
     Main -->|synthesizes| User
 ```
 
+![Subagent architecture: the user asks the main agent, which delegates to code reviewer, test engineer, and documentation subagents and synthesizes their results](../../resources/diagrams/subagents-architecture.png)
+
 ### サブエージェントのライフサイクル
 
 ```mermaid
