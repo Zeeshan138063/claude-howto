@@ -839,6 +839,8 @@ graph LR
     style C fill:#f3e5f5,stroke:#333,color:#333
 ```
 
+![MCP with code execution: the model writes code that runs in an execution environment; that code calls MCP tools directly, the data stays in the environment, and only the final result, using few tokens, returns to the model](../../resources/diagrams/mcp-code-execution.png)
+
 #### 仕組み
 
 MCP ツールは型付き関数のファイルツリーとして提示される。
