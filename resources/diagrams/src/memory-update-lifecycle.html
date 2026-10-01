@@ -1,0 +1,84 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>memory-update-lifecycle</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "memory-update-lifecycle",
+  "block": 10,
+  "alt": "Memory update lifecycle: the user asks Claude Code to remember a rule, picks project memory, and Claude writes it to ./CLAUDE.md and reloads memory",
+  "eyebrow": "Memory · Updates",
+  "title": "Saving a [[memory]]",
+  "sub": "From \"remember this\" to an updated CLAUDE.md.",
+  "layout": "sequence",
+  "participants": [
+    {
+      "id": "user",
+      "icon": "user",
+      "title": "User"
+    },
+    {
+      "id": "claude",
+      "icon": "cpu",
+      "title": "Claude Code",
+      "accent": true
+    },
+    {
+      "id": "fs",
+      "icon": "folder",
+      "title": "File System"
+    },
+    {
+      "id": "mem",
+      "icon": "file",
+      "title": "CLAUDE.md"
+    }
+  ],
+  "steps": [
+    {
+      "from": "user",
+      "to": "claude",
+      "label": "\"Remember: use async/await\""
+    },
+    {
+      "from": "claude",
+      "to": "user",
+      "label": "\"Which memory file?\""
+    },
+    {
+      "from": "user",
+      "to": "claude",
+      "label": "\"Project memory\""
+    },
+    {
+      "from": "claude",
+      "to": "fs",
+      "label": "Open ~/.claude/settings.json"
+    },
+    {
+      "from": "claude",
+      "to": "mem",
+      "label": "Write to ./CLAUDE.md"
+    },
+    {
+      "from": "mem",
+      "to": "claude",
+      "label": "File saved",
+      "dashed": true
+    },
+    {
+      "from": "claude",
+      "to": "claude",
+      "label": "Load updated memory"
+    },
+    {
+      "from": "claude",
+      "to": "user",
+      "label": "\"Memory saved!\"",
+      "dashed": true
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

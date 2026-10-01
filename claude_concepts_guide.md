@@ -335,6 +335,8 @@ sequenceDiagram
     Claude-->>User: "Memory saved!"
 ```
 
+![Memory update lifecycle: the user asks Claude Code to remember a rule, picks project memory, and Claude writes it to ./CLAUDE.md and reloads memory](resources/diagrams/memory-update-lifecycle.png)
+
 ### Practical Examples
 
 Copy-paste memory templates live in **[02-memory/](02-memory/)**:
