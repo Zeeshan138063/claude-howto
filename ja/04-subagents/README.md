@@ -1267,6 +1267,8 @@ graph TD
     Subagents -->|Isolated| Context["Clean Context<br/>Window"]
 ```
 
+![How subagents fit with other features: the main agent uses memory, queries MCP, invokes skills, and delegates to subagents; subagents also use memory and MCP but work in their own clean context window](../../resources/diagrams/subagents-integration.png)
+
 ---
 
 ## 追加リソース
