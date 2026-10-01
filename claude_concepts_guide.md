@@ -61,6 +61,8 @@ graph LR
     E -->|contains| G["generate-readme.md"]
 ```
 
+![Slash command file structure: the project root contains .claude/commands/, which holds command files and a docs/ subfolder of namespaced commands](resources/diagrams/slash-commands-file-structure.png)
+
 ### Command Organization Table
 
 | Location | Scope | Availability | Use Case | Git Tracked |

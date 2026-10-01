@@ -1,0 +1,112 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>slash-commands-file-structure</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "slash-commands-file-structure",
+  "block": 2,
+  "alt": "Slash command file structure: the project root contains .claude/commands/, which holds command files and a docs/ subfolder of namespaced commands",
+  "eyebrow": "Slash Commands · File Structure",
+  "title": "Where [[commands]] live",
+  "sub": "Every Markdown file in .claude/commands/ becomes a slash command.",
+  "layout": "graph",
+  "colgap": 130,
+  "cardMax": 300,
+  "columns": [
+    {
+      "label": "Project",
+      "nodes": [
+        {
+          "id": "root",
+          "icon": "home",
+          "title": "Project Root",
+          "chip": "my-project/"
+        }
+      ]
+    },
+    {
+      "label": "Commands folder",
+      "nodes": [
+        {
+          "id": "cmds",
+          "icon": "folder",
+          "title": "Commands",
+          "chip": ".claude/commands/"
+        }
+      ]
+    },
+    {
+      "label": "Files",
+      "nodes": [
+        {
+          "id": "opt",
+          "icon": "file",
+          "title": "optimize.md",
+          "chip": "/optimize"
+        },
+        {
+          "id": "test",
+          "icon": "file",
+          "title": "test.md",
+          "chip": "/test"
+        },
+        {
+          "id": "docs",
+          "icon": "folder",
+          "title": "docs/",
+          "chip": "subfolder"
+        }
+      ]
+    },
+    {
+      "label": "Namespaced",
+      "nodes": [
+        {
+          "id": "api",
+          "icon": "file",
+          "title": "generate-api-docs.md",
+          "chip": "/generate-api-docs"
+        },
+        {
+          "id": "readme",
+          "icon": "file",
+          "title": "generate-readme.md",
+          "chip": "/generate-readme",
+          "accent": true
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "root",
+      "to": "cmds",
+      "label": "contains"
+    },
+    {
+      "from": "cmds",
+      "to": "opt"
+    },
+    {
+      "from": "cmds",
+      "to": "test"
+    },
+    {
+      "from": "cmds",
+      "to": "docs"
+    },
+    {
+      "from": "docs",
+      "to": "api"
+    },
+    {
+      "from": "docs",
+      "to": "readme"
+    }
+  ],
+  "footer": "<b>Project</b> <code>.claude/commands/</code> &nbsp;·&nbsp; <b>Personal</b> <code>~/.claude/commands/</code>"
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>
