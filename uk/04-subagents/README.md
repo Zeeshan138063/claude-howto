@@ -527,6 +527,8 @@ graph TB
     style Return fill:#fff3e0,stroke:#333,color:#333
 ```
 
+![Subagent worktree isolation: the main working tree spawns a subagent in its own git worktree and branch; if it makes no changes the worktree is cleaned up automatically, otherwise its path and branch are returned](../../resources/diagrams/subagent-worktree-isolation.png)
+
 - Субагент працює у власному git worktree на окремій гілці
 - Якщо субагент не вносить змін, worktree автоматично очищується
 - Якщо зміни є, шлях до worktree та назва гілки повертаються головному агенту для огляду або мерджу

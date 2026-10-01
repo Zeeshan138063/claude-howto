@@ -572,6 +572,8 @@ graph TB
     style Return fill:#fff3e0,stroke:#333,color:#333
 ```
 
+![Subagent worktree isolation: the main working tree spawns a subagent in its own git worktree and branch; if it makes no changes the worktree is cleaned up automatically, otherwise its path and branch are returned](../../resources/diagrams/subagent-worktree-isolation.png)
+
 - サブエージェントは独立したブランチ上の独自の git ワークツリーで動作する
 - サブエージェントが変更を加えなかった場合、ワークツリーは自動的にクリーンアップされる
 - 変更がある場合、ワークツリーのパスとブランチ名がメインエージェントに返され、レビューやマージが可能になる

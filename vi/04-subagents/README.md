@@ -522,6 +522,8 @@ graph TB
     style Return fill:#fff3e0,stroke:#333,color:#333
 ```
 
+![Subagent worktree isolation: the main working tree spawns a subagent in its own git worktree and branch; if it makes no changes the worktree is cleaned up automatically, otherwise its path and branch are returned](../../resources/diagrams/subagent-worktree-isolation.png)
+
 - Tác nhân con hoạt động trong git worktree của nó trên một nhánh riêng
 - Nếu tác nhân con không thực hiện thay đổi, worktree được tự động dọn dẹp
 - Nếu có thay đổi, đường dẫn worktree và tên nhánh được trả về cho tác nhân chính để xem xét hoặc hợp nhất
