@@ -1,0 +1,95 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>skills-architecture</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "skills-architecture",
+  "block": 17,
+  "alt": "Skill architecture: a skill directory contains SKILL.md, which holds YAML metadata and instructions, plus optional scripts and templates",
+  "eyebrow": "Skills · Architecture",
+  "title": "Inside a [[skill]]",
+  "sub": "A folder with SKILL.md at its core, plus any scripts and templates it needs.",
+  "layout": "graph",
+  "colgap": 170,
+  "cardMax": 330,
+  "columns": [
+    {
+      "label": "Folder",
+      "nodes": [
+        {
+          "id": "dir",
+          "icon": "folder",
+          "title": "Skill Directory",
+          "chip": "my-skill/"
+        }
+      ]
+    },
+    {
+      "label": "Contains",
+      "nodes": [
+        {
+          "id": "skill",
+          "icon": "file",
+          "title": "SKILL.md",
+          "chip": "required",
+          "accent": true
+        },
+        {
+          "id": "scripts",
+          "icon": "code",
+          "title": "Scripts",
+          "chip": "optional"
+        },
+        {
+          "id": "tpl",
+          "icon": "layers",
+          "title": "Templates",
+          "chip": "optional"
+        }
+      ]
+    },
+    {
+      "label": "SKILL.md holds",
+      "nodes": [
+        {
+          "id": "yaml",
+          "icon": "list",
+          "title": "YAML Metadata",
+          "chip": "name · description"
+        },
+        {
+          "id": "instr",
+          "icon": "book",
+          "title": "Instructions",
+          "chip": "Markdown body"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "dir",
+      "to": "skill"
+    },
+    {
+      "from": "dir",
+      "to": "scripts"
+    },
+    {
+      "from": "dir",
+      "to": "tpl"
+    },
+    {
+      "from": "skill",
+      "to": "yaml"
+    },
+    {
+      "from": "skill",
+      "to": "instr"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>
