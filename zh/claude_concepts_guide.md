@@ -1304,6 +1304,8 @@ graph TD
     G -->|是| H["Subagents"]
 ```
 
+![Selection decision tree: quick repeated tasks use a slash command or skill; external data uses MCP or memory; complex projects use subagents or skills with memory; long-term context uses memory; team workflows use slash commands with memory; full automation combines skills, subagents, and MCP](../resources/diagrams/selection-decision-tree.png)
+
 ---
 
 ## Summary Table
