@@ -504,6 +504,8 @@ graph LR
     style M fill:#f3e5f5,stroke:#333,color:#333
 ```
 
+![Subagent persistent memory: each subagent session writes to and loads from a shared MEMORY.md, so what one session learns carries over to the next](../../resources/diagrams/subagent-persistent-memory.png)
+
 ---
 
 ## バックグラウンドサブエージェント

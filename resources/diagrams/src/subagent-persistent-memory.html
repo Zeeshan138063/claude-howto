@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>subagent-persistent-memory</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "subagent-persistent-memory",
+  "alt": "Subagent persistent memory: each subagent session writes to and loads from a shared MEMORY.md, so what one session learns carries over to the next",
+  "eyebrow": "Subagents · Persistent Memory",
+  "title": "Subagents that [[remember]]",
+  "sub": "A shared MEMORY.md carries what each session learned into the next one.",
+  "layout": "graph",
+  "colgap": 170,
+  "cardMax": 320,
+  "rowgap": 60,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "a",
+          "icon": "cpu",
+          "num": "1",
+          "title": "Subagent Session 1"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "m",
+          "icon": "database",
+          "title": "MEMORY.md",
+          "chip": "persistent",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "b",
+          "icon": "cpu",
+          "num": "2",
+          "title": "Subagent Session 2"
+        },
+        {
+          "id": "c",
+          "icon": "cpu",
+          "num": "3",
+          "title": "Subagent Session 3"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "a",
+      "to": "m",
+      "label": "writes"
+    },
+    {
+      "from": "m",
+      "to": "b",
+      "label": "loads into"
+    },
+    {
+      "from": "m",
+      "to": "c",
+      "label": "loads into"
+    }
+  ],
+  "footer": "Each session also <b>updates</b> MEMORY.md, so later sessions start with more."
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>
