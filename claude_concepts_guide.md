@@ -724,6 +724,8 @@ sequenceDiagram
     Tools-->>Claude: Plugin installed ✅
 ```
 
+![Plugin loading process: /plugin install pr-review downloads the manifest from the marketplace, extracts components, configures commands, subagents, MCP servers, and hooks, and reports the plugin installed](resources/diagrams/plugins-loading.png)
+
 ### Plugin Types & Distribution
 
 | Type | Scope | Shared | Authority | Examples |
