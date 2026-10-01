@@ -1,0 +1,175 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>customer-support-architecture</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "customer-support-architecture",
+  "block": 28,
+  "alt": "Customer support automation: a support router checks memory and MCP lookups, routes the email to a tech support, billing, or escalation subagent, formats a reply with a response generator skill, then notifies Slack and replies to the customer",
+  "eyebrow": "Integration · Example",
+  "title": "Automating [[customer support]]",
+  "sub": "Memory, MCP, subagents, and skills working on one email.",
+  "layout": "graph",
+  "colgap": 120,
+  "cardMax": 270,
+  "rowgap": 30,
+  "dense": true,
+  "columns": [
+    {
+      "label": "Inbound",
+      "nodes": [
+        {
+          "id": "mail",
+          "icon": "mail",
+          "title": "Customer Email"
+        }
+      ]
+    },
+    {
+      "label": "Router",
+      "nodes": [
+        {
+          "id": "mem",
+          "icon": "database",
+          "title": "Memory",
+          "chip": "history"
+        },
+        {
+          "id": "router",
+          "icon": "shuffle",
+          "title": "Support Router"
+        },
+        {
+          "id": "look",
+          "icon": "server",
+          "title": "MCP Lookups",
+          "chip": "DB · Slack"
+        }
+      ]
+    },
+    {
+      "label": "Subagents",
+      "nodes": [
+        {
+          "id": "tech",
+          "icon": "tool",
+          "title": "Tech Support",
+          "chip": "technical"
+        },
+        {
+          "id": "bill",
+          "icon": "briefcase",
+          "title": "Billing",
+          "chip": "payments"
+        },
+        {
+          "id": "esc",
+          "icon": "bell",
+          "title": "Escalation",
+          "chip": "priority"
+        }
+      ]
+    },
+    {
+      "label": "Skill",
+      "nodes": [
+        {
+          "id": "skill",
+          "icon": "star",
+          "title": "Response Generator",
+          "chip": "brand voice"
+        }
+      ]
+    },
+    {
+      "label": "Output",
+      "nodes": [
+        {
+          "id": "out",
+          "icon": "file",
+          "title": "Formatted Response"
+        }
+      ]
+    },
+    {
+      "label": "Delivery",
+      "nodes": [
+        {
+          "id": "slack",
+          "icon": "message",
+          "title": "MCP: Slack",
+          "chip": "notify team"
+        },
+        {
+          "id": "reply",
+          "icon": "send",
+          "title": "Customer Reply",
+          "accent": true
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "mail",
+      "to": "router",
+      "label": "receives"
+    },
+    {
+      "from": "router",
+      "to": "mem",
+      "label": "analyze"
+    },
+    {
+      "from": "router",
+      "to": "look",
+      "label": "lookup"
+    },
+    {
+      "from": "router",
+      "to": "tech",
+      "label": "complex"
+    },
+    {
+      "from": "router",
+      "to": "bill",
+      "label": "simple"
+    },
+    {
+      "from": "router",
+      "to": "esc",
+      "label": "urgent"
+    },
+    {
+      "from": "tech",
+      "to": "skill"
+    },
+    {
+      "from": "bill",
+      "to": "skill",
+      "label": "format"
+    },
+    {
+      "from": "esc",
+      "to": "skill"
+    },
+    {
+      "from": "skill",
+      "to": "out"
+    },
+    {
+      "from": "out",
+      "to": "slack",
+      "label": "post"
+    },
+    {
+      "from": "out",
+      "to": "reply",
+      "label": "send"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>
