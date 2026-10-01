@@ -808,6 +808,8 @@ graph TD
     C -->|是/经常| D["使用 MCP"]
 ```
 
+![MCP versus memory decision: if you do not need external data, or it rarely changes, use memory for preferences, context, and history; if it changes often, use MCP for live APIs, databases, and services](../resources/diagrams/mcp-vs-memory.png)
+
 ### 请求 / 响应模式
 
 ```mermaid

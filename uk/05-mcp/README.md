@@ -587,6 +587,8 @@ graph TD
     style F fill:#e8f5e9,stroke:#333,color:#333
 ```
 
+![MCP versus memory decision: if you do not need external data, or it rarely changes, use memory for preferences, context, and history; if it changes often, use MCP for live APIs, databases, and services](../../resources/diagrams/mcp-vs-memory.png)
+
 ## Патерн запит/відповідь
 
 ```mermaid
