@@ -1,0 +1,137 @@
+/* Shared tokens and components for generated diagrams. See ../DIAGRAM-DESIGN-SYSTEM.md */
+:root {
+  --bg: #0A0A0A;
+  --card-top: #161616;
+  --card-bottom: #101010;
+  --border: #262626;
+  --chip-bg: #0A0A0A;
+  --chip-border: #2A2A2A;
+  --text: #FFFFFF;
+  --text-chip: #E5E7EB;
+  --text-muted: #9CA3AF;
+  --text-faint: #6B7280;
+  --text-dim: #4B5563;
+  --accent: #22C55E;
+  --accent-soft: rgba(34, 197, 94, .10);
+  --accent-line: rgba(34, 197, 94, .35);
+  --mono: 'JetBrains Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width: 1800px; background: var(--bg); font-family: Inter, sans-serif; color: var(--text); }
+
+.wrap {
+  position: relative; padding: 64px 72px 64px; overflow: hidden;
+  background:
+    radial-gradient(900px 420px at 15% 0%, rgba(34, 197, 94, .16), transparent 60%),
+    radial-gradient(700px 400px at 100% 100%, rgba(34, 197, 94, .10), transparent 60%),
+    var(--bg);
+}
+.wrap:before {
+  content: ""; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse at center, #000 40%, transparent 85%);
+}
+
+header { position: relative; margin-bottom: 48px; }
+.eyebrow {
+  font: 600 15px var(--mono); color: var(--accent); letter-spacing: 3px; text-transform: uppercase;
+  margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
+}
+.eyebrow i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+h1 { font-size: 48px; font-weight: 800; letter-spacing: -1.2px; }
+h1 span { color: var(--accent); }
+.sub { margin-top: 12px; font-size: 20px; color: var(--text-muted); }
+
+.stage { position: relative; }
+
+footer {
+  position: relative; margin-top: 44px; display: flex; justify-content: space-between; align-items: center;
+  color: var(--text-faint); font-size: 15px;
+}
+footer b { color: #D1D5DB; font-weight: 600; }
+footer code { font: 500 14px var(--mono); color: #D1D5DB; }
+.brand { font: 600 14px var(--mono); color: var(--text-faint); }
+.brand span { color: var(--accent); }
+
+/* Node card */
+.node {
+  position: relative; z-index: 2;
+  background: linear-gradient(180deg, var(--card-top), var(--card-bottom));
+  border: 1px solid var(--border); border-radius: 16px; padding: 16px 18px;
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, .8), inset 0 1px 0 rgba(255, 255, 255, .05);
+}
+.node .row { display: flex; align-items: center; gap: 14px; }
+.node .txt { min-width: 0; }
+.icon {
+  flex: 0 0 44px; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
+  background: var(--accent-soft); border: 1px solid var(--accent-line);
+}
+.icon svg {
+  width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 2;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.node h3 { font-size: 18px; font-weight: 700; letter-spacing: -.2px; line-height: 1.25; }
+.chip {
+  display: inline-block; margin-top: 7px; font: 500 13px var(--mono); color: var(--text-chip);
+  background: var(--chip-bg); border: 1px solid var(--chip-border); border-radius: 7px; padding: 4px 8px;
+  overflow-wrap: anywhere;
+}
+.node .desc { font-size: 14.5px; color: var(--text-muted); line-height: 1.45; margin-top: 10px; }
+.node .num { position: absolute; top: 10px; right: 14px; font: 600 12.5px var(--mono); color: var(--text-dim); }
+.node.accent {
+  border-color: rgba(34, 197, 94, .75);
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, .10), 0 0 44px -10px rgba(34, 197, 94, .45);
+}
+.node.q { border: 1.5px dashed rgba(34, 197, 94, .6); }
+.node.spacer { visibility: hidden; }
+.dense .node { padding: 14px 14px; }
+.dense .node .row { gap: 10px; }
+.dense .icon { flex-basis: 38px; width: 38px; height: 38px; border-radius: 10px; }
+.dense .icon svg { width: 19px; height: 19px; }
+.dense .node h3 { font-size: 16.5px; }
+.dense .chip { font-size: 12px; }
+
+/* Graph layout */
+.heads, .graph { display: flex; justify-content: center; gap: var(--colgap, 120px); }
+.heads { margin-bottom: 14px; }
+.col, .colhead { flex: 1 1 0; max-width: var(--cardmax, 320px); }
+.col { display: flex; flex-direction: column; justify-content: center; gap: var(--rowgap, 18px); }
+.colhead {
+  text-align: center; font: 600 12.5px var(--mono); color: var(--text-faint);
+  letter-spacing: 2px; text-transform: uppercase;
+}
+.graph { position: relative; }
+.edges { position: absolute; left: 0; top: 0; pointer-events: none; z-index: 1; overflow: visible; }
+.elabel {
+  position: absolute; z-index: 3; transform: translate(-50%, -50%);
+  font: 600 12px var(--mono); color: var(--accent); letter-spacing: 1px; text-transform: uppercase;
+  background: var(--bg); border: 1px solid var(--accent-line); border-radius: 999px; padding: 3px 9px;
+  white-space: nowrap;
+}
+.elabel.side { transform: translate(0, -50%); }
+.elabel.muted { color: var(--text-muted); border-color: var(--chip-border); }
+
+/* Sequence layout */
+.seq { position: relative; }
+.seq .node.ph { position: absolute; top: 0; transform: translateX(-50%); padding: 14px 14px; }
+.seq .node.ph .row { gap: 10px; }
+.seq .node.ph .icon { flex-basis: 38px; width: 38px; height: 38px; border-radius: 10px; }
+.seq .node.ph .icon svg { width: 19px; height: 19px; }
+.seq .node.ph h3 { font-size: 16.5px; }
+.mlabel {
+  position: absolute; z-index: 3; transform: translate(-50%, -100%);
+  font: 500 15px Inter, sans-serif; color: var(--text-chip); background: var(--bg);
+  padding: 1px 8px; border-radius: 6px; white-space: nowrap;
+}
+.mlabel.ret { color: var(--text-muted); }
+.mlabel.self { transform: translate(0, -50%); }
+.stepn { position: absolute; transform: translateY(-50%); font: 600 13px var(--mono); color: var(--text-dim); }
+.note {
+  position: absolute; z-index: 3; transform: translate(-50%, -50%); text-align: center;
+  border: 1.5px dashed rgba(34, 197, 94, .6); background: #0d1a12; color: var(--accent);
+  font: 600 13px var(--mono); letter-spacing: .5px; padding: 8px 16px; border-radius: 10px;
+}

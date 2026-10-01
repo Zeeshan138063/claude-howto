@@ -98,29 +98,49 @@ taking over the page.
 
 ## Workflow: Adding a New Diagram
 
-1. **Copy the template.** Duplicate the closest file in [`src/`](src/), for example
-   `src/slash-commands-architecture.html` → `src/<topic>-<diagram>.html` (kebab-case).
-2. **Edit the content only.** Change the eyebrow, title, subtitle, cards, labels, and footer.
-   Leave the `<style>` block as is; if a token has to change, change it here and in every source.
-3. **Render it:**
+Most diagrams are **generated from a spec**, so they can't drift from the design system. Hand-build
+a page only for a one-off layout the generator can't express (like the slash command banner).
+
+### Generated diagrams (preferred)
+
+1. **Add a spec** to [`specs.cjs`](specs.cjs). Pick a layout:
+   - `graph`: columns of cards joined by curved connectors. Use it for flows, trees, hubs, and
+     decisions. Set `columns` (each with optional `label` and its `nodes`) and `edges`
+     (`from`, `to`, optional `label`, `dashed: true` for returns).
+   - `sequence`: participant headers, lifelines, and numbered messages. Set `participants` and
+     `steps` (`from`, `to`, `label`, `dashed`), or a `note` with `over: [id, id]`.
+2. **Node options:** `icon` (a name from `lib/diagram.js`), `title`, `chip`, `desc`, `num`,
+   `accent: true` for the single focus node, `q: true` for a decision question, and
+   `spacer: true` for an invisible placeholder that keeps a connector clear of other cards.
+3. **Tune spacing** with `colgap`, `cardMax`, `rowgap`, and `dense: true` for 6+ columns. Keep
+   connector labels to one or two words so they fit in the gap.
+4. **Build it:**
 
    ```bash
-   node resources/diagrams/render.cjs \
-     resources/diagrams/src/<name>.html \
-     resources/diagrams/<name>.png
+   node resources/diagrams/build.cjs <name>      # one diagram
+   node resources/diagrams/build.cjs             # all of them
    ```
 
-   The script needs Puppeteer. If it's missing, run `npx -y puppeteer browsers install chrome`
-   once.
-4. **Check the PNG** for clipped cards, wrapped headings, and labels touching cards. Then view
-   it at the doc's normal width and confirm the headings and code chips are readable.
-5. **Embed it** right below the matching Mermaid block:
+   This writes `src/<name>.html` and renders `<name>.png`.
 
-   ```markdown
-   ![<What the diagram shows, as one sentence>](resources/diagrams/<name>.png)
-   ```
+### Hand-built diagrams
 
-6. **Commit the source and the PNG together**, so the image can always be re-rendered.
+1. Copy the closest file in [`src/`](src/) and edit the content only, keeping its `<style>` block.
+2. Render it with `node resources/diagrams/render.cjs src/<name>.html <name>.png`.
+
+### Both
+
+- The scripts need Puppeteer. If it's missing, run `npx -y puppeteer browsers install chrome`
+  once.
+- **Check the PNG** for clipped cards, wrapped headings, and labels touching cards or crossing
+  connectors, and confirm the text is readable at the doc's normal width.
+- **Embed it** right below the matching Mermaid block, keeping the Mermaid block:
+
+  ```markdown
+  ![<What the diagram shows, as one sentence>](resources/diagrams/<name>.png)
+  ```
+
+- **Commit the source and the PNG together**, so the image can always be re-rendered.
 
 ---
 
@@ -130,5 +150,9 @@ taking over the page.
 |------|---------|
 | `DIAGRAM-DESIGN-SYSTEM.md` | This spec |
 | `render.cjs` | Renders an HTML source to a 2× PNG (viewport matches the source's body width) |
-| `src/*.html` | Editable source for each diagram (also serve as templates) |
+| `build.cjs` | Generates `src/<name>.html` from a spec and renders it |
+| `specs.cjs` | Specs for every generated diagram |
+| `lib/theme.css` | Shared tokens and components (cards, chips, connectors, labels) |
+| `lib/diagram.js` | Builds the `graph` and `sequence` layouts and the icon set |
+| `src/*.html` | Source page for each diagram (generated, or hand-built) |
 | `*.png` | Rendered images referenced from the docs |
