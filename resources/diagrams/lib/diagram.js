@@ -225,10 +225,16 @@
           ly = (y1 + y2) / 2;
           side = true;
         } else {
+          // Long backward edge: run along a lane under the cards. If another card sits below the
+          // target, enter from the target's left so the line doesn't cross that card.
           const y = cardBottom + 30 + lane * 30;
+          const blocked = S.columns[cb].nodes.some((n) => n.id && n.id !== e.to && R(n.id).t > b.b);
+          const gx = b.l - 24 - lane * 10;
           lane += 1;
-          d = `M${a.cx} ${a.b} V${y} H${b.cx} V${b.b}`;
-          lx = (a.cx + b.cx) / 2;
+          d = blocked
+            ? `M${a.cx} ${a.b} V${y} H${gx} V${b.cy} H${b.l}`
+            : `M${a.cx} ${a.b} V${y} H${b.cx} V${b.b}`;
+          lx = blocked ? (a.cx + gx) / 2 : (a.cx + b.cx) / 2;
           ly = y;
         }
         svg.append(svgEl('path', { d, fill: 'none', ...stroke(e.dashed) }));
