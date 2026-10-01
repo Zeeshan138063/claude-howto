@@ -1,0 +1,107 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>mcp-vs-memory</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "mcp-vs-memory",
+  "block": 15,
+  "alt": "MCP versus memory decision: if you do not need external data, or it rarely changes, use memory for preferences, context, and history; if it changes often, use MCP for live APIs, databases, and services",
+  "eyebrow": "MCP vs Memory · Decision",
+  "title": "Memory or [[MCP]]?",
+  "sub": "Two questions decide it: is the data external, and does it change often?",
+  "layout": "graph",
+  "colgap": 150,
+  "cardMax": 320,
+  "rowgap": 40,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "q1",
+          "q": true,
+          "title": "Need external data?"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "sp",
+          "spacer": true,
+          "title": "x",
+          "chip": "x"
+        },
+        {
+          "id": "q2",
+          "q": true,
+          "title": "Changes frequently?"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "mem",
+          "icon": "database",
+          "title": "Use Memory"
+        },
+        {
+          "id": "mcp",
+          "icon": "server",
+          "title": "Use MCP",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "stores",
+          "icon": "layers",
+          "title": "Stores",
+          "desc": "Preferences · Context · History"
+        },
+        {
+          "id": "access",
+          "icon": "globe",
+          "title": "Accesses",
+          "desc": "Live APIs · Databases · Services"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "q1",
+      "to": "mem",
+      "label": "no"
+    },
+    {
+      "from": "q1",
+      "to": "q2",
+      "label": "yes"
+    },
+    {
+      "from": "q2",
+      "to": "mem",
+      "label": "rarely"
+    },
+    {
+      "from": "q2",
+      "to": "mcp",
+      "label": "often"
+    },
+    {
+      "from": "mem",
+      "to": "stores"
+    },
+    {
+      "from": "mcp",
+      "to": "access"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

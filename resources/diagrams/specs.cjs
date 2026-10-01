@@ -418,8 +418,8 @@ module.exports = [
       },
       {
         nodes: [
-          { id: 'stores', icon: 'layers', title: 'Stores', chip: 'preferences · context · history' },
-          { id: 'access', icon: 'globe', title: 'Accesses', chip: 'live APIs · databases · services' },
+          { id: 'stores', icon: 'layers', title: 'Stores', desc: 'Preferences · Context · History' },
+          { id: 'access', icon: 'globe', title: 'Accesses', desc: 'Live APIs · Databases · Services' },
         ],
       },
     ],
