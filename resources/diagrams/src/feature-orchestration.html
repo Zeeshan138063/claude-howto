@@ -1,0 +1,129 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>feature-orchestration</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "feature-orchestration",
+  "block": 29,
+  "alt": "Complete feature orchestration: to build an auth system, Claude Code loads standards from memory, queries GitHub over MCP, detects security and testing skills, delegates implementation and testing to subagents, and delivers the result",
+  "eyebrow": "Integration · Orchestration",
+  "title": "Every feature, [[one request]]",
+  "sub": "How memory, MCP, skills, and subagents combine to build an auth system.",
+  "layout": "sequence",
+  "rowH": 50,
+  "participants": [
+    {
+      "id": "user",
+      "icon": "user",
+      "title": "User"
+    },
+    {
+      "id": "claude",
+      "icon": "cpu",
+      "title": "Claude Code",
+      "accent": true
+    },
+    {
+      "id": "mem",
+      "icon": "database",
+      "title": "Memory",
+      "chip": "CLAUDE.md"
+    },
+    {
+      "id": "mcp",
+      "icon": "server",
+      "title": "MCP Servers"
+    },
+    {
+      "id": "skills",
+      "icon": "star",
+      "title": "Skills"
+    },
+    {
+      "id": "sub",
+      "icon": "users",
+      "title": "Subagents"
+    }
+  ],
+  "steps": [
+    {
+      "from": "user",
+      "to": "claude",
+      "label": "\"Build auth system\""
+    },
+    {
+      "from": "claude",
+      "to": "mem",
+      "label": "Load project standards"
+    },
+    {
+      "from": "mem",
+      "to": "claude",
+      "label": "Auth standards, team practices",
+      "dashed": true
+    },
+    {
+      "from": "claude",
+      "to": "mcp",
+      "label": "Query GitHub for similar implementations"
+    },
+    {
+      "from": "mcp",
+      "to": "claude",
+      "label": "Code examples, best practices",
+      "dashed": true
+    },
+    {
+      "from": "claude",
+      "to": "skills",
+      "label": "Detect matching skills"
+    },
+    {
+      "from": "skills",
+      "to": "claude",
+      "label": "Security Review + Testing skills",
+      "dashed": true
+    },
+    {
+      "from": "claude",
+      "to": "sub",
+      "label": "Delegate implementation"
+    },
+    {
+      "from": "sub",
+      "to": "sub",
+      "label": "Build feature"
+    },
+    {
+      "from": "claude",
+      "to": "skills",
+      "label": "Apply Security Review skill"
+    },
+    {
+      "from": "skills",
+      "to": "claude",
+      "label": "Security checklist results",
+      "dashed": true
+    },
+    {
+      "from": "claude",
+      "to": "sub",
+      "label": "Delegate testing"
+    },
+    {
+      "from": "sub",
+      "to": "claude",
+      "label": "Test results",
+      "dashed": true
+    },
+    {
+      "from": "claude",
+      "to": "user",
+      "label": "Complete system delivered"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

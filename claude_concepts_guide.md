@@ -1089,6 +1089,8 @@ sequenceDiagram
     Claude->>User: Complete system delivered
 ```
 
+![Complete feature orchestration: to build an auth system, Claude Code loads standards from memory, queries GitHub over MCP, detects security and testing skills, delegates implementation and testing to subagents, and delivers the result](resources/diagrams/feature-orchestration.png)
+
 ### When to Use Each Feature
 
 ```mermaid
