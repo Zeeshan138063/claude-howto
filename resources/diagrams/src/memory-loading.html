@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>memory-loading</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "memory-loading",
+  "alt": "How memory loads: at session start Claude Code loads your CLAUDE.md files in full and the auto memory index MEMORY.md; during the session, corrections are written to auto memory and \"add this to CLAUDE.md\" updates your files",
+  "eyebrow": "Memory · Two Kinds",
+  "title": "What you write, [[what Claude writes]]",
+  "sub": "CLAUDE.md files and auto memory both load at the start of every session.",
+  "layout": "graph",
+  "colgap": 150,
+  "cardMax": 320,
+  "rowgap": 40,
+  "columns": [
+    {
+      "label": "Memory",
+      "nodes": [
+        {
+          "id": "b",
+          "icon": "file",
+          "title": "CLAUDE.md Files",
+          "chip": "you write"
+        },
+        {
+          "id": "c",
+          "icon": "zap",
+          "title": "Auto Memory",
+          "chip": "Claude writes"
+        }
+      ]
+    },
+    {
+      "label": "Start",
+      "nodes": [
+        {
+          "id": "a",
+          "icon": "power",
+          "title": "Session Start"
+        }
+      ]
+    },
+    {
+      "label": "Session",
+      "nodes": [
+        {
+          "id": "d",
+          "icon": "message",
+          "title": "Claude Session",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "label": "You",
+      "nodes": [
+        {
+          "id": "e",
+          "icon": "user",
+          "title": "Your Correction",
+          "chip": "or preference"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "b",
+      "to": "a",
+      "label": "loaded in full"
+    },
+    {
+      "from": "c",
+      "to": "a",
+      "label": "MEMORY.md loaded"
+    },
+    {
+      "from": "a",
+      "to": "d"
+    },
+    {
+      "from": "d",
+      "to": "e",
+      "label": "remember that…"
+    },
+    {
+      "from": "e",
+      "to": "c",
+      "label": "written during session",
+      "dashed": true
+    },
+    {
+      "from": "d",
+      "to": "b",
+      "label": "add this to CLAUDE.md",
+      "dashed": true
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

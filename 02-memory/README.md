@@ -209,6 +209,8 @@ graph TB
     D -->|"add this to CLAUDE.md"| B
 ```
 
+![How memory loads: at session start Claude Code loads your CLAUDE.md files in full and the auto memory index MEMORY.md; during the session, corrections are written to auto memory and "add this to CLAUDE.md" updates your files](../resources/diagrams/memory-loading.png)
+
 ## Memory Hierarchy in Claude Code
 
 Claude Code has two complementary memory systems, both loaded at the start of every conversation: **CLAUDE.md files** (instructions you write) and **auto memory** (notes Claude writes itself). CLAUDE.md files are **concatenated into context rather than overriding each other** — this is not a strict precedence chain where a higher tier replaces a lower one. `.claude/rules/*.md` files are a separate, related mechanism for topic- or path-scoped instructions.
