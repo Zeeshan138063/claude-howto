@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>style-guide-example</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "style-guide-example",
+  "alt": "Style guide example diagram: component A connects to component B, which connects to component C",
+  "eyebrow": "Style Guide · Mermaid Example",
+  "title": "A simple [[component flow]]",
+  "sub": "The example diagram from the style guide.",
+  "layout": "graph",
+  "colgap": 160,
+  "cardMax": 300,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "a",
+          "icon": "grid",
+          "title": "Component A"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "b",
+          "icon": "grid",
+          "title": "Component B"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "c",
+          "icon": "grid",
+          "title": "Component C",
+          "accent": true
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "a",
+      "to": "b"
+    },
+    {
+      "from": "b",
+      "to": "c"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>
