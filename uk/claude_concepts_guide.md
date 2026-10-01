@@ -2169,6 +2169,8 @@ graph TD
     I --> J["Return Results"]
 ```
 
+![Skill discovery: Claude scans available skills and checks each description; on a match it loads SKILL.md and executes the skill, otherwise it tries the next skill or falls back to general knowledge](../resources/diagrams/skills-discovery.png)
+
 ### Навички проти інших функцій
 
 ```mermaid
