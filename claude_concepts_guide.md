@@ -360,6 +360,8 @@ graph LR
     E -->|24 hours later| F["Memory Refreshed"]
 ```
 
+![Memory synthesis timeline in Claude web and desktop: day 1 conversations are synthesized after 24 hours, loaded into new conversations, and refreshed again 24 hours later](resources/diagrams/memory-synthesis-timeline.png)
+
 ### Auto Memory Contents
 
 Auto memory stores what Claude learns about you across sessions in `~/.claude/projects/<project>/memory/`, indexed by `MEMORY.md`. See **[02-memory/README.md](02-memory/README.md)** for the file layout, loading limits, and how to enable or disable it.

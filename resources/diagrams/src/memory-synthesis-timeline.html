@@ -1,0 +1,111 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>memory-synthesis-timeline</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "memory-synthesis-timeline",
+  "block": 11,
+  "alt": "Memory synthesis timeline in Claude web and desktop: day 1 conversations are synthesized after 24 hours, loaded into new conversations, and refreshed again 24 hours later",
+  "eyebrow": "Memory · Web & Desktop",
+  "title": "The [[24-hour]] synthesis cycle",
+  "sub": "In Claude web and desktop, memory is summarized automatically each day.",
+  "layout": "graph",
+  "colgap": 120,
+  "cardMax": 220,
+  "dense": true,
+  "vertical": true,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "a",
+          "icon": "message",
+          "title": "Conversations",
+          "chip": "Day 1"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "b",
+          "icon": "cpu",
+          "title": "Memory Synthesis",
+          "chip": "Day 2"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "c",
+          "icon": "database",
+          "title": "Memory Updated",
+          "chip": "summarized"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "d",
+          "icon": "message",
+          "title": "New Conversations",
+          "chip": "Day 2–N"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "e",
+          "icon": "layers",
+          "title": "Memory",
+          "chip": "grows"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "f",
+          "icon": "refresh",
+          "title": "Memory Refreshed",
+          "chip": "next cycle",
+          "accent": true
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "a",
+      "to": "b",
+      "label": "24 hours"
+    },
+    {
+      "from": "b",
+      "to": "c",
+      "label": "automatic"
+    },
+    {
+      "from": "c",
+      "to": "d",
+      "label": "loaded in"
+    },
+    {
+      "from": "d",
+      "to": "e",
+      "label": "add to"
+    },
+    {
+      "from": "e",
+      "to": "f",
+      "label": "24h later"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>
