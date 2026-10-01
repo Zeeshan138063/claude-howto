@@ -1238,6 +1238,8 @@ graph TB
     Router -->|简单问题| Sub2["Subagent: 计费支持"]
 ```
 
+![Customer support automation: a support router checks memory and MCP lookups, routes the email to a tech support, billing, or escalation subagent, formats a reply with a response generator skill, then notifies Slack and replies to the customer](../resources/diagrams/customer-support-architecture.png)
+
 #### 请求流
 
 ```markdown

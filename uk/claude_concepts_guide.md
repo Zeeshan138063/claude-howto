@@ -2683,6 +2683,8 @@ graph TB
     Output -->|Send| Reply["Customer Reply"]
 ```
 
+![Customer support automation: a support router checks memory and MCP lookups, routes the email to a tech support, billing, or escalation subagent, formats a reply with a response generator skill, then notifies Slack and replies to the customer](../resources/diagrams/customer-support-architecture.png)
+
 #### Потік запитів
 
 ```markdown
