@@ -32,6 +32,8 @@ graph TD
     style E fill:#2196F3,color:#fff
 ```
 
+![Self-assessment flow: choose an assessment mode, answer quiz questions, get per-topic scores, get a personalized learning path, then start learning or dive deeper](../../../resources/diagrams/self-assessment-flow.png)
+
 ## Assessment Modes
 
 ### Quick Assessment (~2 min)

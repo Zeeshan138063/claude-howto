@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>self-assessment-flow</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "self-assessment-flow",
+  "alt": "Self-assessment flow: choose an assessment mode, answer quiz questions, get per-topic scores, get a personalized learning path, then start learning or dive deeper",
+  "eyebrow": "Skill · /self-assessment",
+  "title": "Find your level, [[get a path]]",
+  "sub": "A quiz across all feature areas that ends in a personal learning plan.",
+  "layout": "graph",
+  "colgap": 80,
+  "cardMax": 270,
+  "dense": true,
+  "vertical": true,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "a",
+          "icon": "sliders",
+          "num": "01",
+          "title": "Choose mode",
+          "chip": "quick or deep"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "b",
+          "icon": "list",
+          "num": "02",
+          "title": "Answer quiz",
+          "chip": "questions"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "c",
+          "icon": "chart",
+          "num": "03",
+          "title": "Topic scores",
+          "chip": "per topic"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "d",
+          "icon": "target",
+          "num": "04",
+          "title": "Learning path",
+          "chip": "personalized"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "e",
+          "icon": "play",
+          "num": "05",
+          "title": "Start learning",
+          "chip": "or deep dive",
+          "accent": true
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "a",
+      "to": "b"
+    },
+    {
+      "from": "b",
+      "to": "c"
+    },
+    {
+      "from": "c",
+      "to": "d"
+    },
+    {
+      "from": "d",
+      "to": "e"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>
