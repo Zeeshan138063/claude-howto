@@ -553,6 +553,8 @@ sequenceDiagram
     Claude->>User: Generate Excel file
 ```
 
+![Skill loading process: for a request to create an Excel report, Claude scans skill metadata, matches the xlsx skill, loads its SKILL.md, executes it, and generates the file](resources/diagrams/skills-loading.png)
+
 ### Skill Types & Locations Table
 
 | Type | Location | Scope | Shared | Sync | Best For |

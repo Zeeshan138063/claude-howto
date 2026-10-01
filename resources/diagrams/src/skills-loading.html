@@ -1,0 +1,84 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>skills-loading</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "skills-loading",
+  "block": 18,
+  "alt": "Skill loading process: for a request to create an Excel report, Claude scans skill metadata, matches the xlsx skill, loads its SKILL.md, executes it, and generates the file",
+  "eyebrow": "Skills · Loading",
+  "title": "How a [[skill]] gets picked",
+  "sub": "Claude reads only metadata first, then loads the one skill it needs.",
+  "layout": "sequence",
+  "participants": [
+    {
+      "id": "user",
+      "icon": "user",
+      "title": "User"
+    },
+    {
+      "id": "claude",
+      "icon": "cpu",
+      "title": "Claude",
+      "accent": true
+    },
+    {
+      "id": "sys",
+      "icon": "grid",
+      "title": "System"
+    },
+    {
+      "id": "skill",
+      "icon": "zap",
+      "title": "Skill",
+      "chip": "xlsx"
+    }
+  ],
+  "steps": [
+    {
+      "from": "user",
+      "to": "claude",
+      "label": "\"Create Excel report\""
+    },
+    {
+      "from": "claude",
+      "to": "sys",
+      "label": "Scan available skills"
+    },
+    {
+      "from": "sys",
+      "to": "sys",
+      "label": "Load skill metadata"
+    },
+    {
+      "from": "claude",
+      "to": "claude",
+      "label": "Match request to skills"
+    },
+    {
+      "from": "claude",
+      "to": "skill",
+      "label": "Load xlsx skill SKILL.md"
+    },
+    {
+      "from": "skill",
+      "to": "claude",
+      "label": "Return instructions + tools",
+      "dashed": true
+    },
+    {
+      "from": "claude",
+      "to": "claude",
+      "label": "Execute skill"
+    },
+    {
+      "from": "claude",
+      "to": "user",
+      "label": "Generate Excel file"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>
