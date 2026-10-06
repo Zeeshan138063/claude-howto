@@ -56,6 +56,8 @@ graph TB
     B --> C
 ```
 
+![Skill progressive disclosure: level 1 metadata (name and description, about 100 tokens per skill) is always loaded; level 2 instructions (the SKILL.md body, under 5k tokens) load when the skill is triggered; level 3 resources (scripts, templates, docs) load only as needed](../../resources/diagrams/skills-progressive-disclosure.png)
+
 | レベル | ロードされるタイミング | トークンコスト | 内容 |
 |-------|------------|------------|---------|
 | **Level 1: メタデータ** | 常時（起動時） | スキルあたり約 100 トークン | YAML フロントマターの `name` と `description` |
@@ -86,6 +88,8 @@ sequenceDiagram
     Claude->>Claude: Execute skill instructions
     Claude->>User: Comprehensive code review
 ```
+
+![Skill loading in practice: for a security review request, Claude matches the request against skill descriptions loaded at startup, reads the code-review-specialist SKILL.md, then reads a checklist template only when it needs it, and returns the review](../../resources/diagrams/skills-progressive-loading.png)
 
 ## スキルの種類と配置場所
 

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>learning-path</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "learning-path",
+  "doc": "ja/LEARNING-ROADMAP.md",
+  "block": 1,
+  "alt": "Learning path: take the self-assessment quiz to find your level, then work through milestones A and B at each level, moving up from Level 1 to Level 3",
+  "eyebrow": "Learning Roadmap · Your Path",
+  "title": "Your [[learning path]]",
+  "sub": "Take the quiz to find your level, then work through each milestone in order.",
+  "layout": "graph",
+  "colgap": 150,
+  "cardMax": 340,
+  "rowgap": 64,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "q",
+          "icon": "target",
+          "title": "Self-Assessment Quiz",
+          "desc": "Find your level",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "label": "Level",
+      "nodes": [
+        {
+          "id": "l1",
+          "icon": "play",
+          "title": "Level 1: Beginner",
+          "chip": "~3 hours",
+          "desc": "Getting started"
+        },
+        {
+          "id": "l2",
+          "icon": "layers",
+          "title": "Level 2: Intermediate",
+          "chip": "~5 hours",
+          "desc": "Building workflows"
+        },
+        {
+          "id": "l3",
+          "icon": "zap",
+          "title": "Level 3: Advanced",
+          "chip": "~5 hours",
+          "desc": "Power user"
+        }
+      ]
+    },
+    {
+      "label": "Milestone A",
+      "nodes": [
+        {
+          "id": "a1",
+          "icon": "terminal",
+          "num": "1A",
+          "title": "First Commands",
+          "desc": "Slash commands + memory"
+        },
+        {
+          "id": "a2",
+          "icon": "zap",
+          "num": "2A",
+          "title": "Automation",
+          "desc": "Skills + hooks"
+        },
+        {
+          "id": "a3",
+          "icon": "sliders",
+          "num": "3A",
+          "title": "Advanced Features",
+          "desc": "Planning + permissions"
+        }
+      ]
+    },
+    {
+      "label": "Milestone B",
+      "nodes": [
+        {
+          "id": "b1",
+          "icon": "shield",
+          "num": "1B",
+          "title": "Safe Exploration",
+          "desc": "Checkpoints + CLI basics"
+        },
+        {
+          "id": "b2",
+          "icon": "link",
+          "num": "2B",
+          "title": "Integration",
+          "desc": "MCP + subagents"
+        },
+        {
+          "id": "b3",
+          "icon": "package",
+          "num": "3B",
+          "title": "Team & Distribution",
+          "desc": "Plugins + CLI mastery"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "q",
+      "to": "l1",
+      "label": "0–2 checks"
+    },
+    {
+      "from": "q",
+      "to": "l2",
+      "label": "3–5 checks"
+    },
+    {
+      "from": "q",
+      "to": "l3",
+      "label": "6–8 checks"
+    },
+    {
+      "from": "l1",
+      "to": "l2",
+      "label": "next"
+    },
+    {
+      "from": "l2",
+      "to": "l3",
+      "label": "next"
+    },
+    {
+      "from": "l1",
+      "to": "a1"
+    },
+    {
+      "from": "l2",
+      "to": "a2"
+    },
+    {
+      "from": "l3",
+      "to": "a3"
+    },
+    {
+      "from": "a1",
+      "to": "b1"
+    },
+    {
+      "from": "a2",
+      "to": "b2"
+    },
+    {
+      "from": "a3",
+      "to": "b3"
+    }
+  ],
+  "footer": "<b>Total time</b> about 11–13 hours &nbsp;·&nbsp; <b>Quiz</b> your number of checks picks your level"
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

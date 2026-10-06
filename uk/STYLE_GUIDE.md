@@ -409,6 +409,8 @@ graph TB
     style C fill:#e8f5e9,stroke:#333,color:#333
 ```
 
+![Style guide example diagram: component A connects to component B, which connects to component C](../resources/diagrams/style-guide-example.png)
+
 **Палітра кольорів:**
 
 | Колір | Hex | Використання |

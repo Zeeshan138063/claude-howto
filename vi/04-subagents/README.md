@@ -454,6 +454,8 @@ graph LR
     style M fill:#f3e5f5,stroke:#333,color:#333
 ```
 
+![Subagent persistent memory: each subagent session writes to and loads from a shared MEMORY.md, so what one session learns carries over to the next](../../resources/diagrams/subagent-persistent-memory.png)
+
 ---
 
 ## Tác Nhân Con Nền
@@ -519,6 +521,8 @@ graph TB
     style Clean fill:#fff3e0,stroke:#333,color:#333
     style Return fill:#fff3e0,stroke:#333,color:#333
 ```
+
+![Subagent worktree isolation: the main working tree spawns a subagent in its own git worktree and branch; if it makes no changes the worktree is cleaned up automatically, otherwise its path and branch are returned](../../resources/diagrams/subagent-worktree-isolation.png)
 
 - Tác nhân con hoạt động trong git worktree của nó trên một nhánh riêng
 - Nếu tác nhân con không thực hiện thay đổi, worktree được tự động dọn dẹp
@@ -675,6 +679,8 @@ graph TB
     style T3 fill:#e8f5e9,stroke:#333,color:#333
 ```
 
+![Agent teams: a team lead assigns work through a shared task list and sends messages through a mailbox; each teammate has its own context, picks up tasks, updates their status, and reads and writes the mailbox](../../resources/diagrams/agent-teams.png)
+
 **Thành phần chính**:
 
 - **Team Lead**: Phiên Claude Code chính tạo đội, chỉ định tác vụ, và điều phối
@@ -758,6 +764,8 @@ graph TB
     Main -->|synthesizes| User
 ```
 
+![Subagent architecture: the user asks the main agent, which delegates to code reviewer, test engineer, and documentation subagents and synthesizes their results](../../resources/diagrams/subagents-architecture.png)
+
 ### Vòng Đời Tác Nhân Con
 
 ```mermaid
@@ -777,6 +785,8 @@ sequenceDiagram
     MainAgent->>MainAgent: Incorporate results
     MainAgent-->>User: Provide synthesis
 ```
+
+![Subagent lifecycle: the main agent hands a review to the code reviewer subagent, which starts a clean context window, performs the review, and returns findings](../../resources/diagrams/subagents-lifecycle.png)
 
 ---
 
@@ -802,6 +812,8 @@ graph TB
     style C fill:#fff9c4
     style D fill:#fff9c4
 ```
+
+![Subagent context management: the main agent context hands each subagent a clean slate, and each subagent sends back only its results](../../resources/diagrams/subagents-context.png)
 
 ### Điểm Chính
 
@@ -1119,6 +1131,8 @@ graph TD
     Subagents -->|Query| MCP
     Subagents -->|Isolated| Context["Clean Context<br/>Window"]
 ```
+
+![How subagents fit with other features: the main agent uses memory, queries MCP, invokes skills, and delegates to subagents; subagents also use memory and MCP but work in their own clean context window](../../resources/diagrams/subagents-integration.png)
 
 ---
 

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>subagents-integration</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "subagents-integration",
+  "alt": "How subagents fit with other features: the main agent uses memory, queries MCP, invokes skills, and delegates to subagents; subagents also use memory and MCP but work in their own clean context window",
+  "eyebrow": "Subagents · With Other Features",
+  "title": "Where [[subagents]] fit",
+  "sub": "The main agent reaches every feature; subagents share memory and MCP but keep a clean context.",
+  "layout": "graph",
+  "colgap": 170,
+  "cardMax": 320,
+  "rowgap": 16,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "user",
+          "icon": "user",
+          "title": "User Request"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "main",
+          "icon": "target",
+          "title": "Main Agent",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "mem",
+          "icon": "database",
+          "title": "Memory",
+          "chip": "context"
+        },
+        {
+          "id": "mcp",
+          "icon": "server",
+          "title": "MCP",
+          "chip": "live data"
+        },
+        {
+          "id": "skills",
+          "icon": "star",
+          "title": "Skills",
+          "chip": "auto tools"
+        },
+        {
+          "id": "sub",
+          "icon": "users",
+          "title": "Subagents",
+          "chip": "specialists"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "ctx",
+          "icon": "layers",
+          "title": "Clean Context Window",
+          "chip": "isolated"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "user",
+      "to": "main"
+    },
+    {
+      "from": "main",
+      "to": "mem",
+      "label": "uses"
+    },
+    {
+      "from": "main",
+      "to": "mcp",
+      "label": "queries"
+    },
+    {
+      "from": "main",
+      "to": "skills",
+      "label": "invokes"
+    },
+    {
+      "from": "main",
+      "to": "sub",
+      "label": "delegates"
+    },
+    {
+      "from": "sub",
+      "to": "ctx",
+      "label": "isolated"
+    }
+  ],
+  "footer": "Subagents also use memory and query MCP, just like the main agent."
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

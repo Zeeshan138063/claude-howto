@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>skills-loading-basic</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "skills-loading-basic",
+  "alt": "Skill loading: for a security review request, Claude checks skill descriptions loaded at startup, reads code-review/SKILL.md, reads a checklist template if needed, and returns the review",
+  "eyebrow": "Skills · Loading",
+  "title": "How Claude [[uses a skill]]",
+  "sub": "Match the request, read the skill, then read extra files only if needed.",
+  "layout": "sequence",
+  "participants": [
+    {
+      "id": "user",
+      "icon": "user",
+      "title": "User"
+    },
+    {
+      "id": "claude",
+      "icon": "cpu",
+      "title": "Claude",
+      "accent": true
+    },
+    {
+      "id": "sys",
+      "icon": "grid",
+      "title": "System"
+    },
+    {
+      "id": "skill",
+      "icon": "zap",
+      "title": "Skill"
+    }
+  ],
+  "steps": [
+    {
+      "from": "user",
+      "to": "claude",
+      "label": "\"Review this code for security issues\""
+    },
+    {
+      "from": "claude",
+      "to": "sys",
+      "label": "Check available skills (metadata)"
+    },
+    {
+      "from": "sys",
+      "to": "claude",
+      "label": "Descriptions loaded at startup",
+      "dashed": true
+    },
+    {
+      "from": "claude",
+      "to": "claude",
+      "label": "Match request to a skill"
+    },
+    {
+      "from": "claude",
+      "to": "skill",
+      "label": "Read code-review/SKILL.md"
+    },
+    {
+      "from": "skill",
+      "to": "claude",
+      "label": "Instructions loaded",
+      "dashed": true
+    },
+    {
+      "from": "claude",
+      "to": "claude",
+      "label": "Need templates?"
+    },
+    {
+      "from": "claude",
+      "to": "skill",
+      "label": "Read templates/checklist.md"
+    },
+    {
+      "from": "skill",
+      "to": "claude",
+      "label": "Template loaded",
+      "dashed": true
+    },
+    {
+      "from": "claude",
+      "to": "claude",
+      "label": "Follow skill instructions"
+    },
+    {
+      "from": "claude",
+      "to": "user",
+      "label": "Full code review"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

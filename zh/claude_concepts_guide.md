@@ -41,6 +41,8 @@ graph TD
     E -->|返回| F["上下文中的结果"]
 ```
 
+![Slash command architecture: user input triggers a search of .claude/commands/, which finds and loads the command's Markdown file for Claude to process](../resources/diagrams/slash-commands-architecture.png)
+
 ### 文件结构
 
 ```mermaid
@@ -52,6 +54,8 @@ graph LR
     E -->|包含| F["generate-api-docs.md"]
     E -->|包含| G["generate-readme.md"]
 ```
+
+![Slash command file structure: the project root contains .claude/commands/, which holds command files and a docs/ subfolder of namespaced commands](../resources/diagrams/slash-commands-file-structure.png)
 
 ### 命令组织表
 
@@ -198,6 +202,8 @@ sequenceDiagram
     Claude->>User: 输出分析
 ```
 
+![Slash command lifecycle: the user types /optimize, Claude Code loads optimize.md from the file system, may run shell scripts, and returns the analysis](../resources/diagrams/slash-commands-lifecycle.png)
+
 ### 最佳实践
 
 | ✅ 建议 | ❌ 不建议 |
@@ -237,6 +243,8 @@ graph TB
     Main -->|汇总| User
 ```
 
+![Subagent architecture: the user asks the main agent, which delegates to code reviewer, test engineer, and documentation subagents and synthesizes their results](../resources/diagrams/subagents-architecture.png)
+
 ### Subagent 生命周期
 
 ```mermaid
@@ -256,6 +264,8 @@ sequenceDiagram
     MainAgent->>MainAgent: 融合结果
     MainAgent-->>User: 输出综合结论
 ```
+
+![Subagent lifecycle: the main agent hands a review to the code reviewer subagent, which starts a clean context window, performs the review, and returns findings](../resources/diagrams/subagents-lifecycle.png)
 
 ### Subagent 配置表
 
@@ -278,6 +288,8 @@ graph TD
     C -->|显式列表| C1["read, grep, diff"]
     C -->|显式列表| C2["Bash(npm:*), Bash(test:*)"]
 ```
+
+![Subagent tool access: a subagent either inherits all tools from the main thread (file operations, shell commands, MCP tools) or gets an explicit list of tools](../resources/diagrams/subagents-tool-access.png)
 
 ### 实践示例
 
@@ -447,6 +459,8 @@ graph TB
     style D fill:#fff9c4
 ```
 
+![Subagent context management: the main agent context hands each subagent a clean slate, and each subagent sends back only its results](../resources/diagrams/subagents-context.png)
+
 ### 何时使用 Subagents
 
 | 场景 | 是否使用 Subagent | 原因 |
@@ -485,6 +499,8 @@ graph TB
     A -->|使用上下文| C
 ```
 
+![Memory architecture: user input flows into the memory system, which synthesizes into memory storage every 24 hours; storage loads into each Claude session, which feeds context back into the memory system](../resources/diagrams/memory-architecture.png)
+
 ### Claude Code 中的 7 层记忆层级
 
 Claude Code 会按优先级从高到低加载 7 层记忆：
@@ -498,6 +514,8 @@ graph TD
     E --> F["6. Local Memory<br/>./CLAUDE.local.md"]
     F --> G["7. Auto Memory<br/>自动捕获的偏好"]
 ```
+
+![Memory hierarchy in Claude Code: seven tiers from highest to lowest priority, managed policy, project memory, project rules, user memory, user rules, local memory, and auto memory](../resources/diagrams/memory-hierarchy.png)
 
 ### Memory 位置表
 
@@ -540,6 +558,8 @@ sequenceDiagram
     Claude->>Claude: 重新加载记忆
     Claude-->>User: “记忆已保存！”
 ```
+
+![Memory update lifecycle: the user asks Claude Code to remember a rule, picks project memory, and Claude writes it to ./CLAUDE.md and reloads memory](../resources/diagrams/memory-update-lifecycle.png)
 
 ### 实践示例
 
@@ -646,6 +666,8 @@ graph LR
     C -->|加载到| D["第 2-N 天：新对话"]
 ```
 
+![Memory synthesis timeline in Claude web and desktop: day 1 conversations are synthesized after 24 hours, loaded into new conversations, and refreshed again 24 hours later](../resources/diagrams/memory-synthesis-timeline.png)
+
 ### Memory 功能对比
 
 | 功能 | Claude Web/Desktop | Claude Code (`CLAUDE.md`) |
@@ -680,6 +702,8 @@ graph TB
     B -->|响应| A
 ```
 
+![MCP architecture: Claude sends tool requests such as list_issues and create_issue to an MCP server, which queries or acts on an external service and returns the response](../resources/diagrams/mcp-architecture.png)
+
 ### MCP 生态
 
 ```mermaid
@@ -690,6 +714,8 @@ graph TB
     A -->|MCP| E["Slack<br/>MCP Server"]
     A -->|MCP| F["Google Docs<br/>MCP Server"]
 ```
+
+![MCP ecosystem: Claude connects over MCP to filesystem, GitHub, database, Slack, and Google Docs servers, each fronting local files, repos, SQL databases, a Slack workspace, or Google Drive](../resources/diagrams/mcp-ecosystem.png)
 
 ### MCP 设置流程
 
@@ -710,6 +736,8 @@ sequenceDiagram
     Service-->>Claude: 认证成功
     Claude->>User: ✅ MCP 已连接
 ```
+
+![MCP setup process: the user runs /mcp, selects the GitHub server, Claude Code updates the config, tests the connection, and confirms it is connected](../resources/diagrams/mcp-setup.png)
 
 ### 可用 MCP Server 表
 
@@ -792,6 +820,8 @@ graph TD
     C -->|是/经常| D["使用 MCP"]
 ```
 
+![MCP versus memory decision: if you do not need external data, or it rarely changes, use memory for preferences, context, and history; if it changes often, use MCP for live APIs, databases, and services](../resources/diagrams/mcp-vs-memory.png)
+
 ### 请求 / 响应模式
 
 ```mermaid
@@ -805,6 +835,8 @@ sequenceDiagram
     DB-->>MCP: Result set
     MCP-->>App: Return parsed data
 ```
+
+![MCP request and response pattern: Claude sends a SQL query to the MCP server, which runs it against the database in real time and returns parsed data](../resources/diagrams/mcp-request-response.png)
 
 ---
 
@@ -832,6 +864,8 @@ graph TB
     F --> A
 ```
 
+![Skill architecture: a skill directory contains SKILL.md, which holds YAML metadata and instructions, plus optional scripts and templates](../resources/diagrams/skills-architecture.png)
+
 ### Skill 加载流程
 
 ```mermaid
@@ -850,6 +884,8 @@ sequenceDiagram
     Claude->>Claude: Execute skill
     Claude->>User: Generate Excel file
 ```
+
+![Skill loading process: for a request to create an Excel report, Claude scans skill metadata, matches the xlsx skill, loads its SKILL.md, executes it, and generates the file](../resources/diagrams/skills-loading.png)
 
 ### Skill 类型与位置
 
@@ -946,6 +982,8 @@ graph TD
     I --> J["返回结果"]
 ```
 
+![Skill discovery: Claude scans available skills and checks each description; on a match it loads SKILL.md and executes the skill, otherwise it tries the next skill or falls back to general knowledge](../resources/diagrams/skills-discovery.png)
+
 ### Skill 与其他功能的区别
 
 ```mermaid
@@ -963,6 +1001,8 @@ graph TB
     A --> E
     A --> F
 ```
+
+![Skills compared with other features: slash commands are user-invoked shortcuts, subagents are auto-delegated isolated contexts, memory is persistent cross-session context, MCP is real-time external data, and skills are auto-invoked autonomous execution](../resources/diagrams/skills-vs-features.png)
 
 ---
 
@@ -990,6 +1030,8 @@ graph TB
     A -->|打包| F
 ```
 
+![Plugin architecture: a plugin bundles slash commands, subagents, MCP servers, hooks, and configuration into one installable package](../resources/diagrams/plugins-architecture.png)
+
 ### Plugin 加载流程
 
 ```mermaid
@@ -1012,6 +1054,8 @@ sequenceDiagram
     Install->>MCPServers: 配置
     Install->>Hooks: 配置
 ```
+
+![Plugin loading process: /plugin install pr-review downloads the manifest from the marketplace, extracts components, configures commands, subagents, MCP servers, and hooks, and reports the plugin installed](../resources/diagrams/plugins-loading.png)
 
 ### Plugin 类型与分发
 
@@ -1094,6 +1138,8 @@ graph TB
     D["Enterprise"]
 ```
 
+![Plugin marketplace: official Anthropic plugins by category, a community marketplace you can search, and private enterprise registries for internal plugins](../resources/diagrams/plugins-marketplace.png)
+
 ### Plugin 安装与生命周期
 
 ```mermaid
@@ -1105,6 +1151,8 @@ graph LR
     E --> F["配置"]
     F --> G["启用"]
 ```
+
+![Plugin installation and lifecycle: browse the marketplace, view the plugin page, install with /plugin install, configure, and use it; check for updates, or disable and later re-enable it](../resources/diagrams/plugins-lifecycle.png)
 
 ### Plugin 功能对比
 
@@ -1174,6 +1222,8 @@ graph LR
     E -->|Ready| F["User Interaction"]
 ```
 
+![Interaction timeline: a session loads memory, discovers skills, registers slash commands, and connects MCP servers; then each slash command, skill, MCP query, or subagent delegation uses that memory](../resources/diagrams/interaction-timeline.png)
+
 ### 集成示例：客户支持自动化
 
 #### 架构
@@ -1187,6 +1237,8 @@ graph TB
     Router -->|复杂问题| Sub1["Subagent: 技术支持"]
     Router -->|简单问题| Sub2["Subagent: 计费支持"]
 ```
+
+![Customer support automation: a support router checks memory and MCP lookups, routes the email to a tech support, billing, or escalation subagent, formats a reply with a response generator skill, then notifies Slack and replies to the customer](../resources/diagrams/customer-support-architecture.png)
 
 #### 请求流
 
@@ -1220,6 +1272,8 @@ sequenceDiagram
     Claude->>SubAgent: 委派实现
 ```
 
+![Complete feature orchestration: to build an auth system, Claude Code loads standards from memory, queries GitHub over MCP, detects security and testing skills, delegates implementation and testing to subagents, and delivers the result](../resources/diagrams/feature-orchestration.png)
+
 ### 何时使用哪种功能
 
 ```mermaid
@@ -1232,6 +1286,8 @@ graph TD
     B -->|需要专业子任务| F["Subagent"]
     B -->|领域型自动化| G["Skill"]
 ```
+
+![When to use each feature: a slash command for repeated workflows, MCP for real-time data, memory for things to remember next time, a subagent for specialized subtasks, and a skill for domain-specific work](../resources/diagrams/when-to-use-each-feature.png)
 
 ### 选择决策树
 
@@ -1247,6 +1303,8 @@ graph TD
     Start -->|复杂项目| G{"是否多角色协作？"}
     G -->|是| H["Subagents"]
 ```
+
+![Selection decision tree: quick repeated tasks use a slash command or skill; external data uses MCP or memory; complex projects use subagents or skills with memory; long-term context uses memory; team workflows use slash commands with memory; full automation combines skills, subagents, and MCP](../resources/diagrams/selection-decision-tree.png)
 
 ---
 

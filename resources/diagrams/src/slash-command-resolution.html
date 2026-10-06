@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>slash-command-resolution</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "slash-command-resolution",
+  "alt": "How a slash command runs: Claude Code checks whether it is built-in, a skill, a plugin command, or an MCP prompt; a skill is loaded, its frontmatter parsed, variables substituted, shell commands run, and the result sent to Claude",
+  "eyebrow": "Slash Commands · How They Run",
+  "title": "What happens after you type [[/command]]",
+  "sub": "Claude Code works out the command type, then runs it.",
+  "layout": "graph",
+  "colgap": 70,
+  "cardMax": 220,
+  "rowgap": 14,
+  "dense": true,
+  "vertical": true,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "a",
+          "icon": "terminal",
+          "title": "User Input",
+          "chip": "/name"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "b",
+          "q": true,
+          "title": "Type?"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "c",
+          "icon": "zap",
+          "title": "Built-in",
+          "chip": "runs"
+        },
+        {
+          "id": "d",
+          "icon": "file",
+          "title": "Skill",
+          "chip": "SKILL.md"
+        },
+        {
+          "id": "e",
+          "icon": "package",
+          "title": "Plugin",
+          "chip": "command"
+        },
+        {
+          "id": "f",
+          "icon": "server",
+          "title": "MCP",
+          "chip": "prompt"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "g",
+          "icon": "list",
+          "title": "Parse",
+          "chip": "frontmatter"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "h",
+          "icon": "edit",
+          "title": "Substitute",
+          "chip": "variables"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "i",
+          "icon": "terminal",
+          "title": "Run shell",
+          "chip": "commands"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "j",
+          "icon": "send",
+          "title": "To Claude",
+          "chip": "results",
+          "accent": true
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "a",
+      "to": "b"
+    },
+    {
+      "from": "b",
+      "to": "c"
+    },
+    {
+      "from": "b",
+      "to": "d"
+    },
+    {
+      "from": "b",
+      "to": "e"
+    },
+    {
+      "from": "b",
+      "to": "f"
+    },
+    {
+      "from": "d",
+      "to": "g"
+    },
+    {
+      "from": "g",
+      "to": "h"
+    },
+    {
+      "from": "h",
+      "to": "i"
+    },
+    {
+      "from": "i",
+      "to": "j"
+    }
+  ],
+  "footer": "The skill path is shown in detail; built-in, plugin, and MCP commands run their own way."
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

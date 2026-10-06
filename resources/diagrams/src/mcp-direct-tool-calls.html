@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>mcp-direct-tool-calls</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "mcp-direct-tool-calls",
+  "alt": "Direct MCP tool calls: the model calls getDocument and gets the full 50K-token transcript back, then calls updateRecord and re-sends the whole transcript, so large data passes through the model twice",
+  "eyebrow": "MCP · Direct Tool Calls",
+  "title": "Every result goes [[through the model]]",
+  "sub": "With direct tool calls, large data passes through the context window, sometimes twice.",
+  "layout": "sequence",
+  "rowH": 62,
+  "participants": [
+    {
+      "id": "model",
+      "icon": "cpu",
+      "title": "Model",
+      "accent": true
+    },
+    {
+      "id": "mcp",
+      "icon": "server",
+      "title": "MCP Server"
+    }
+  ],
+  "steps": [
+    {
+      "from": "model",
+      "to": "mcp",
+      "label": "Tool call: getDocument"
+    },
+    {
+      "from": "mcp",
+      "to": "model",
+      "label": "Full transcript (50K tokens)",
+      "dashed": true
+    },
+    {
+      "from": "model",
+      "to": "mcp",
+      "label": "Tool call: updateRecord (re-sends full transcript)"
+    },
+    {
+      "from": "mcp",
+      "to": "model",
+      "label": "Confirmation",
+      "dashed": true
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

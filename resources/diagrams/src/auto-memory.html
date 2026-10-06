@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>auto-memory</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "auto-memory",
+  "alt": "Auto memory: at session start Claude loads the first 200 lines or 25KB of MEMORY.md; during the session it writes general notes to MEMORY.md and topic notes to files like debugging.md, and loads topic files on demand",
+  "eyebrow": "Memory · Auto Memory",
+  "title": "How [[auto memory]] works",
+  "sub": "Claude keeps its own notes, loading the index up front and topic files when needed.",
+  "layout": "graph",
+  "colgap": 70,
+  "cardMax": 300,
+  "rowgap": 26,
+  "dense": true,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "a",
+          "icon": "power",
+          "title": "Session Starts"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "b",
+          "icon": "file",
+          "title": "Load MEMORY.md",
+          "chip": "200 lines · 25KB"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "c",
+          "icon": "message",
+          "title": "Session Active",
+          "accent": true
+        },
+        {
+          "id": "i",
+          "icon": "download",
+          "title": "Load Topic Files",
+          "chip": "on demand"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "d",
+          "icon": "search",
+          "title": "Finds Patterns",
+          "chip": "& insights"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "e",
+          "q": true,
+          "title": "Write to auto memory"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "f",
+          "icon": "file",
+          "title": "MEMORY.md",
+          "chip": "general notes"
+        },
+        {
+          "id": "g",
+          "icon": "file",
+          "title": "debugging.md",
+          "chip": "topic"
+        },
+        {
+          "id": "h",
+          "icon": "file",
+          "title": "api‑conventions.md",
+          "chip": "topic"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "a",
+      "to": "b"
+    },
+    {
+      "from": "b",
+      "to": "c"
+    },
+    {
+      "from": "c",
+      "to": "d"
+    },
+    {
+      "from": "d",
+      "to": "e"
+    },
+    {
+      "from": "e",
+      "to": "f"
+    },
+    {
+      "from": "e",
+      "to": "g"
+    },
+    {
+      "from": "e",
+      "to": "h"
+    },
+    {
+      "from": "c",
+      "to": "i"
+    },
+    {
+      "from": "i",
+      "to": "c"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

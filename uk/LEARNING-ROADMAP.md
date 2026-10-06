@@ -89,6 +89,8 @@ graph TD
     style F fill:#B71C1C,color:#fff
 ```
 
+![Learning path: take the self-assessment quiz to find your level, then work through milestones A and B at each level, moving up from Level 1 to Level 3](../resources/diagrams/learning-path.png)
+
 **Легенда кольорів:**
 
 - 💜 Фіолетовий: Тест самооцінки

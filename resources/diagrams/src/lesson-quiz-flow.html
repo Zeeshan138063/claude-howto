@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>lesson-quiz-flow</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "lesson-quiz-flow",
+  "alt": "Lesson quiz flow: select a lesson, choose when to take it (before, during, or after), answer 10 questions in 5 rounds, then get your score and feedback",
+  "eyebrow": "Skill · /lesson-quiz",
+  "title": "How the [[lesson quiz]] works",
+  "sub": "Ten questions on one lesson, scored with feedback.",
+  "layout": "graph",
+  "colgap": 110,
+  "cardMax": 300,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "a",
+          "icon": "book",
+          "num": "01",
+          "title": "Select a lesson",
+          "chip": "/lesson-quiz hooks"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "b",
+          "icon": "clock",
+          "num": "02",
+          "title": "Choose timing",
+          "chip": "pre · during · after"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "c",
+          "icon": "list",
+          "num": "03",
+          "title": "Answer questions",
+          "chip": "10 in 5 rounds"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "d",
+          "icon": "chart",
+          "num": "04",
+          "title": "Score & feedback",
+          "chip": "review weak spots",
+          "accent": true
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "a",
+      "to": "b"
+    },
+    {
+      "from": "b",
+      "to": "c"
+    },
+    {
+      "from": "c",
+      "to": "d"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

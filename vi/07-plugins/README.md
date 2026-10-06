@@ -29,6 +29,8 @@ graph TB
     A -->|bundles| F
 ```
 
+![Plugin architecture: a plugin bundles slash commands, subagents, MCP servers, hooks, and configuration into one installable package](../../resources/diagrams/plugins-architecture.png)
+
 ## Quy Trình Tải Plugin / Plugin Loading Process
 
 ```mermaid
@@ -57,6 +59,8 @@ sequenceDiagram
     Hooks-->>Tools: Ready to use
     Tools-->>Claude: Plugin installed ✅
 ```
+
+![Plugin loading process: /plugin install pr-review downloads the manifest from the marketplace, extracts components, configures commands, subagents, MCP servers, and hooks, and reports the plugin installed](../../resources/diagrams/plugins-loading.png)
 
 ## Các Loại Plugin & Phân Phối / Plugin Types & Distribution
 
@@ -447,6 +451,8 @@ graph TB
     style D fill:#fff3e0,stroke:#333,color:#333
 ```
 
+![Plugin marketplace: official Anthropic plugins by category, a community marketplace you can search, and private enterprise registries for internal plugins](../../resources/diagrams/plugins-marketplace.png)
+
 ### Cấu Hình Marketplace / Marketplace Configuration
 
 Người dùng enterprise và nâng cao có thể kiểm soát hành vi marketplace qua các cài đặt:
@@ -584,6 +590,8 @@ graph LR
     J -->|Back| G
 ```
 
+![Plugin installation and lifecycle: browse the marketplace, view the plugin page, install with /plugin install, configure, and use it; check for updates, or disable and later re-enable it](../../resources/diagrams/plugins-lifecycle.png)
+
 ## So Sánh Tính Năng Plugin / Plugin Features Comparison
 
 | Tính Năng | Slash Command | Skill | Subagent | Plugin |
@@ -664,6 +672,8 @@ graph TD
     G -->|Yes| C
     G -->|No| D
 ```
+
+![When to create a plugin: create one if you need multiple components, need auto configuration, or want to share with the team; otherwise use an individual feature or keep a local setup](../../resources/diagrams/plugins-when-to-create.png)
 
 ### Các Trường Hợp Sử Dụng Plugin / Plugin Use Cases
 

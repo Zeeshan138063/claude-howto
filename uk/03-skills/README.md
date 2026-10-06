@@ -57,6 +57,8 @@ graph TB
     B --> C
 ```
 
+![Skill progressive disclosure: level 1 metadata (name and description, about 100 tokens per skill) is always loaded; level 2 instructions (the SKILL.md body, under 5k tokens) load when the skill is triggered; level 3 resources (scripts, templates, docs) load only as needed](../../resources/diagrams/skills-progressive-disclosure.png)
+
 | Рівень | Коли завантажується | Вартість токенів | Вміст |
 |--------|-------------------|-----------------|-------|
 | **Рівень 1: Метадані** | Завжди (при запуску) | ~100 токенів на навичку | `name` та `description` з YAML-фронтматера |
@@ -86,6 +88,8 @@ sequenceDiagram
     Claude->>Claude: Execute skill instructions
     Claude->>User: Comprehensive code review
 ```
+
+![Skill loading: for a security review request, Claude checks skill descriptions loaded at startup, reads code-review/SKILL.md, reads a checklist template if needed, and returns the review](../../resources/diagrams/skills-loading-basic.png)
 
 ## Типи та розташування навичок
 

@@ -47,6 +47,8 @@ graph TD
     E -->|Returns| F["Result in Context"]
 ```
 
+![Slash command architecture: user input triggers a search of .claude/commands/, which finds and loads the command's Markdown file for Claude to process](resources/diagrams/slash-commands-architecture.png)
+
 ### File Structure
 
 ```mermaid
@@ -58,6 +60,8 @@ graph LR
     E -->|contains| F["generate-api-docs.md"]
     E -->|contains| G["generate-readme.md"]
 ```
+
+![Slash command file structure: the project root contains .claude/commands/, which holds command files and a docs/ subfolder of namespaced commands](resources/diagrams/slash-commands-file-structure.png)
 
 ### Command Organization Table
 
@@ -103,6 +107,8 @@ sequenceDiagram
     Claude->>User: Returns analysis
 ```
 
+![Slash command lifecycle: the user types /optimize, Claude Code loads optimize.md from the file system, may run shell scripts, and returns the analysis](resources/diagrams/slash-commands-lifecycle.png)
+
 ### Best Practices
 
 | ✅ Do | ❌ Don't |
@@ -144,6 +150,8 @@ graph TB
     Main -->|synthesizes| User
 ```
 
+![Subagent architecture: the user asks the main agent, which delegates to code reviewer, test engineer, and documentation subagents and synthesizes their results](resources/diagrams/subagents-architecture.png)
+
 ### Subagent Lifecycle
 
 ```mermaid
@@ -163,6 +171,8 @@ sequenceDiagram
     MainAgent->>MainAgent: Incorporate results
     MainAgent-->>User: Provide synthesis
 ```
+
+![Subagent lifecycle: the main agent hands a review to the code reviewer subagent, which starts a clean context window, performs the review, and returns findings](resources/diagrams/subagents-lifecycle.png)
 
 ### Subagent Configuration Table
 
@@ -185,6 +195,8 @@ graph TD
     C -->|Explicit List| C1["read, grep, diff"]
     C -->|Explicit List| C2["Bash(npm:*), Bash(test:*)"]
 ```
+
+![Subagent tool access: a subagent either inherits all tools from the main thread (file operations, shell commands, MCP tools) or gets an explicit list of tools](resources/diagrams/subagents-tool-access.png)
 
 ### Practical Examples
 
@@ -214,6 +226,8 @@ graph TB
     style C fill:#fff9c4
     style D fill:#fff9c4
 ```
+
+![Subagent context management: the main agent context hands each subagent a clean slate, and each subagent sends back only its results](resources/diagrams/subagents-context.png)
 
 ### When to Use Subagents
 
@@ -253,6 +267,8 @@ graph TB
     A -->|Uses context| C
 ```
 
+![Memory architecture: user input flows into the memory system, which synthesizes into memory storage every 24 hours; storage loads into each Claude session, which feeds context back into the memory system](resources/diagrams/memory-architecture.png)
+
 ### Memory Hierarchy in Claude Code (7 Tiers)
 
 Claude Code loads memory from 7 tiers, listed from highest to lowest priority:
@@ -274,6 +290,8 @@ graph TD
     style F fill:#e8f5e9,stroke:#333,color:#333
     style G fill:#fff3e0,stroke:#333,color:#333
 ```
+
+![Memory hierarchy in Claude Code: seven tiers from highest to lowest priority, managed policy, project memory, project rules, user memory, user rules, local memory, and auto memory](resources/diagrams/memory-hierarchy.png)
 
 ### Memory Locations Table
 
@@ -317,6 +335,8 @@ sequenceDiagram
     Claude-->>User: "Memory saved!"
 ```
 
+![Memory update lifecycle: the user asks Claude Code to remember a rule, picks project memory, and Claude writes it to ./CLAUDE.md and reloads memory](resources/diagrams/memory-update-lifecycle.png)
+
 ### Practical Examples
 
 Copy-paste memory templates live in **[02-memory/](02-memory/)**:
@@ -339,6 +359,8 @@ graph LR
     D -->|Add to| E["Memory"]
     E -->|24 hours later| F["Memory Refreshed"]
 ```
+
+![Memory synthesis timeline in Claude web and desktop: day 1 conversations are synthesized after 24 hours, loaded into new conversations, and refreshed again 24 hours later](resources/diagrams/memory-synthesis-timeline.png)
 
 ### Auto Memory Contents
 
@@ -383,6 +405,8 @@ graph TB
     B -->|Response| A
 ```
 
+![MCP architecture: Claude sends tool requests such as list_issues and create_issue to an MCP server, which queries or acts on an external service and returns the response](resources/diagrams/mcp-architecture.png)
+
 ### MCP Ecosystem
 
 ```mermaid
@@ -399,6 +423,8 @@ graph TB
     E -->|Messages| J["Slack Workspace"]
     F -->|Docs| K["Google Drive"]
 ```
+
+![MCP ecosystem: Claude connects over MCP to filesystem, GitHub, database, Slack, and Google Docs servers, each fronting local files, repos, SQL databases, a Slack workspace, or Google Drive](resources/diagrams/mcp-ecosystem.png)
 
 ### MCP Setup Process
 
@@ -419,6 +445,8 @@ sequenceDiagram
     Service-->>Claude: Authentication successful
     Claude->>User: ✅ MCP connected!
 ```
+
+![MCP setup process: the user runs /mcp, selects the GitHub server, Claude Code updates the config, tests the connection, and confirms it is connected](resources/diagrams/mcp-setup.png)
 
 ### Available MCP Servers Table
 
@@ -456,6 +484,8 @@ graph TD
     style D fill:#fff9c4
 ```
 
+![MCP versus memory decision: if you do not need external data, or it rarely changes, use memory for preferences, context, and history; if it changes often, use MCP for live APIs, databases, and services](resources/diagrams/mcp-vs-memory.png)
+
 ### Request/Response Pattern
 
 ```mermaid
@@ -473,6 +503,8 @@ sequenceDiagram
 
     Note over MCP,DB: Real-time access<br/>No caching
 ```
+
+![MCP request and response pattern: Claude sends a SQL query to the MCP server, which runs it against the database in real time and returns parsed data](resources/diagrams/mcp-request-response.png)
 
 ---
 
@@ -500,6 +532,8 @@ graph TB
     F --> A
 ```
 
+![Skill architecture: a skill directory contains SKILL.md, which holds YAML metadata and instructions, plus optional scripts and templates](resources/diagrams/skills-architecture.png)
+
 ### Skill Loading Process
 
 ```mermaid
@@ -518,6 +552,8 @@ sequenceDiagram
     Claude->>Claude: Execute skill
     Claude->>User: Generate Excel file
 ```
+
+![Skill loading process: for a request to create an Excel report, Claude scans skill metadata, matches the xlsx skill, loads its SKILL.md, executes it, and generates the file](resources/diagrams/skills-loading.png)
 
 ### Skill Types & Locations Table
 
@@ -552,6 +588,8 @@ graph TB
     E --> E1["Generate PDFs"]
     E --> E2["Fill forms"]
 ```
+
+![Pre-built skills: PowerPoint for creating and editing slides, Excel for spreadsheets and data analysis, Word for documents and formatting, and PDF for generating PDFs and filling forms](resources/diagrams/skills-prebuilt.png)
 
 ### Bundled Skills
 
@@ -601,6 +639,8 @@ graph TD
     I --> J["Return Results"]
 ```
 
+![Skill discovery: Claude scans available skills and checks each description; on a match it loads SKILL.md and executes the skill, otherwise it tries the next skill or falls back to general knowledge](resources/diagrams/skills-discovery.png)
+
 ### Skill vs Other Features
 
 ```mermaid
@@ -624,6 +664,8 @@ graph TB
     E -->|Real-time| J["External data access"]
     F -->|Auto-invoked| K["Autonomous execution"]
 ```
+
+![Skills compared with other features: slash commands are user-invoked shortcuts, subagents are auto-delegated isolated contexts, memory is persistent cross-session context, MCP is real-time external data, and skills are auto-invoked autonomous execution](resources/diagrams/skills-vs-features.png)
 
 ---
 
@@ -650,6 +692,8 @@ graph TB
     A -->|bundles| E
     A -->|bundles| F
 ```
+
+![Plugin architecture: a plugin bundles slash commands, subagents, MCP servers, hooks, and configuration into one installable package](resources/diagrams/plugins-architecture.png)
 
 ### Plugin Loading Process
 
@@ -679,6 +723,8 @@ sequenceDiagram
     Hooks-->>Tools: Ready to use
     Tools-->>Claude: Plugin installed ✅
 ```
+
+![Plugin loading process: /plugin install pr-review downloads the manifest from the marketplace, extracts components, configures commands, subagents, MCP servers, and hooks, and reports the plugin installed](resources/diagrams/plugins-loading.png)
 
 ### Plugin Types & Distribution
 
@@ -796,6 +842,8 @@ graph TB
     D -->|Internal| D3["Compliance"]
 ```
 
+![Plugin marketplace: official Anthropic plugins by category, a community marketplace you can search, and private enterprise registries for internal plugins](resources/diagrams/plugins-marketplace.png)
+
 ### Plugin Installation & Lifecycle
 
 ```mermaid
@@ -812,6 +860,8 @@ graph LR
     I -->|Later| J["Enable"]
     J -->|Back| G
 ```
+
+![Plugin installation and lifecycle: browse the marketplace, view the plugin page, install with /plugin install, configure, and use it; check for updates, or disable and later re-enable it](resources/diagrams/plugins-lifecycle.png)
 
 ### Plugin Features Comparison
 
@@ -854,6 +904,8 @@ graph TD
     G -->|Yes| C
     G -->|No| D
 ```
+
+![When to create a plugin: create one if you need multiple components, need auto configuration, or want to share with the team; otherwise use an individual feature or keep a local setup](resources/diagrams/plugins-when-to-create.png)
 
 ### Publishing a Plugin
 
@@ -925,6 +977,8 @@ graph LR
     J -->|Uses| B
 ```
 
+![Interaction timeline: a session loads memory, discovers skills, registers slash commands, and connects MCP servers; then each slash command, skill, MCP query, or subagent delegation uses that memory](resources/diagrams/interaction-timeline.png)
+
 ### Practical Integration Example: Customer Support Automation
 
 #### Architecture
@@ -952,6 +1006,8 @@ graph TB
     Output -->|Post| MCP3["MCP: Slack<br/>Notify team"]
     Output -->|Send| Reply["Customer Reply"]
 ```
+
+![Customer support automation: a support router checks memory and MCP lookups, routes the email to a tech support, billing, or escalation subagent, formats a reply with a response generator skill, then notifies Slack and replies to the customer](resources/diagrams/customer-support-architecture.png)
 
 #### Request Flow
 
@@ -1033,6 +1089,8 @@ sequenceDiagram
     Claude->>User: Complete system delivered
 ```
 
+![Complete feature orchestration: to build an auth system, Claude Code loads standards from memory, queries GitHub over MCP, detects security and testing skills, delegates implementation and testing to subagents, and delivers the result](resources/diagrams/feature-orchestration.png)
+
 ### When to Use Each Feature
 
 ```mermaid
@@ -1051,6 +1109,8 @@ graph TD
     F --> F1["✅ Parallel execution"]
     G --> G1["✅ Auto-invoked expertise"]
 ```
+
+![When to use each feature: a slash command for repeated workflows, MCP for real-time data, memory for things to remember next time, a subagent for specialized subtasks, and a skill for domain-specific work](resources/diagrams/when-to-use-each-feature.png)
 
 ### Selection Decision Tree
 
@@ -1074,6 +1134,8 @@ graph TD
     Start -->|Team workflow| K["Slash Command +<br/>Memory"]
     Start -->|Full automation| L["Skills +<br/>Subagents +<br/>MCP"]
 ```
+
+![Selection decision tree: quick repeated tasks use a slash command or skill; external data uses MCP or memory; complex projects use subagents or skills with memory; long-term context uses memory; team workflows use slash commands with memory; full automation combines skills, subagents, and MCP](resources/diagrams/selection-decision-tree.png)
 
 ---
 

@@ -45,6 +45,8 @@ graph TB
     A -->|打包| F
 ```
 
+![Plugin architecture: a plugin bundles slash commands, subagents, MCP servers, hooks, and configuration into one installable package](../../resources/diagrams/plugins-architecture.png)
+
 ## 插件类型与分发
 
 | 类型 | 范围 | 共享对象 | 维护者 | 示例 |
@@ -434,6 +436,8 @@ graph TB
     style D fill:#fff3e0,stroke:#333,color:#333
 ```
 
+![Plugin marketplace: official Anthropic plugins by category, a community marketplace you can search, and private enterprise registries for internal plugins](../../resources/diagrams/plugins-marketplace.png)
+
 ### 市场配置
 
 企业和高级用户可以通过设置来控制市场行为：
@@ -571,6 +575,8 @@ graph LR
     J -->|返回| G
 ```
 
+![Plugin installation and lifecycle: browse the marketplace, view the plugin page, install with /plugin install, configure, and use it; check for updates, or disable and later re-enable it](../../resources/diagrams/plugins-lifecycle.png)
+
 ## 插件能力对比
 
 | 功能 | Slash Command | Skill | Subagent | Plugin |
@@ -651,6 +657,8 @@ graph TD
     G -->|是| C
     G -->|否| D
 ```
+
+![When to create a plugin: create one if you need multiple components, need auto configuration, or want to share with the team; otherwise use an individual feature or keep a local setup](../../resources/diagrams/plugins-when-to-create.png)
 
 ### 插件适用场景
 

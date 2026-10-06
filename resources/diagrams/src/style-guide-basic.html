@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>style-guide-basic</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "style-guide-basic",
+  "alt": "Style guide example diagram: a start step that leads to an end step",
+  "eyebrow": "Style Guide · Mermaid Example",
+  "title": "From [[start]] to end",
+  "sub": "The simplest example diagram from the style guide.",
+  "layout": "graph",
+  "colgap": 200,
+  "cardMax": 300,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "a",
+          "icon": "play",
+          "title": "Start"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "b",
+          "icon": "check",
+          "title": "End",
+          "accent": true
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "a",
+      "to": "b"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

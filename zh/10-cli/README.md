@@ -24,6 +24,8 @@ graph TD
     G -->|text/json/stream-json| H["终端 / 管道"]
 ```
 
+![Claude Code CLI architecture: running claude with options starts interactive REPL mode, print mode with --print, or a resumed session with --resume; each talks to the Claude API, and the output goes to the terminal or a pipe as text, JSON, or stream-JSON](../../resources/diagrams/cli-architecture.png)
+
 ## CLI 命令
 
 | 命令 | 说明 | 示例 |
@@ -81,6 +83,8 @@ graph LR
     B -->|特性| D["多轮对话<br>Tab 补全<br>历史记录<br>Slash commands"]
     C -->|特性| E["单次查询<br>可脚本化<br>可管道化<br>JSON 输出"]
 ```
+
+![Claude CLI modes: by default claude opens an interactive REPL with multi-turn conversation, tab completion, history, and slash commands; with -p it runs in print mode for a single query that is scriptable, pipeable, and can output JSON](../../resources/diagrams/cli-modes.png)
 
 **交互模式**（默认）：
 ```bash

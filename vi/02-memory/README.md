@@ -218,6 +218,8 @@ graph TB
     A -->|Uses context| C
 ```
 
+![Memory architecture: user input flows into the memory system, which synthesizes into memory storage every 24 hours; storage loads into each Claude session, which feeds context back into the memory system](../../resources/diagrams/memory-architecture.png)
+
 ## Hệ Phân Cấp Bộ Nhớ trong Claude Code
 
 Claude Code sử dụng một hệ thống bộ nhớ phân cấp đa tầng. Các file bộ nhớ được tự động tải khi Claude Code khởi động, với các file cấp cao hơn được ưu tiên.
@@ -282,6 +284,8 @@ graph TD
     style H fill:#e1f5fe,stroke:#333,color:#333
     style I fill:#e1f5fe,stroke:#333,color:#333
 ```
+
+![Memory hierarchy with imports: managed policy has the highest priority, followed by managed drop-ins, project memory, project rules, user memory, user rules, local project memory, and auto memory; project memory can import docs/architecture.md, which imports docs/api-standards.md](../../resources/diagrams/memory-hierarchy-imports.png)
 
 ## Loại Trừ Các File CLAUDE.md Với `claudeMdExcludes`
 
@@ -415,6 +419,8 @@ sequenceDiagram
     Claude-->>User: "Memory saved!"
 ```
 
+![Memory update lifecycle: the user asks Claude Code to remember a rule, picks project memory, and Claude writes it to ./CLAUDE.md and reloads memory](../../resources/diagrams/memory-update-lifecycle.png)
+
 ## Auto Memory
 
 Auto memory là một thư mục liên tục nơi Claude tự động ghi lại các bài học, mẫu, và thông tin chi tiết khi nó làm việc với dự án của bạn. Không giống như các file CLAUDE.md mà bạn viết và duy trì thủ công, auto memory được viết bởi Claude bản thân trong các phiên.
@@ -451,6 +457,8 @@ graph TD
     style H fill:#fce4ec,stroke:#333,color:#333
     style I fill:#f3e5f5,stroke:#333,color:#333
 ```
+
+![Auto memory: at session start Claude loads the first 200 lines or 25KB of MEMORY.md; during the session it writes general notes to MEMORY.md and topic notes to files like debugging.md, and loads topic files on demand](../../resources/diagrams/auto-memory.png)
 
 ### Cấu Trúc Thư Mục Auto Memory
 
@@ -859,6 +867,8 @@ graph LR
     D -->|Add to| E["Memory"]
     E -->|24 hours later| F["Memory Refreshed"]
 ```
+
+![Memory synthesis timeline in Claude web and desktop: day 1 conversations are synthesized after 24 hours, loaded into new conversations, and refreshed again 24 hours later](../../resources/diagrams/memory-synthesis-timeline.png)
 
 **Ví Dụ Tóm Tắt Bộ Nhớ:**
 

@@ -152,6 +152,8 @@ graph TD
     style U fill:#90EE90
 ```
 
+![Starting a new repository with Claude Code in four phases: set up the repo and CLAUDE.md, plan the feature in plan mode, build each feature chunk with code, tests, and review until done, then set up CI/CD so the repository is ready](../resources/diagrams/new-repo-workflow.png)
+
 #### 现有仓库场景
 
 1. **仓库与上下文准备**
@@ -217,6 +219,8 @@ graph TD
     style T fill:#ffe1f5
     style Z fill:#90EE90
 ```
+
+![Working in an existing repository with Claude Code in four phases: document the codebase in CLAUDE.md (or CLAUDE_LEGACY.md for legacy code) and pin key files; pick the task type and set clear boundaries; use git worktrees and separate sessions for parallel features; then set up team automation with shared commands and hooks](../resources/diagrams/existing-repo-workflow.png)
 
 **提示**：
 - 每个新功能或修复都从规格和计划模式提示词开始。

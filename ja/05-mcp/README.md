@@ -45,6 +45,8 @@ graph TB
     style C fill:#e8f5e9,stroke:#333,color:#333
 ```
 
+![MCP architecture: Claude sends tool requests such as list_issues and create_issue to an MCP server, which queries or acts on an external service and returns the response](../../resources/diagrams/mcp-architecture.png)
+
 ## MCP エコシステム
 
 ```mermaid
@@ -73,6 +75,8 @@ graph TB
     style J fill:#e8f5e9,stroke:#333,color:#333
     style K fill:#e8f5e9,stroke:#333,color:#333
 ```
+
+![MCP ecosystem: Claude connects over MCP to filesystem, GitHub, database, Slack, and Google Docs servers, each fronting local files, repos, SQL databases, a Slack workspace, or Google Drive](../../resources/diagrams/mcp-ecosystem.png)
 
 ## MCP のインストール方法
 
@@ -219,6 +223,8 @@ sequenceDiagram
     Service-->>Claude: Authentication successful
     Claude->>User: ✅ MCP connected!
 ```
+
+![MCP setup process: the user runs /mcp, selects the GitHub server, Claude Code updates the config, tests the connection, and confirms it is connected](../../resources/diagrams/mcp-setup.png)
 
 ## MCP ツール検索
 
@@ -609,6 +615,8 @@ graph TD
     style F fill:#e8f5e9,stroke:#333,color:#333
 ```
 
+![MCP versus memory decision: if you do not need external data, or it rarely changes, use memory for preferences, context, and history; if it changes often, use MCP for live APIs, databases, and services](../../resources/diagrams/mcp-vs-memory.png)
+
 ## リクエスト/レスポンスパターン
 
 ```mermaid
@@ -626,6 +634,8 @@ sequenceDiagram
 
     Note over MCP,DB: Real-time access<br/>No caching
 ```
+
+![MCP request and response pattern: Claude sends a SQL query to the MCP server, which runs it against the database in real time and returns parsed data](../../resources/diagrams/mcp-request-response.png)
 
 ## 環境変数
 
@@ -811,6 +821,8 @@ graph LR
     style B fill:#f3e5f5,stroke:#333,color:#333
 ```
 
+![Direct MCP tool calls: the model calls getDocument and gets the full 50K-token transcript back, then calls updateRecord and re-sends the whole transcript, so large data passes through the model twice](../../resources/diagrams/mcp-direct-tool-calls.png)
+
 ### 解決策：コード API としての MCP ツール
 
 ツール定義と結果をコンテキストウィンドウに通す代わりに、エージェントが MCP ツールを API として呼び出す **コードを書く**。コードはサンドボックス化された実行環境で動作し、最終結果のみがモデルに返される。
@@ -826,6 +838,8 @@ graph LR
     style B fill:#e1f5fe,stroke:#333,color:#333
     style C fill:#f3e5f5,stroke:#333,color:#333
 ```
+
+![MCP with code execution: the model writes code that runs in an execution environment; that code calls MCP tools directly, the data stays in the environment, and only the final result, using few tokens, returns to the model](../../resources/diagrams/mcp-code-execution.png)
 
 #### 仕組み
 

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>command-precedence</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "command-precedence",
+  "alt": "Slash command precedence: for a short name like /deploy, Claude Code checks enterprise, then personal, then project skills; your skill replaces a bundled command; plugin and claude.ai synced skills get the short name only if it is still free. At every level a skill beats a .claude/commands file of the same name",
+  "eyebrow": "Slash Commands & Skills · Precedence",
+  "title": "Who wins [[/deploy]]?",
+  "sub": "Claude Code checks each source in order. The first one that defines the name runs.",
+  "layout": "graph",
+  "colgap": 34,
+  "cardMax": 250,
+  "dense": true,
+  "vertical": true,
+  "columns": [
+    {
+      "label": "Wins first",
+      "nodes": [
+        {
+          "id": "ent",
+          "icon": "shield",
+          "title": "Enterprise",
+          "chip": "managed settings",
+          "desc": "Deployed by your org’s admins",
+          "num": "1",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "per",
+          "icon": "user",
+          "title": "Personal",
+          "chip": "~/.claude/skills/",
+          "desc": "Yours, in every project",
+          "num": "2"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "proj",
+          "icon": "folder",
+          "title": "Project",
+          "chip": ".claude/skills/",
+          "desc": "Plus parent folders to repo root",
+          "num": "3"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "bun",
+          "icon": "package",
+          "title": "Bundled",
+          "chip": "/code-review",
+          "desc": "Any of yours replaces it",
+          "num": "4"
+        }
+      ]
+    },
+    {
+      "label": "Only if name is free",
+      "nodes": [
+        {
+          "id": "free",
+          "icon": "link",
+          "title": "Plugin · claude.ai",
+          "chip": "short name",
+          "desc": "Full name always works",
+          "num": "5"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "ent",
+      "to": "per"
+    },
+    {
+      "from": "per",
+      "to": "proj"
+    },
+    {
+      "from": "proj",
+      "to": "bun"
+    },
+    {
+      "from": "bun",
+      "to": "free"
+    }
+  ],
+  "footer": "<b>Same level?</b> A skill beats a <code>.claude/commands/</code> file &nbsp;·&nbsp; <b>Prefixed names</b> like <code>/my-plugin:deploy</code> skip the ladder"
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

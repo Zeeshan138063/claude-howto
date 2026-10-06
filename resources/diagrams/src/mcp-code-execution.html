@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>mcp-code-execution</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "mcp-code-execution",
+  "alt": "MCP with code execution: the model writes code that runs in an execution environment; that code calls MCP tools directly, the data stays in the environment, and only the final result, using few tokens, returns to the model",
+  "eyebrow": "MCP · Code Execution",
+  "title": "Data stays [[out of the context]]",
+  "sub": "The model writes code; the code calls the tools and returns only what matters.",
+  "layout": "graph",
+  "colgap": 230,
+  "cardMax": 330,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "model",
+          "icon": "cpu",
+          "title": "Model",
+          "chip": "writes code"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "env",
+          "icon": "code",
+          "title": "Code Execution",
+          "chip": "environment",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "mcp",
+          "icon": "server",
+          "title": "MCP Servers"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "model",
+      "to": "env",
+      "label": "writes code"
+    },
+    {
+      "from": "env",
+      "to": "model",
+      "label": "final result only",
+      "dashed": true
+    },
+    {
+      "from": "env",
+      "to": "mcp",
+      "label": "calls tools"
+    },
+    {
+      "from": "mcp",
+      "to": "env",
+      "label": "data stays here",
+      "dashed": true
+    }
+  ],
+  "footer": "<b>Result</b> only the final answer reaches the model, using minimal tokens"
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

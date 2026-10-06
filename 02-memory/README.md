@@ -209,6 +209,8 @@ graph TB
     D -->|"add this to CLAUDE.md"| B
 ```
 
+![How memory loads: at session start Claude Code loads your CLAUDE.md files in full and the auto memory index MEMORY.md; during the session, corrections are written to auto memory and "add this to CLAUDE.md" updates your files](../resources/diagrams/memory-loading.png)
+
 ## Memory Hierarchy in Claude Code
 
 Claude Code has two complementary memory systems, both loaded at the start of every conversation: **CLAUDE.md files** (instructions you write) and **auto memory** (notes Claude writes itself). CLAUDE.md files are **concatenated into context rather than overriding each other** — this is not a strict precedence chain where a higher tier replaces a lower one. `.claude/rules/*.md` files are a separate, related mechanism for topic- or path-scoped instructions.
@@ -250,6 +252,8 @@ graph TD
     style H fill:#e1f5fe,stroke:#333,color:#333
     style I fill:#e1f5fe,stroke:#333,color:#333
 ```
+
+![CLAUDE.md load order: managed policy loads first, then user instructions, project instructions, and local instructions; project instructions can import other files such as docs/architecture.md, which can import docs/api-standards.md](../resources/diagrams/memory-import-hierarchy.png)
 
 All files shown are concatenated into one context, not selected by override — later boxes appear later in context, not "instead of" earlier ones.
 
@@ -489,6 +493,8 @@ sequenceDiagram
     Claude-->>User: "Memory saved!"
 ```
 
+![Memory update lifecycle: the user asks Claude Code to remember a rule, picks project memory, and Claude writes it to ./CLAUDE.md and reloads memory](../resources/diagrams/memory-update-lifecycle.png)
+
 ## Auto Memory
 
 Auto memory is a persistent directory where Claude automatically records learnings, patterns, and insights as it works with your project. Unlike CLAUDE.md files which you write and maintain manually, auto memory is written by Claude itself during sessions.
@@ -526,6 +532,8 @@ graph TD
     style H fill:#fce4ec,stroke:#333,color:#333
     style I fill:#f3e5f5,stroke:#333,color:#333
 ```
+
+![Auto memory: at session start Claude loads the first 200 lines or 25KB of MEMORY.md; during the session it writes general notes to MEMORY.md and topic notes to files like debugging.md, and loads topic files on demand](../resources/diagrams/auto-memory.png)
 
 ### Auto Memory Directory Structure
 
@@ -931,6 +939,8 @@ graph LR
     D -->|Add to| E["Memory"]
     E -->|24 hours later| F["Memory Refreshed"]
 ```
+
+![Memory synthesis timeline in Claude web and desktop: day 1 conversations are synthesized after 24 hours, loaded into new conversations, and refreshed again 24 hours later](../resources/diagrams/memory-synthesis-timeline.png)
 
 **Example Memory Summary:**
 

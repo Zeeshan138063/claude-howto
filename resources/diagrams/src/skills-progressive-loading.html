@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>skills-progressive-loading</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "skills-progressive-loading",
+  "alt": "Skill loading in practice: for a security review request, Claude matches the request against skill descriptions loaded at startup, reads the code-review-specialist SKILL.md, then reads a checklist template only when it needs it, and returns the review",
+  "eyebrow": "Skills · Loading in Practice",
+  "title": "A skill loads [[one level at a time]]",
+  "sub": "Instructions and templates are read only once Claude knows it needs them.",
+  "layout": "sequence",
+  "rowH": 50,
+  "participants": [
+    {
+      "id": "user",
+      "icon": "user",
+      "title": "User"
+    },
+    {
+      "id": "claude",
+      "icon": "cpu",
+      "title": "Claude",
+      "accent": true
+    },
+    {
+      "id": "sys",
+      "icon": "grid",
+      "title": "System"
+    },
+    {
+      "id": "inst",
+      "icon": "file",
+      "title": "Instructions",
+      "chip": "level 2"
+    },
+    {
+      "id": "res",
+      "icon": "folder",
+      "title": "Resources",
+      "chip": "level 3"
+    }
+  ],
+  "steps": [
+    {
+      "from": "user",
+      "to": "claude",
+      "label": "\"Review this code for security issues\""
+    },
+    {
+      "from": "claude",
+      "to": "sys",
+      "label": "Check available skills (metadata)"
+    },
+    {
+      "from": "sys",
+      "to": "claude",
+      "label": "Descriptions loaded at startup",
+      "dashed": true
+    },
+    {
+      "from": "claude",
+      "to": "claude",
+      "label": "Match request to a skill"
+    },
+    {
+      "from": "claude",
+      "to": "inst",
+      "label": "Read code-review-specialist/SKILL.md"
+    },
+    {
+      "from": "inst",
+      "to": "claude",
+      "label": "Level 2: instructions loaded",
+      "dashed": true
+    },
+    {
+      "from": "claude",
+      "to": "claude",
+      "label": "Need templates?"
+    },
+    {
+      "from": "claude",
+      "to": "res",
+      "label": "Read templates/checklist.md"
+    },
+    {
+      "from": "res",
+      "to": "claude",
+      "label": "Level 3: template loaded",
+      "dashed": true
+    },
+    {
+      "from": "claude",
+      "to": "claude",
+      "label": "Follow skill instructions"
+    },
+    {
+      "from": "claude",
+      "to": "user",
+      "label": "Full code review"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>memory-import-hierarchy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "memory-import-hierarchy",
+  "alt": "CLAUDE.md load order: managed policy loads first, then user instructions, project instructions, and local instructions; project instructions can import other files such as docs/architecture.md, which can import docs/api-standards.md",
+  "eyebrow": "Memory · Load Order & Imports",
+  "title": "How [[CLAUDE.md]] files stack up",
+  "sub": "Four levels load in order, and any file can pull in others with @imports.",
+  "layout": "graph",
+  "colgap": 90,
+  "cardMax": 300,
+  "rowgap": 40,
+  "dense": true,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "a",
+          "icon": "shield",
+          "num": "1",
+          "title": "Managed Policy",
+          "chip": "…/ClaudeCode/CLAUDE.md"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "b",
+          "icon": "user",
+          "num": "2",
+          "title": "User",
+          "chip": "~/.claude/CLAUDE.md"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "c",
+          "icon": "folder",
+          "num": "3",
+          "title": "Project",
+          "chip": "./CLAUDE.md",
+          "accent": true
+        },
+        {
+          "id": "h",
+          "icon": "link",
+          "title": "Import",
+          "chip": "@docs/architecture.md"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "d",
+          "icon": "monitor",
+          "num": "4",
+          "title": "Local",
+          "chip": "./CLAUDE.local.md"
+        },
+        {
+          "id": "i",
+          "icon": "link",
+          "title": "Import",
+          "chip": "@docs/api-standards.md"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "a",
+      "to": "b",
+      "label": "loads first"
+    },
+    {
+      "from": "b",
+      "to": "c"
+    },
+    {
+      "from": "c",
+      "to": "d"
+    },
+    {
+      "from": "c",
+      "to": "h",
+      "label": "imports"
+    },
+    {
+      "from": "h",
+      "to": "i",
+      "label": "imports"
+    }
+  ],
+  "footer": "<b>Project</b> can also live at <code>./.claude/CLAUDE.md</code>"
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

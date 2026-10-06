@@ -28,6 +28,8 @@ graph TD
     G -->|text/json/stream-json| H["Terminal/Pipe"]
 ```
 
+![Claude Code CLI architecture: running claude with options starts interactive REPL mode, print mode with --print, or a resumed session with --resume; each talks to the Claude API, and the output goes to the terminal or a pipe as text, JSON, or stream-JSON](../../resources/diagrams/cli-architecture.png)
+
 ## ランタイムとパッケージング
 
 **v2.1.113** 以降、Claude Code CLI は npm のオプション依存を介して **プラットフォーム別のネイティブバイナリ**（macOS、Linux、Windows）を起動する。バイナリはインストール時に OS とアーキテクチャに合わせて選択される — 旧来のバンドル JavaScript ランタイムは macOS / Linux ではもはやデフォルトではない。
@@ -101,6 +103,8 @@ graph LR
     B -->|Features| D["Multi-turn conversation<br>Tab completion<br>History<br>Slash commands"]
     C -->|Features| E["Single query<br>Scriptable<br>Pipeable<br>JSON output"]
 ```
+
+![Claude CLI modes: by default claude opens an interactive REPL with multi-turn conversation, tab completion, history, and slash commands; with -p it runs in print mode for a single query that is scriptable, pipeable, and can output JSON](../../resources/diagrams/cli-modes.png)
 
 **対話モード**（デフォルト）:
 ```bash

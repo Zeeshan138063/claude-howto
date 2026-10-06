@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>subagent-worktree-isolation</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="../lib/theme.css" rel="stylesheet">
+</head><body>
+<script>window.SPEC = {
+  "name": "subagent-worktree-isolation",
+  "alt": "Subagent worktree isolation: the main working tree spawns a subagent in its own git worktree and branch; if it makes no changes the worktree is cleaned up automatically, otherwise its path and branch are returned",
+  "eyebrow": "Subagents · Worktree Isolation",
+  "title": "Changes in a [[separate worktree]]",
+  "sub": "The subagent works on its own branch, so your working tree stays untouched.",
+  "layout": "graph",
+  "colgap": 130,
+  "cardMax": 320,
+  "rowgap": 40,
+  "columns": [
+    {
+      "nodes": [
+        {
+          "id": "main",
+          "icon": "folder",
+          "title": "Main Working Tree"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "sub",
+          "icon": "cpu",
+          "title": "Subagent",
+          "chip": "isolated worktree"
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "wt",
+          "icon": "git",
+          "title": "Git Worktree",
+          "chip": "separate branch",
+          "accent": true
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "clean",
+          "icon": "refresh",
+          "title": "Auto-cleaned",
+          "chip": "no changes"
+        },
+        {
+          "id": "ret",
+          "icon": "send",
+          "title": "Path & Branch Returned",
+          "chip": "has changes"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "main",
+      "to": "sub",
+      "label": "spawns"
+    },
+    {
+      "from": "sub",
+      "to": "wt",
+      "label": "works in"
+    },
+    {
+      "from": "wt",
+      "to": "clean"
+    },
+    {
+      "from": "wt",
+      "to": "ret"
+    }
+  ]
+};</script>
+<script src="../lib/diagram.js"></script>
+</body></html>

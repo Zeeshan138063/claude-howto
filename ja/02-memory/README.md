@@ -210,6 +210,8 @@ graph TB
     A -->|Uses context| C
 ```
 
+![Memory architecture: user input flows into the memory system, which synthesizes into memory storage every 24 hours; storage loads into each Claude session, which feeds context back into the memory system](../../resources/diagrams/memory-architecture.png)
+
 ## Claude Code のメモリ階層
 
 Claude Code は多階層のメモリシステムを使う。Claude Code 起動時にメモリファイルが自動でロードされ、上位レベルのファイルが優先される。
@@ -274,6 +276,8 @@ graph TD
     style H fill:#e1f5fe,stroke:#333,color:#333
     style I fill:#e1f5fe,stroke:#333,color:#333
 ```
+
+![Memory hierarchy with imports: managed policy has the highest priority, followed by managed drop-ins, project memory, project rules, user memory, user rules, local project memory, and auto memory; project memory can import docs/architecture.md, which imports docs/api-standards.md](../../resources/diagrams/memory-hierarchy-imports.png)
 
 ## `claudeMdExcludes` で CLAUDE.md ファイルを除外する
 
@@ -454,6 +458,8 @@ sequenceDiagram
     Claude-->>User: "Memory saved!"
 ```
 
+![Memory update lifecycle: the user asks Claude Code to remember a rule, picks project memory, and Claude writes it to ./CLAUDE.md and reloads memory](../../resources/diagrams/memory-update-lifecycle.png)
+
 ## 自動メモリ（Auto Memory）
 
 自動メモリは、Claude がプロジェクトでの作業中に学んだ内容、パターン、洞察を自動で記録する永続ディレクトリである。手動で書いて維持する CLAUDE.md ファイルとは異なり、自動メモリはセッション中に Claude 自身が書き込む。
@@ -490,6 +496,8 @@ graph TD
     style H fill:#fce4ec,stroke:#333,color:#333
     style I fill:#f3e5f5,stroke:#333,color:#333
 ```
+
+![Auto memory: at session start Claude loads the first 200 lines or 25KB of MEMORY.md; during the session it writes general notes to MEMORY.md and topic notes to files like debugging.md, and loads topic files on demand](../../resources/diagrams/auto-memory.png)
 
 ### 自動メモリのディレクトリ構造
 
@@ -908,6 +916,8 @@ graph LR
     D -->|Add to| E["Memory"]
     E -->|24 hours later| F["Memory Refreshed"]
 ```
+
+![Memory synthesis timeline in Claude web and desktop: day 1 conversations are synthesized after 24 hours, loaded into new conversations, and refreshed again 24 hours later](../../resources/diagrams/memory-synthesis-timeline.png)
 
 **メモリサマリの例:**
 
